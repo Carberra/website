@@ -21,6 +21,12 @@ module.exports = {
         'sans-serif',
       ],
     },
+    extend: {
+      inset: {
+        26: '6.5rem',
+        30: '7.5rem',
+      },
+    },
   },
   plugins: [],
 };
