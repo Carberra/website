@@ -34,55 +34,107 @@ export default function Home() {
               <div
                 className={iconContainerClasses + ' mb-' + iconContainerMargin}
               >
-                <GithubIcon
-                  className={
-                    iconClasses +
-                    ' right-' +
-                    iconSpreadX +
-                    ' top-' +
-                    iconSpreadY
-                  }
-                />
-                <DiscordIcon
-                  className={iconClasses + ' right-' + iconSpreadPair}
-                />
-                <YoutubeIcon
-                  className={iconClasses + ' left-' + iconSpreadPair}
-                />
-                <TwitchIcon
-                  className={
-                    iconClasses + ' left-' + iconSpreadX + ' top-' + iconSpreadY
-                  }
-                />
+                <a
+                  href="https://github.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GithubIcon
+                    className={
+                      iconClasses +
+                      ' right-' +
+                      iconSpreadX +
+                      ' top-' +
+                      iconSpreadY
+                    }
+                  />
+                </a>
+                <a
+                  href="https://discord.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DiscordIcon
+                    className={iconClasses + ' right-' + iconSpreadPair}
+                  />
+                </a>
+                <a
+                  href="https://youtube.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <YoutubeIcon
+                    className={iconClasses + ' left-' + iconSpreadPair}
+                  />
+                </a>
+                <a
+                  href="https://twitch.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitchIcon
+                    className={
+                      iconClasses +
+                      ' left-' +
+                      iconSpreadX +
+                      ' top-' +
+                      iconSpreadY
+                    }
+                  />
+                </a>
               </div>
               <LogoWhite className="w-44" />
               <div
                 className={iconContainerClasses + ' mt-' + iconContainerMargin}
               >
-                <LbryIcon
-                  className={
-                    iconClasses +
-                    ' right-' +
-                    iconSpreadX +
-                    ' bottom-' +
-                    iconSpreadY
-                  }
-                />
-                <TwitterIcon
-                  className={iconClasses + ' right-' + iconSpreadPair}
-                />
-                <FacebookIcon
-                  className={iconClasses + ' left-' + iconSpreadPair}
-                />
-                <PatreonIcon
-                  className={
-                    iconClasses +
-                    ' left-' +
-                    iconSpreadX +
-                    ' bottom-' +
-                    iconSpreadY
-                  }
-                />
+                <a
+                  href="https://lbry.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LbryIcon
+                    className={
+                      iconClasses +
+                      ' right-' +
+                      iconSpreadX +
+                      ' bottom-' +
+                      iconSpreadY
+                    }
+                  />
+                </a>
+                <a
+                  href="https://twitter.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitterIcon
+                    className={iconClasses + ' right-' + iconSpreadPair}
+                  />
+                </a>
+                <a
+                  href="https://facebook.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FacebookIcon
+                    className={iconClasses + ' left-' + iconSpreadPair}
+                  />
+                </a>
+                <a
+                  href="https://patreon.carberra.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <PatreonIcon
+                    className={
+                      iconClasses +
+                      ' left-' +
+                      iconSpreadX +
+                      ' bottom-' +
+                      iconSpreadY
+                    }
+                  />
+                </a>
               </div>
             </div>
           </div>
