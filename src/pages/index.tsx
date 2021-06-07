@@ -115,6 +115,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="absolute w-full bottom-14">
+          <h2 className="text-white font-brand lowercase text-center text-xl">
+            Scroll down to see videos
+          </h2>
+        </div>
       </div>
     </div>
   );
