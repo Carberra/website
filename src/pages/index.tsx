@@ -15,7 +15,7 @@ import YoutubeIcon from '@public/icons/youtube.svg';
 export default function Home() {
   const iconContainerClasses = 'flex justify-center items-center';
   const iconContainerMargin = '20';
-  const iconClasses = 'w-11 relative';
+  const iconClasses = 'w-11';
   const iconSpreadX = '30';
   const iconSpreadY = '26';
   const iconSpreadPair = '16';
@@ -38,49 +38,37 @@ export default function Home() {
                   href="https://github.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={
+                    'relative right-' + iconSpreadX + ' top-' + iconSpreadY
+                  }
                 >
-                  <GithubIcon
-                    className={
-                      iconClasses +
-                      ' right-' +
-                      iconSpreadX +
-                      ' top-' +
-                      iconSpreadY
-                    }
-                  />
+                  <GithubIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://discord.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={'relative right-' + iconSpreadPair}
                 >
-                  <DiscordIcon
-                    className={iconClasses + ' right-' + iconSpreadPair}
-                  />
+                  <DiscordIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://youtube.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={'relative left-' + iconSpreadPair}
                 >
-                  <YoutubeIcon
-                    className={iconClasses + ' left-' + iconSpreadPair}
-                  />
+                  <YoutubeIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://twitch.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={
+                    'relative left-' + iconSpreadX + ' top-' + iconSpreadY
+                  }
                 >
-                  <TwitchIcon
-                    className={
-                      iconClasses +
-                      ' left-' +
-                      iconSpreadX +
-                      ' top-' +
-                      iconSpreadY
-                    }
-                  />
+                  <TwitchIcon className={iconClasses} />
                 </a>
               </div>
               <LogoWhite className="w-44" />
@@ -91,49 +79,37 @@ export default function Home() {
                   href="https://lbry.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={
+                    'relative right-' + iconSpreadX + ' bottom-' + iconSpreadY
+                  }
                 >
-                  <LbryIcon
-                    className={
-                      iconClasses +
-                      ' right-' +
-                      iconSpreadX +
-                      ' bottom-' +
-                      iconSpreadY
-                    }
-                  />
+                  <LbryIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://twitter.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={'relative right-' + iconSpreadPair}
                 >
-                  <TwitterIcon
-                    className={iconClasses + ' right-' + iconSpreadPair}
-                  />
+                  <TwitterIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://facebook.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={'relative left-' + iconSpreadPair}
                 >
-                  <FacebookIcon
-                    className={iconClasses + ' left-' + iconSpreadPair}
-                  />
+                  <FacebookIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://patreon.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={
+                    'relative left-' + iconSpreadX + ' bottom-' + iconSpreadY
+                  }
                 >
-                  <PatreonIcon
-                    className={
-                      iconClasses +
-                      ' left-' +
-                      iconSpreadX +
-                      ' bottom-' +
-                      iconSpreadY
-                    }
-                  />
+                  <PatreonIcon className={iconClasses} />
                 </a>
               </div>
             </div>
