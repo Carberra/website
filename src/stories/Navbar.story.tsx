@@ -8,3 +8,9 @@ export default {
 };
 
 export const Main: Story<NavbarProps> = () => <Navbar />;
+
+export const Mobile: Story<NavbarProps> = () => (
+  <div style={{ width: '508px' }}>
+    <Navbar />
+  </div>
+);
