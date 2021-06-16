@@ -1,10 +1,10 @@
 import { Component } from 'react';
 
-type Props = {};
-type States = {};
+export type VideoProps = {};
+type VideoStates = {};
 
-export default class Video extends Component<Props, States> {
-  constructor(props: Props) {
+export class Video extends Component<VideoProps, VideoStates> {
+  constructor(props: VideoProps) {
     super(props);
     this.state = {};
   }
