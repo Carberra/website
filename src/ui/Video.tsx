@@ -14,7 +14,7 @@ export class Video extends Component<VideoProps, VideoStates> {
     return (
       <div>
         <Image
-          src="/temp-thumbnails/data2020-ep16"
+          src="/temp-thumbnails/data2020-ep16.jpg"
           alt={'Video Title'}
           width={256}
           height={254}
