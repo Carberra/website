@@ -27,7 +27,7 @@ export class Video extends Component<VideoProps, VideoStates> {
             src={this.state.videoThumbnail}
             alt={this.state.videoTitle}
             width={320}
-            height="auto"
+            height={180}
             className="cursor-pointer"
           />
         </a>
