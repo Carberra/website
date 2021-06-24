@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Component } from 'react';
 
 import { Navbar } from '@ui/Navbar';
+import { Video } from '@ui/Video';
 
 import LogoWhite from '@public/brand/logo-white.svg';
 import DiscordIcon from '@public/icons/discord.svg';
@@ -65,7 +66,7 @@ export default class Home extends Component<Props, States> {
       <div className="bg-black h-screen-navbar">
         <div className="absolute w-full h-full top-0 left-0 table">
           <div className="table-cell align-middle">
-            <div className="w-min ml-auto mr-auto">
+            <div className="w-min mx-auto">
               <div
                 className={`${iconContainerClasses} mb-${iconContainerMarginSm} xs:mb-${iconContainerMargin}`}
               >
@@ -159,8 +160,30 @@ export default class Home extends Component<Props, States> {
     );
   };
 
-  renderVideosSection = () => {
-    return <div></div>;
+  renderContentSection = () => {
+    return (
+      <div className="h-screen bg-black">
+        <div className="border-b-4 border-white">
+          <div className="w-1/2 h-screen absolute left-0 z-0 border-r-4 border-white"></div>
+          <div className="w-9/12 mx-auto pt-20 pb-16 relative z-10 bg-black">
+            <h1 className="font-brand text-white text-2xl text-center">
+              Stream info
+            </h1>
+          </div>
+        </div>
+        <div className="w-8/12 mx-auto pt-16">
+          <div className="flex">
+            <Video />
+
+            <div className="flex justify-center items-center">
+              <div className="absolute w-full left-0 flex justify-center">
+                <div className="w-16 border-b-4 border-white"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   render() {
@@ -172,6 +195,7 @@ export default class Home extends Component<Props, States> {
         </Head>
         <Navbar />
         {this.renderPlatformsSection()}
+        {this.renderContentSection()}
       </div>
     );
   }
