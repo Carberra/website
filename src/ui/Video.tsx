@@ -21,16 +21,27 @@ export class Video extends Component<VideoProps, VideoStates> {
 
   render() {
     return (
-      <div className="inline-flex">
-        <a href={this.state.videoUrl} target="_blank" rel="noopener noreferrer">
-          <Image
-            src={this.state.videoThumbnail}
-            alt={this.state.videoTitle}
-            width={320}
-            height={180}
-            className="cursor-pointer"
-          />
-        </a>
+      <div className="flex">
+        <div className="inline-flex">
+          <a
+            href={this.state.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={this.state.videoThumbnail}
+              alt={this.state.videoTitle}
+              width={320}
+              height={180}
+              className="cursor-pointer"
+            />
+          </a>
+          <div className="flex justify-center items-center">
+            <div className="absolute w-full left-0 flex justify-center">
+              <div className="w-16 border-b-4 border-white"></div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

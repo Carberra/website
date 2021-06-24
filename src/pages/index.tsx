@@ -174,15 +174,7 @@ export default class Home extends Component<Props, States> {
           </div>
         </div>
         <div className="w-8/12 mx-auto pt-16">
-          <div className="flex">
-            <Video />
-
-            <div className="flex justify-center items-center">
-              <div className="absolute w-full left-0 flex justify-center">
-                <div className="w-16 border-b-4 border-white"></div>
-              </div>
-            </div>
-          </div>
+          <Video />
         </div>
       </div>
     );
