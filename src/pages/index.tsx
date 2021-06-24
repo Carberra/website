@@ -164,7 +164,9 @@ export default class Home extends Component<Props, States> {
     return (
       <div className="h-screen bg-black">
         <div className="border-b-4 border-white">
-          <div className="w-1/2 h-screen absolute left-0 z-0 border-r-4 border-white"></div>
+          <div className="absolute w-full h-screen left-0 flex justify-center">
+            <div className="w-0 h-screen border-r-4 border-white"></div>
+          </div>
           <div className="w-9/12 mx-auto pt-20 pb-16 relative z-10 bg-black">
             <h1 className="font-brand text-white text-2xl text-center">
               Stream info
