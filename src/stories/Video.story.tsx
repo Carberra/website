@@ -3,7 +3,9 @@ import { Video, VideoProps } from '@ui/Video';
 
 export default {
   title: 'Video',
-  component: Video,
+  argTypes: {
+    side: { control: { type: 'inline-radio', options: ['left', 'right'] } },
+  },
 };
 
-export const Main: Story<VideoProps> = () => <Video />;
+export const Main: Story<VideoProps> = ({ ...props }) => <Video {...props} />;
