@@ -6,7 +6,7 @@ import { Video } from '@ui/Video';
 
 import LogoWhite from '@public/brand/logo-white.svg';
 import DiscordIcon from '@public/icons/discord.svg';
-import FacebookIcon from '@public/icons/facebook.svg';
+import InstagramIcon from '@public/icons/instagram.svg';
 import GithubIcon from '@public/icons/github.svg';
 import LbryIcon from '@public/icons/lbry.svg';
 import PatreonIcon from '@public/icons/patreon.svg';
@@ -127,12 +127,12 @@ export default class Home extends Component<Props, States> {
                   <TwitterIcon className={iconClasses} />
                 </a>
                 <a
-                  href="https://facebook.carberra.xyz"
+                  href="https://instagram.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`relative left-${iconSpreadPairSm} xs:left-${iconSpreadPair}`}
                 >
-                  <FacebookIcon className={iconClasses} />
+                  <InstagramIcon className={iconClasses} />
                 </a>
                 <a
                   href="https://patreon.carberra.xyz"
