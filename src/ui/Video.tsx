@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Image from 'next/image';
 
-const videoSide: { [key: string]: string } = {
+const videoSide = {
   left: 'justify-start',
   right: 'justify-end',
 };
@@ -17,7 +17,7 @@ type VideoStates = {
 
 export class Video extends Component<VideoProps, VideoStates> {
   static defaultProps = {
-    side: videoSide.left,
+    side: 'left',
   };
 
   constructor(props: VideoProps) {
@@ -37,12 +37,10 @@ export class Video extends Component<VideoProps, VideoStates> {
   render() {
     return (
       <div className="flex">
-        {Object.keys(videoSide).find(
-          (key: string) => videoSide[key] === this.props.side
-        ) === 'right' ? (
+        {this.props.side === 'right' ? (
           <div className="w-full">{this.renderVideoInfo()}</div>
         ) : null}
-        <div className={`flex ${this.props.side} w-full`}>
+        <div className={`flex ${videoSide[this.props.side!]} w-full`}>
           <div className="inline-flex">
             <a
               href={this.state.videoUrl}
@@ -59,9 +57,7 @@ export class Video extends Component<VideoProps, VideoStates> {
             </a>
           </div>
         </div>
-        {Object.keys(videoSide).find(
-          (key: string) => videoSide[key] === this.props.side
-        ) === 'left' ? (
+        {this.props.side === 'left' ? (
           <div className="w-full flex justify-end">
             {this.renderVideoInfo()}
           </div>
