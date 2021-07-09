@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, HTMLAttributes } from 'react';
 import Image from 'next/image';
 
 const videoSide = {
@@ -6,7 +6,7 @@ const videoSide = {
   right: 'justify-end',
 };
 
-export type VideoProps = {
+export type VideoProps = HTMLAttributes<HTMLElement> & {
   side?: keyof typeof videoSide;
 };
 type VideoStates = {
@@ -36,7 +36,7 @@ export class Video extends Component<VideoProps, VideoStates> {
 
   render() {
     return (
-      <div className="flex">
+      <div className={`flex ${this.props.className}`}>
         {this.props.side === 'right' ? (
           <div className="w-full">{this.renderVideoInfo()}</div>
         ) : null}
