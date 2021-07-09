@@ -174,7 +174,9 @@ export default class Home extends Component<Props, States> {
           </div>
         </div>
         <div className="w-8/12 mx-auto pt-16">
-          <Video />
+          <Video side="left" />
+          <Video side="right" className="mt-16" />
+          <Video side="left" className="mt-16" />
         </div>
       </div>
     );
