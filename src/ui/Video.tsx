@@ -2,8 +2,8 @@ import { Component, HTMLAttributes } from 'react';
 import Image from 'next/image';
 
 const videoSide = {
-  left: 'justify-start',
-  right: 'justify-end',
+  left: 'justify-end',
+  right: 'justify-start',
 };
 
 export type VideoProps = HTMLAttributes<HTMLElement> & {
@@ -30,17 +30,29 @@ export class Video extends Component<VideoProps, VideoStates> {
     };
   }
 
-  renderVideoInfo = () => {
-    return <h1 className="text-2xl text-white font-brand">Video info</h1>;
+  renderVideoInfo = (extraClasses: string) => {
+    return (
+      <h1 className={`text-2xl text-white font-brand ${extraClasses}`}>
+        Video info
+      </h1>
+    );
   };
 
   render() {
+    const spaceFromCenter = 24;
+
     return (
       <div className={`flex ${this.props.className}`}>
         {this.props.side === 'right' ? (
-          <div className="w-full">{this.renderVideoInfo()}</div>
+          <div className={`w-full jusify-end px-${spaceFromCenter}`}>
+            {this.renderVideoInfo('text-right')}
+          </div>
         ) : null}
-        <div className={`flex ${videoSide[this.props.side!]} w-full`}>
+        <div
+          className={`flex ${
+            videoSide[this.props.side!]
+          } w-full px-${spaceFromCenter}`}
+        >
           <div className="inline-flex">
             <a
               href={this.state.videoUrl}
@@ -58,8 +70,8 @@ export class Video extends Component<VideoProps, VideoStates> {
           </div>
         </div>
         {this.props.side === 'left' ? (
-          <div className="w-full flex justify-end">
-            {this.renderVideoInfo()}
+          <div className={`w-full flex justify-start px-${spaceFromCenter}`}>
+            {this.renderVideoInfo('')}
           </div>
         ) : null}
         <div className="flex justify-center items-center">
