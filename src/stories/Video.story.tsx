@@ -9,3 +9,9 @@ export default {
 };
 
 export const Main: Story<VideoProps> = ({ ...props }) => <Video {...props} />;
+
+export const Mobile: Story<VideoProps> = ({ ...props }) => (
+  <div style={{ width: '508px' }}>
+    <Video {...props} />
+  </div>
+);
