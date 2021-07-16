@@ -42,16 +42,18 @@ export class Video extends Component<VideoProps, VideoStates> {
     const spaceFromCenter = 24;
 
     return (
-      <div className={`flex ${this.props.className}`}>
+      <div className={`block md:flex ${this.props.className}`}>
         {this.props.side === 'right' ? (
-          <div className={`w-full jusify-end px-${spaceFromCenter}`}>
+          <div className="hidden w-full md:block jusify-end md:pr-16 lg:pr-24">
             {this.renderVideoInfo('text-right')}
           </div>
         ) : null}
         <div
-          className={`flex ${
+          className={`flex justify-center md:${
             videoSide[this.props.side!]
-          } w-full px-${spaceFromCenter}`}
+          } w-full lg:p${this.props.side === 'left' ? 'r' : 'l'}-24 md:p${
+            this.props.side === 'left' ? 'r' : 'l'
+          }-16`}
         >
           <div className="inline-flex">
             <a
@@ -70,13 +72,16 @@ export class Video extends Component<VideoProps, VideoStates> {
           </div>
         </div>
         {this.props.side === 'left' ? (
-          <div className={`w-full flex justify-start px-${spaceFromCenter}`}>
+          <div className="hidden w-full md:flex justify-start md:pl-16 lg:pl-24">
             {this.renderVideoInfo('')}
           </div>
         ) : null}
+        <div className="flex justify-center md:hidden pt-6">
+          {this.renderVideoInfo('')}
+        </div>
         <div className="flex justify-center items-center">
           <div className="absolute w-full left-0 flex justify-center">
-            <div className="w-16 border-b-4 border-white"></div>
+            <div className="hidden md:block w-16 border-b-4 border-white"></div>
           </div>
         </div>
       </div>
