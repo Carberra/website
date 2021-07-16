@@ -36,6 +36,19 @@ export default class Home extends Component<Props, States> {
     };
   }
 
+  componentDidMount() {
+    let container = document.getElementById(
+      'contentSectionContainer'
+    ) as HTMLDivElement;
+    let line = document.getElementById(
+      'contentSectionCenterLine'
+    ) as HTMLDivElement;
+
+    if (!container || !line) return;
+
+    line.style.height = `${container.clientHeight}px`;
+  }
+
   handleLogoClick = () => {
     this.setState({ logoClicked: this.state.logoClicked + 1 });
 
@@ -162,10 +175,13 @@ export default class Home extends Component<Props, States> {
 
   renderContentSection = () => {
     return (
-      <div className="h-screen bg-black">
+      <div className="h-full bg-black" id="contentSectionContainer">
         <div className="border-b-4 border-white">
-          <div className="absolute w-full h-screen left-0 flex justify-center">
-            <div className="w-0 h-screen border-r-4 border-white"></div>
+          <div
+            className="absolute w-full left-0 flex justify-center"
+            id="contentSectionCenterLine"
+          >
+            <div className="hidden md:flex w-0 h-full border-r-4 border-white"></div>
           </div>
           <div className="w-9/12 mx-auto pt-20 pb-16 relative z-10 bg-black">
             <h1 className="font-brand text-white text-2xl text-center">
@@ -173,10 +189,10 @@ export default class Home extends Component<Props, States> {
             </h1>
           </div>
         </div>
-        <div className="w-8/12 mx-auto pt-16">
+        <div className="w-10/12 lg:9/12 xl:w-8/12 mx-auto pt-16">
           <Video side="left" />
-          <Video side="right" className="mt-16" />
-          <Video side="left" className="mt-16" />
+          <Video side="right" className="mt-10 md:mt-16" />
+          <Video side="left" className="mt-10 md:mt-16 pb-20" />
         </div>
       </div>
     );
