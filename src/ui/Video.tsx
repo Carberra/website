@@ -39,8 +39,6 @@ export class Video extends Component<VideoProps, VideoStates> {
   };
 
   render() {
-    const spaceFromCenter = 24;
-
     return (
       <div className={`block md:flex ${this.props.className}`}>
         {this.props.side === 'right' ? (
