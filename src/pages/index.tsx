@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Component } from 'react';
 
 import { Navbar } from '@ui/Navbar';
+import { Footer } from '@ui/Footer';
 import { Video } from '@ui/Video';
 
 import LogoWhite from '@public/brand/logo-white.svg';
@@ -208,6 +209,7 @@ export default class Home extends Component<Props, States> {
         <Navbar />
         {this.renderPlatformsSection()}
         {this.renderContentSection()}
+        <Footer />
       </div>
     );
   }
