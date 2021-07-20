@@ -47,7 +47,7 @@ export default class Home extends Component<Props, States> {
 
     if (!container || !line) return;
 
-    line.style.height = `${container.clientHeight}px`;
+    line.style.height = `${container.offsetHeight}px`;
   }
 
   handleLogoClick = () => {
@@ -209,7 +209,7 @@ export default class Home extends Component<Props, States> {
         <Navbar />
         {this.renderPlatformsSection()}
         {this.renderContentSection()}
-        <Footer />
+        <Footer className="relative z-10" />
       </div>
     );
   }
