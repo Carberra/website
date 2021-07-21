@@ -8,7 +8,6 @@
   --color-brand-black: #0c0c0c;
   --color-brand-blue: #1987bd;
   --color-brand-purple: #9e1cf3;
-  --color-dark-accent: #050505;
 }
 
 html,
@@ -17,6 +16,10 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  background-color: var(--color-brand-black);
 }
 
 a {

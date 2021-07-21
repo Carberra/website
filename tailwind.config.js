@@ -27,7 +27,6 @@ module.exports = {
         'brand-black': 'var(--color-brand-black)',
         'brand-blue': 'var(--color-brand-blue)',
         'brand-purple': 'var(--color-brand-purple)',
-        'dark-accent': 'var(--color-dark-accent)',
       },
       inset: {
         26: '6.5rem',
