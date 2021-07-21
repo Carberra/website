@@ -5,12 +5,14 @@ import LogoWhite from '@public/brand/logo-white.svg';
 
 export type FooterProps = {
   className?: string;
+  id?: string;
 };
 
 export const Footer: React.FC<FooterProps> = (props) => {
   return (
     <footer
-      className={`bg-dark-accent text-gray-200 px-4 md:px-20 py-6 ${props.className}`}
+      className={`bg-brand-black text-white px-4 md:px-20 py-6 ${props.className}`}
+      id={props.id}
     >
       <div className="block md:flex w-full md:items-center md:justify-start">
         <div className="flex md:block justify-center pr-5">

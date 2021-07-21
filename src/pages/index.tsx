@@ -44,10 +44,11 @@ export default class Home extends Component<Props, States> {
     let line = document.getElementById(
       'contentSectionCenterLine'
     ) as HTMLDivElement;
+    let footer = document.getElementById('footer') as HTMLDivElement;
 
-    if (!container || !line) return;
+    if (!container || !line || !footer) return;
 
-    line.style.height = `${container.offsetHeight}px`;
+    line.style.height = `${container.offsetHeight + footer.offsetHeight}px`;
   }
 
   handleLogoClick = () => {
@@ -209,7 +210,7 @@ export default class Home extends Component<Props, States> {
         <Navbar />
         {this.renderPlatformsSection()}
         {this.renderContentSection()}
-        <Footer className="relative z-10" />
+        <Footer id="footer" />
       </div>
     );
   }
