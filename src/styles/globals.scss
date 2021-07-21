@@ -4,6 +4,13 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --color-brand-black: #0c0c0c;
+  --color-brand-blue: #1987bd;
+  --color-brand-purple: #9e1cf3;
+  --color-dark-accent: #050505;
+}
+
 html,
 body {
   padding: 0;

@@ -10,7 +10,7 @@ export type FooterProps = {
 export const Footer: React.FC<FooterProps> = (props) => {
   return (
     <footer
-      className={`bg-gray-900 text-gray-200 px-4 md:px-20 py-6 ${props.className}`}
+      className={`bg-dark-accent text-gray-200 px-4 md:px-20 py-6 ${props.className}`}
     >
       <div className="block md:flex w-full md:items-center md:justify-start">
         <div className="flex md:block justify-center pr-5">

@@ -77,7 +77,7 @@ export default class Home extends Component<Props, States> {
     const iconSpreadPairSm = '9';
 
     return (
-      <div className="bg-black h-screen-navbar">
+      <div className="bg-brand-black h-screen-navbar">
         <div className="absolute w-full h-full top-0 left-0 table">
           <div className="table-cell align-middle">
             <div className="w-min mx-auto">
@@ -176,7 +176,7 @@ export default class Home extends Component<Props, States> {
 
   renderContentSection = () => {
     return (
-      <div className="h-full bg-black" id="contentSectionContainer">
+      <div className="h-full bg-brand-black" id="contentSectionContainer">
         <div className="border-b-4 border-white">
           <div
             className="absolute w-full left-0 flex justify-center"
@@ -184,7 +184,7 @@ export default class Home extends Component<Props, States> {
           >
             <div className="hidden md:flex w-0 h-full border-r-4 border-white"></div>
           </div>
-          <div className="w-9/12 mx-auto pt-20 pb-16 relative z-10 bg-black">
+          <div className="w-9/12 mx-auto pt-20 pb-16 relative z-10 bg-brand-black">
             <h1 className="font-brand text-white text-2xl text-center">
               Stream info
             </h1>
