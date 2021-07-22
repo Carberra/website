@@ -38,6 +38,11 @@ export default class Home extends Component<Props, States> {
   }
 
   componentDidMount() {
+    this.resizeCenterLine();
+    window.addEventListener('resize', this.resizeCenterLine);
+  }
+
+  resizeCenterLine = () => {
     let container = document.getElementById(
       'contentSectionContainer'
     ) as HTMLDivElement;
@@ -49,7 +54,7 @@ export default class Home extends Component<Props, States> {
     if (!container || !line || !footer) return;
 
     line.style.height = `${container.offsetHeight + footer.offsetHeight}px`;
-  }
+  };
 
   handleLogoClick = () => {
     this.setState({ logoClicked: this.state.logoClicked + 1 });
