@@ -18,7 +18,8 @@
       "@ui/*": ["src/ui/*"],
       "@styles/*": ["src/styles/*"],
       "@public/*": ["public/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@base/*": ["*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
