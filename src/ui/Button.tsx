@@ -12,11 +12,13 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   loading,
   className = '',
+  type = 'button',
 }) => {
   return (
     <ButtonBase
       disabled={disabled || loading}
       className={`bg-brand-gradient text-white px-8 py-3 rounded-sm font-sans ${className}`}
+      type={type}
     >
       {children}
     </ButtonBase>
