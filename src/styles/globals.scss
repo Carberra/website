@@ -74,3 +74,9 @@ a {
     }
   }
 }
+
+.text-brand-gradient {
+  background-image: linear-gradient(to right, #1987bd, #9e1cf3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
