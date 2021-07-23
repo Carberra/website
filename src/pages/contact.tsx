@@ -32,6 +32,7 @@ type States = {
     subject: InvalidFieldStatus;
     message: InvalidFieldStatus;
   };
+  formValues: FormValues;
 };
 
 interface InvalidFieldStatus {
@@ -39,12 +40,19 @@ interface InvalidFieldStatus {
   reason: string;
 }
 
-interface FormDataRaw {
-  contactName: string;
-  contactEmail: string;
-  contactEmailMobile: string;
-  contactSubject: string;
-  contactMessage: string;
+interface FormValues {
+  name: string;
+  email: string;
+  emailMobile: string;
+  subject: string;
+  message: string;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
 
 export default class Contact extends Component<Props, States> {
@@ -57,60 +65,103 @@ export default class Contact extends Component<Props, States> {
         subject: { invalid: false, reason: '' },
         message: { invalid: false, reason: '' },
       },
+      formValues: {
+        name: '',
+        email: '',
+        emailMobile: '',
+        subject: '',
+        message: '',
+      },
     };
   }
 
   handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let formData: FormDataRaw = {
-      contactName: '',
-      contactEmail: '',
-      contactEmailMobile: '',
-      contactSubject: '',
-      contactMessage: '',
+    let formData: FormData & { emailMobile: string } = {
+      name: this.state.formValues.name,
+      email: this.state.formValues.email,
+      emailMobile: this.state.formValues.emailMobile,
+      subject: this.state.formValues.subject,
+      message: this.state.formValues.message,
     };
-
-    for (let i: number = 0; i < 5; i++) {
-      // @ts-ignore: not accepting number even though looking
-      // through the object has the wanted elements
-      let input = e.target[i];
-
-      formData[input.id as keyof FormDataRaw] = input.value;
-    }
 
     this.setState({
       invalidFields: {
         ...this.state.invalidFields,
         name: {
-          invalid: !formData.contactName,
-          reason: !formData.contactName ? 'Please provide a name.' : '',
+          invalid: !formData.name,
+          reason: !formData.name ? 'Please provide a name.' : '',
         },
         email: {
-          invalid: !formData.contactEmail && !formData.contactEmailMobile,
+          invalid: !formData.email && !formData.emailMobile,
           reason:
-            !formData.contactEmail && !formData.contactEmailMobile
+            !formData.email && !formData.emailMobile
               ? 'Please provide a email.'
               : '',
         },
         subject: {
-          invalid: !formData.contactSubject,
-          reason: !formData.contactSubject ? 'Please provide a subject.' : '',
+          invalid: !formData.subject,
+          reason: !formData.subject ? 'Please provide a subject.' : '',
         },
         message: {
-          invalid: !formData.contactMessage,
-          reason: !formData.contactMessage ? 'Please provide a message.' : '',
+          invalid: !formData.message,
+          reason: !formData.message ? 'Please provide a message.' : '',
         },
       },
     });
 
     if (
-      !formData.contactName ||
-      (!formData.contactEmail && !formData.contactEmailMobile) ||
-      !formData.contactSubject ||
-      !formData.contactMessage
+      !formData.name ||
+      (!formData.email && !formData.emailMobile) ||
+      !formData.subject ||
+      !formData.message
     )
       return;
+
+    let data: FormData = {
+      ...(({ emailMobile, ...o }) => o)(formData),
+      email: formData.email || formData.emailMobile,
+    };
+
+    this.setState({
+      formValues: {
+        name: '',
+        email: '',
+        emailMobile: '',
+        subject: '',
+        message: '',
+      },
+    });
+  };
+
+  handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let direct = e.target.offsetParent as HTMLDivElement;
+    let container = direct.offsetParent as HTMLDivElement;
+
+    if (!direct || !container) return;
+
+    this.setState({
+      formValues: {
+        ...this.state.formValues,
+        [container.dataset.state as keyof FormValues]: e.target.value,
+      },
+    });
+
+    let invalidFieldKey =
+      container.dataset.state === 'emailMobile'
+        ? 'email'
+        : container.dataset.state;
+
+    this.setState({
+      invalidFields: {
+        ...this.state.invalidFields,
+        [invalidFieldKey as keyof InvalidFieldStatus]: {
+          invalid: !e.target.value,
+          reason: !e.target.value ? `Please provide a ${invalidFieldKey}.` : '',
+        },
+      },
+    });
   };
 
   render() {
@@ -130,6 +181,7 @@ export default class Contact extends Component<Props, States> {
           </h1>
           <form
             onSubmit={this.handleFormSubmit}
+            id="contactForm"
             className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 flex-grow"
           >
             <ThemeProvider theme={theme}>
@@ -138,6 +190,9 @@ export default class Contact extends Component<Props, States> {
                   id="contactName"
                   label="Name"
                   type="text"
+                  value={this.state.formValues.name}
+                  onChange={this.handleValueChange}
+                  data-state="name"
                   inputProps={{ 'aria-label': 'name' }}
                   className="w-full mr-0 sm:mr-5"
                   error={this.state.invalidFields.name.invalid}
@@ -147,6 +202,9 @@ export default class Contact extends Component<Props, States> {
                   id="contactEmail"
                   label="Email"
                   type="email"
+                  value={this.state.formValues.email}
+                  onChange={this.handleValueChange}
+                  data-state="email"
                   inputProps={{ 'aria-label': 'email' }}
                   className="hidden sm:flex w-full ml-5"
                   error={this.state.invalidFields.email.invalid}
@@ -158,6 +216,9 @@ export default class Contact extends Component<Props, States> {
                   id="contactEmailMobile"
                   label="Email"
                   type="email"
+                  value={this.state.formValues.emailMobile}
+                  onChange={this.handleValueChange}
+                  data-state="emailMobile"
                   inputProps={{ 'aria-label': 'email' }}
                   className="w-full"
                   error={this.state.invalidFields.email.invalid}
@@ -169,6 +230,9 @@ export default class Contact extends Component<Props, States> {
                   id="contactSubject"
                   label="Subject"
                   type="text"
+                  value={this.state.formValues.subject}
+                  onChange={this.handleValueChange}
+                  data-state="subject"
                   inputProps={{ 'aria-label': 'subject' }}
                   className="w-full"
                   error={this.state.invalidFields.subject.invalid}
@@ -180,6 +244,9 @@ export default class Contact extends Component<Props, States> {
                   id="contactMessage"
                   label="Message"
                   type="text"
+                  value={this.state.formValues.message}
+                  onChange={this.handleValueChange}
+                  data-state="message"
                   multiline
                   rows={6}
                   maxRows={6}
