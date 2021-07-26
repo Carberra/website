@@ -248,7 +248,7 @@ export default class Contact extends Component<Props, States> {
                   onChange={this.handleValueChange}
                   data-state="message"
                   multiline
-                  rows={6}
+                  minRows={6}
                   maxRows={6}
                   inputProps={{ 'aria-label': 'message' }}
                   className="w-full"
