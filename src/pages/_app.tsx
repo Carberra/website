@@ -1,8 +1,9 @@
 import '@styles/globals.scss';
 import Head from 'next/head';
+import Script from 'next/script';
 import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <Head>
@@ -38,7 +39,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Component {...pageProps} />
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`}
+      />
     </div>
   );
 }
-export default MyApp;
+
+export default App;
