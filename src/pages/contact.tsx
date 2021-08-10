@@ -34,7 +34,9 @@ type States = {
     message: InvalidFieldStatus;
   };
   formValues: FormValues;
-  formErrorMessage: string;
+  formSubmittedMessage: string;
+  formSubmittedError: boolean;
+  formSubmitted: boolean;
 };
 
 interface InvalidFieldStatus {
@@ -74,7 +76,9 @@ export default class Contact extends Component<Props, States> {
         subject: '',
         message: '',
       },
-      formErrorMessage: '',
+      formSubmittedMessage: '',
+      formSubmittedError: false,
+      formSubmitted: false,
     };
   }
 
@@ -150,6 +154,7 @@ export default class Contact extends Component<Props, States> {
         subject: '',
         message: '',
       },
+      formSubmittedMessage: 'Form successfully submitted.',
     });
   };
 
@@ -157,6 +162,11 @@ export default class Contact extends Component<Props, States> {
     let verified: boolean = true;
 
     this.setFormDisabled(true);
+    this.setState({
+      formSubmitted: true,
+      formSubmittedError: false,
+      formSubmittedMessage: '',
+    });
 
     // @ts-ignore: grecaptcha undefined
     grecaptcha.ready(() => {
@@ -176,8 +186,9 @@ export default class Contact extends Component<Props, States> {
 
     !verified &&
       this.setState({
-        formErrorMessage:
+        formSubmittedMessage:
           'There was an error submitting the form. Please try again.',
+        formSubmittedError: true,
       });
 
     this.setFormDisabled(false);
@@ -225,6 +236,17 @@ export default class Contact extends Component<Props, States> {
         </Head>
         <div className="flex flex-col min-h-screen">
           <Navbar />
+          {this.state.formSubmitted && this.state.formSubmittedMessage && (
+            <div
+              className={`w-full py-1 ${
+                this.state.formSubmittedError ? 'bg-red-600' : 'bg-green-600'
+              } flex items-center justify-center`}
+            >
+              <p className="text-white font-sans text-md">
+                {this.state.formSubmittedMessage}
+              </p>
+            </div>
+          )}
           <h1 className="text-brand-gradient font-brand text-3xl text-center mt-10 mb-5 lowercase">
             Get in Touch
           </h1>
@@ -329,7 +351,7 @@ export default class Contact extends Component<Props, States> {
               </Button>
             </div>
           </form>
-          <p className="text-sm text-gray-400 font-sans text-center">
+          <p className="text-sm text-gray-400 font-sans text-center mt-6 mx-4">
             Form not working? Get in touch via email at{' '}
             <a
               href="mailto:parafoxia@carberra.xyz?subject=Contact Request | Subject Here"
