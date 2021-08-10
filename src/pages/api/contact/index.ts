@@ -19,7 +19,7 @@ const sendEmail = async (data: FormData) => {
 
   const contactMessage = {
     from: process.env.EMAIL_FROM,
-    to: process.env.EMAIL_TO,
+    to: process.env.NEXT_PUBLIC_EMAIL_TO,
     subject: `Contact Request | ${data.subject}`,
     text: data.message,
   };
