@@ -8,6 +8,7 @@ import twConfig from '@base/tailwind.config';
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
 import { Button } from '@ui/Button';
+import API from '@api';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,7 @@ type States = {
     message: InvalidFieldStatus;
   };
   formValues: FormValues;
+  formErrorMessage: string;
 };
 
 interface InvalidFieldStatus {
@@ -72,11 +74,27 @@ export default class Contact extends Component<Props, States> {
         subject: '',
         message: '',
       },
+      formErrorMessage: '',
     };
   }
 
+  setFormDisabled = (disabled: boolean) => {
+    let formElements = [
+      document.getElementById('contactName') as HTMLInputElement,
+      document.getElementById('contactEmail') as HTMLInputElement,
+      document.getElementById('contactEmailMobile') as HTMLInputElement,
+      document.getElementById('contactSubject') as HTMLInputElement,
+      document.getElementById('contactMessage') as HTMLTextAreaElement,
+      document.getElementById('contactSubmit') as HTMLButtonElement,
+    ];
+
+    for (let element of formElements) element.disabled = disabled;
+  };
+
   handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!this.verifySubmission()) return;
 
     let formData: FormData & { emailMobile: string } = {
       name: this.state.formValues.name,
@@ -133,6 +151,37 @@ export default class Contact extends Component<Props, States> {
         message: '',
       },
     });
+  };
+
+  verifySubmission = () => {
+    let verified: boolean = true;
+
+    this.setFormDisabled(true);
+
+    // @ts-ignore: grecaptcha undefined
+    grecaptcha.ready(() => {
+      // @ts-ignore: grecaptcha undefined
+      grecaptcha
+        .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {
+          action: 'contactSubmission',
+        })
+        .then((token: string) => {
+          API.post('contact/verify/', { data: { token: token } })
+            .then((res) => {
+              res.status !== 200 && (verified = false);
+            })
+            .catch(() => (verified = false));
+        });
+    });
+
+    !verified &&
+      this.setState({
+        formErrorMessage:
+          'There was an error submitting the form. Please try again.',
+      });
+
+    this.setFormDisabled(false);
+    return verified;
   };
 
   handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -257,10 +306,38 @@ export default class Contact extends Component<Props, States> {
                 />
               </div>
             </ThemeProvider>
-            <div className="flex justify-center mt-6">
-              <Button type="submit">Submit</Button>
+            <p className="text-xs text-gray-500 font-sans text-center mt-1">
+              This site is protected by reCAPTCHA and the Google{' '}
+              <a
+                href="https://policies.google.com/privacy"
+                className="hover:underline text-brand-blue"
+              >
+                Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a
+                href="https://policies.google.com/terms"
+                className="hover:underline text-brand-blue"
+              >
+                Terms of Service
+              </a>{' '}
+              apply.
+            </p>
+            <div className="flex justify-center mt-5">
+              <Button type="submit" id="contactSubmit">
+                Submit
+              </Button>
             </div>
           </form>
+          <p className="text-sm text-gray-400 font-sans text-center">
+            Form not working? Get in touch via email at{' '}
+            <a
+              href="mailto:parafoxia@carberra.xyz?subject=Contact Request | Subject Here"
+              className="text-brand-blue hover:underline"
+            >
+              parafoxia@carberra.xyz
+            </a>
+          </p>
           <Footer className="w-full" />
         </div>
       </div>
