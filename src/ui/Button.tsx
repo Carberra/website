@@ -11,6 +11,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   disabled,
   loading,
+  id = '',
   className = '',
   type = 'button',
 }) => {
@@ -19,6 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       className={`bg-brand-gradient text-white px-8 py-3 rounded-sm font-sans ${className}`}
       type={type}
+      id={id}
     >
       {children}
     </ButtonBase>
