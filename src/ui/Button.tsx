@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <ButtonBase
       disabled={disabled || loading}
-      className={`bg-brand-gradient text-white px-8 py-3 rounded-sm font-sans ${className}`}
+      className={`bg-brand-gradient-hover text-white px-8 py-3 rounded-sm font-sans ${className}`}
       type={type}
       id={id}
     >
