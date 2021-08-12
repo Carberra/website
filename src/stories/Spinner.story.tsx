@@ -6,4 +6,6 @@ export default {
   component: Spinner,
 };
 
-export const Main: Story<SpinnerProps> = () => <Spinner />;
+export const Main: Story<SpinnerProps> = () => (
+  <Spinner className="w-72 h-72" />
+);
