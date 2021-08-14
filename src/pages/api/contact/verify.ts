@@ -21,7 +21,12 @@ const verifyUser = async (data: UserData): Promise<VerificationResult> => {
     response: data.token,
   };
 
-  axios
+  let output: VerificationResult = {
+    status: 500,
+    message: 'Verification failed due to unknown error.',
+  };
+
+  await axios
     .post(
       'https://www.google.com/recaptcha/api/siteverify',
       new URLSearchParams(Object.entries(req_data)).toString(),
@@ -33,27 +38,24 @@ const verifyUser = async (data: UserData): Promise<VerificationResult> => {
     )
     .then((res) => {
       if (!res.data.success)
-        return {
+        output = {
           status: 400,
-          message: 'Verification failed',
+          message: 'Verification failed.',
         };
 
       if (res.data.score <= 0.5 || res.data.action !== 'contactSubmission')
-        return { status: 403, message: 'Minimum score was not met.' };
+        output = { status: 403, message: 'Minimum score was not met.' };
 
-      return { status: 200, message: 'Verification successful.' };
+      output = { status: 200, message: 'Verification successful.' };
     })
     .catch(() => {
-      return {
+      output = {
         status: 400,
-        message: 'Verification failed',
+        message: 'Verification failed.',
       };
     });
 
-  return {
-    status: 500,
-    message: 'Verification failed due to unknown error.',
-  };
+  return output;
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
