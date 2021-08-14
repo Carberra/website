@@ -8,6 +8,7 @@ import twConfig from '@base/tailwind.config';
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
 import { Button } from '@ui/Button';
+import { Spinner } from '@ui/Spinner';
 import API from '@api';
 
 const theme = createTheme({
@@ -36,7 +37,7 @@ type States = {
   formValues: FormValues;
   formSubmittedMessage: string;
   formSubmittedError: boolean;
-  formSubmitted: boolean;
+  formSubmitting: boolean;
 };
 
 interface InvalidFieldStatus {
@@ -78,7 +79,7 @@ export default class Contact extends Component<Props, States> {
       },
       formSubmittedMessage: '',
       formSubmittedError: false,
-      formSubmitted: false,
+      formSubmitting: false,
     };
   }
 
@@ -97,8 +98,6 @@ export default class Contact extends Component<Props, States> {
 
   handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!this.verifySubmission()) return;
 
     let formData: FormData & { emailMobile: string } = {
       name: this.state.formValues.name,
@@ -146,6 +145,27 @@ export default class Contact extends Component<Props, States> {
       email: formData.email || formData.emailMobile,
     };
 
+    this.verifySubmission(data);
+  };
+
+  submitFormData = async (data: FormData) => {
+    let formDataResponse: boolean = true;
+
+    await API.post('contact', { data: data })
+      .then((res) => {
+        !res.status.toString().startsWith('2') && (formDataResponse = false);
+      })
+      .catch(() => (formDataResponse = false));
+    if (!formDataResponse) {
+      this.setState({
+        formSubmittedMessage:
+          'There was an error submitting the form. Please try again.',
+        formSubmittedError: true,
+        formSubmitting: false,
+      });
+      return;
+    }
+
     this.setState({
       formValues: {
         name: '',
@@ -155,44 +175,58 @@ export default class Contact extends Component<Props, States> {
         message: '',
       },
       formSubmittedMessage: 'Form successfully submitted.',
+      formSubmitting: false,
     });
   };
 
-  verifySubmission = () => {
+  verifySubmission = (data: FormData) => {
     let verified: boolean = true;
 
     this.setFormDisabled(true);
     this.setState({
-      formSubmitted: true,
+      formSubmitting: true,
       formSubmittedError: false,
       formSubmittedMessage: '',
     });
 
-    // @ts-ignore: grecaptcha undefined
-    grecaptcha.ready(() => {
+    try {
       // @ts-ignore: grecaptcha undefined
-      grecaptcha
-        .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {
-          action: 'contactSubmission',
-        })
-        .then((token: string) => {
-          API.post('contact/verify/', { data: { token: token } })
-            .then((res) => {
-              res.status !== 200 && (verified = false);
-            })
-            .catch(() => (verified = false));
-        });
-    });
+      grecaptcha.ready(() => {
+        // @ts-ignore: grecaptcha undefined
+        grecaptcha
+          .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {
+            action: 'contactSubmission',
+          })
+          .then(async (token: string) => {
+            await API.post('contact/verify', { data: { token: token } })
+              .then((res) => {
+                res.status !== 200 && (verified = false);
+              })
+              .catch(() => (verified = false))
+              .finally(() => {
+                !verified &&
+                  this.setState({
+                    formSubmittedMessage:
+                      'There was an error submitting the form. Please try again.',
+                    formSubmittedError: true,
+                    formSubmitting: false,
+                  });
 
-    !verified &&
+                this.setFormDisabled(false);
+              });
+            this.submitFormData(data);
+          });
+      });
+    } catch {
       this.setState({
         formSubmittedMessage:
           'There was an error submitting the form. Please try again.',
         formSubmittedError: true,
+        formSubmitting: false,
       });
 
-    this.setFormDisabled(false);
-    return verified;
+      this.setFormDisabled(false);
+    }
   };
 
   handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -236,7 +270,13 @@ export default class Contact extends Component<Props, States> {
         </Head>
         <div className="flex flex-col min-h-screen">
           <Navbar />
-          {this.state.formSubmitted && this.state.formSubmittedMessage && (
+          <Spinner
+            className={`fixed w-full h-screen bottom-0 left-0 ${
+              !this.state.formSubmitting && 'hidden'
+            }`}
+            spinnerClassName="md:absolute md:top-72"
+          />
+          {!this.state.formSubmitting && this.state.formSubmittedMessage && (
             <div
               className={`w-full py-1 ${
                 this.state.formSubmittedError ? 'bg-red-600' : 'bg-green-600'
@@ -345,7 +385,7 @@ export default class Contact extends Component<Props, States> {
               </a>{' '}
               apply.
             </p>
-            <div className="flex justify-center mt-5">
+            <div className="flex justify-center mt-5 z-0 relative">
               <Button type="submit" id="contactSubmit">
                 Submit
               </Button>
@@ -354,10 +394,10 @@ export default class Contact extends Component<Props, States> {
           <p className="text-sm text-gray-400 font-sans text-center mt-6 mx-4">
             Form not working? Get in touch via email at{' '}
             <a
-              href="mailto:parafoxia@carberra.xyz?subject=Contact Request | Subject Here"
+              href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_TO}?subject=Contact Request | Subject Here`}
               className="text-brand-blue hover:underline"
             >
-              parafoxia@carberra.xyz
+              {process.env.NEXT_PUBLIC_EMAIL_TO}
             </a>
           </p>
           <Footer className="w-full" />
