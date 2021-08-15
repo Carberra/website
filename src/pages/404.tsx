@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 import { Button } from '@ui/Button';
@@ -16,11 +15,9 @@ const PageNotFound: React.FC<Props> = () => {
           Page Not Found
         </p>
         <div className="flex justify-center">
-          <Link href="/" passHref>
-            <Button className="w-11/12 mt-4" component="a">
-              Return Home
-            </Button>
-          </Link>
+          <Button className="w-11/12 mt-4" href="/">
+            Return Home
+          </Button>
         </div>
       </div>
     </div>
