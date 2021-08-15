@@ -32,7 +32,7 @@ export default class Home extends Component<Props, States> {
     this.state = {
       logoClicked: 0,
       logoTargetClicks: targetClicks,
-      scrollDownText: 'Scroll down to see videos',
+      scrollDownText: '',
       scrollTextFade: '',
     };
   }
@@ -166,15 +166,18 @@ export default class Home extends Component<Props, States> {
             </div>
           </div>
         </div>
-        <div className="absolute w-full bottom-12 xs:bottom-14">
-          <h2
-            className={
-              'text-white font-brand lowercase text-center text-xl px-8 transition duration-400 ease-in-out ' +
-              this.state.scrollTextFade
-            }
-          >
-            {this.state.scrollDownText}
-          </h2>
+        <div className="absolute w-full bottom-0">
+          <div className="absolute w-full bottom-10 md:bottom-20">
+            <h2
+              className={
+                'text-white font-brand lowercase text-center text-xl px-8 transition duration-400 ease-in-out ' +
+                this.state.scrollTextFade
+              }
+            >
+              {this.state.scrollDownText}
+            </h2>
+          </div>
+          <Footer id="footer" className="hidden md:block" />
         </div>
       </div>
     );
@@ -214,8 +217,7 @@ export default class Home extends Component<Props, States> {
         </Head>
         <Navbar />
         {this.renderPlatformsSection()}
-        {this.renderContentSection()}
-        <Footer id="footer" />
+        <Footer id="footer" className="block md:hidden" />
       </div>
     );
   }
