@@ -215,7 +215,7 @@ export default class Home extends Component<Props, States> {
           <title>Carberra Tutorials</title>
           <meta name="description" content="The home of Carberra Tutorials" />
         </Head>
-        <Navbar />
+        <Navbar className="z-10" />
         {this.renderPlatformsSection()}
         <Footer id="footer" className="block md:hidden" />
       </div>
