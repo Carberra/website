@@ -11,6 +11,23 @@
   --color-brand-purple: #9e1cf3;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #909090 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #909090;
+}
+
 html,
 body {
   padding: 0;
