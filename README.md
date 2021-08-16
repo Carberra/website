@@ -1,34 +1,140 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Carberra Tutorials Website
 
-## Getting Started
+The repo for the Carberra Tutorials website.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This contains all of the information and specifics on the tech stack that the project uses.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Overview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+| Item            | Value              | Version        |
+| --------------- | ------------------ | -------------- |
+| Language        | Typescript         | 4.3.2          |
+| Package Manager | Yarn               | 1.22.10        |
+| Server          | Node.JS            | 14.15.3        |
+| Framework       | Next JS (React)    | 11.1.0         |
+| Preview         | Storybook          | 6.4.0-alpha.18 |
+| CSS Processor   | PostCSS            | 8.3.0          |
+| Analytics/Stats | Plausible          | 1.3.0          |
+| API             | Next JS API Routes | 11.1.0         |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Packages
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+| Name                       | Version         | Use                                               |
+| -------------------------- | --------------- | ------------------------------------------------- |
+| Tailwind CSS               | 2.1.4           | Styling from HTML via classes                     |
+| Axios                      | 0.21.1          | API requests                                      |
+| Material UI (core & icons) | 4.12.2 & 4.11.2 | Nice, pre-made components to speed up development |
+| Node Mailer                | 6.6.3           | Send emails for contact form                      |
+| React Markdown             | 7.0.0           | Render markdown on pages                          |
+| SASS                       | 1.34.1          | Use SASS/SCSS for styling                         |
+| Babel (core)               | 7.14.3          | Part of Storybook                                 |
 
-## Learn More
+### Helpers
 
-To learn more about Next.js, take a look at the following resources:
+| Name                          | Version | Use                                  |
+| ----------------------------- | ------- | ------------------------------------ |
+| Babel Loader                  | 8.2.2   | Part of storybook                    |
+| SVGR/Webpack                  | 5.5.0   | Loading svgs via webpack             |
+| PostCSS Loader                | 4.2.0   | Load PostCSS in Storybook            |
+| SASS Loader                   | 10.1.1  | Load SASS in Storybook               |
+| TSConfig Paths Webpack Plugin | 3.5.1   | Support TS path aliases in Storybook |
+| Auto Prefixer                 | 10.2.6  | PostCSS plugin to add CSS prefixes   |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Storybook Addons
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Name                         | Version        | Use                                          |
+| ---------------------------- | -------------- | -------------------------------------------- |
+| Actions, Essentials, Links   | 6.4.0-alpha.18 | Automatically installed with Storybook       |
+| PostCSS                      | 2.0.0          | Allow for loading of PostCSS                 |
+| Builder, Manager (Webpack 5) | 6.4.0-alpha.18 | Use Webpack 5 to be consistent with main app |
+| Theming                      | 6.4.0-alpha.18 | Add dark mode (essential)                    |
 
-## Deploy on Vercel
+### Markdown Plugins
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Name        | Version | Use                                                |
+| ----------- | ------- | -------------------------------------------------- |
+| Remark GFM  | 2.0.0   | Add GitHub style markdown support (such as tables) |
+| Remark Slug | 7.0.0   | Add linking to markdown headers                    |
+| Rehype Raw  | 6.0.0   | Process HTML tags within markdown                  |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Structure
+
+| Directory         | Description                            |
+| ----------------- | -------------------------------------- |
+| [src](src/)       | Main codebase                          |
+| [public](public/) | The files that are publicly accessable |
+
+#### Source Structure
+
+| Directory               | Description                   |
+| ----------------------- | ----------------------------- |
+| [pages](src/pages/)     | Source for pages              |
+| [styles](src/styles/)   | Source for custom styling     |
+| [ui](src/ui/)           | Source for ui components      |
+| [stories](src/stories/) | Source for storybook previews |
+
+#### Public Structure
+
+| Directory                  | Description               |
+| -------------------------- | ------------------------- |
+| [brand](public/brand/)     | Holds brand assets        |
+| [favicon](public/favicon/) | Holds favicon assets      |
+| [fonts](public/fonts/)     | Holds font files          |
+| [icons](public/icons/)     | Holds icons for home page |
+
+## Branches
+
+| Name    | Description                                     |
+| ------- | ----------------------------------------------- |
+| staging | Where changes/development occurs                |
+| prod    | What is running on the server — **DON'T TOUCH** |
+
+## Development
+
+Instructions for development/getting a development enviornment setup.
+
+- Make sure you have the correct Node.JS and Yarn versions installed.
+- Run `yarn` in top folder to install packages from `package.json`.
+- Start the development server by running `yarn dev`.
+- Open http://localhost:3000 (dev server) in your browser.
+
+#### Running Storybook
+
+- Follow the above steps first
+- Start storybook by running `yarn storybook`.
+- Open http://localhost:6006 (storybook server) in your browser.
+
+## Production
+
+To run the app in production, you will need to use docker and docker-compose to
+run both the Plausible server as well as the Next JS server. Folders for the servers
+should also be cloned into `/var/www/`.
+
+#### Running Next JS
+
+Run the following commands from the top folder (this one).
+
+- Build docker image: `docker build . -t carberra/website:<build version>`
+- Run docker image: `docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:<build version>`
+
+#### Running Plausible
+
+Run the following commands from the Plausible hosting folder (the one cloned below).
+
+##### First Time Only
+
+- Clone hosting repo: `git clone https://github.com/plausible/hosting plausible`
+- Fill in info in `plausible-conf.env` (admin creds, etc).
+  - Generate secket key to put in `SECRET_KEY_BASE` by running `openssl rand -base64 64`
+- Run the commands below under the every time header
+- Verify all users: `docker exec plausible_plausible_db_1 psql -U postgres -d plausible_db -c "UPDATE users SET email_verified = true;"`
+
+##### Every time
+
+- Build and start required images: `docker-compose up -d`
+
+## Questions
+
+If there are any questions, please get in contact with Carberra or MrDogeBro for help.
