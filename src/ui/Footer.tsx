@@ -21,10 +21,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
         <div className="md:justify-start w-full md:pl-5 md:pr-10 font-sans text-md">
           <div className="flex justify-center md:justify-start pt-5 md:pt-0">
             <span className="pr-5 hover:underline">
-              <Link href="/">Privacy Policy</Link>
-            </span>
-            <span className="hover:underline">
-              <Link href="/">Terms of Use</Link>
+              <Link href="/privacy-policy">Privacy Policy</Link>
             </span>
           </div>
         </div>
