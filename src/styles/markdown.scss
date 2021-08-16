@@ -1,0 +1,34 @@
+.markdown {
+  p,
+  li,
+  table {
+    @apply text-gray-300;
+  }
+
+  h1,
+  h2 {
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 0.3em;
+  }
+
+  a {
+    @apply text-brand-blue;
+  }
+
+  td,
+  th {
+    @apply px-3 py-2;
+    border-left: 2px solid #21262d;
+  }
+
+  tr {
+    border-bottom: 2px solid #21262d;
+    border-right: 2px solid #21262d;
+  }
+
+  thead {
+    tr {
+      border-top: 2px solid #21262d;
+    }
+  }
+}
