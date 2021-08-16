@@ -88,8 +88,8 @@ This contains all of the information and specifics on the tech stack that the pr
 
 | Name    | Description                                     |
 | ------- | ----------------------------------------------- |
-| staging | Where changes/development occurs                |
-| prod    | What is running on the server — **DON'T TOUCH** |
+| main    | What is running on the server — **DON'T TOUCH** |
+| develop | Where changes/development occurs                |
 
 ## Development
 
