@@ -170,7 +170,7 @@ export default class Home extends Component<Props, States> {
           <div className="absolute w-full bottom-10 md:bottom-20">
             <h2
               className={
-                'text-white font-brand lowercase text-center text-xl px-8 transition duration-400 ease-in-out ' +
+                'text-white font-brand lowercase text-center text-xl px-8 transition duration-400 ease-in-out lowercase ' +
                 this.state.scrollTextFade
               }
             >
