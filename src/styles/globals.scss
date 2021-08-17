@@ -111,3 +111,33 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.bg-brand-logo-gradient > path {
+  fill: url(#brand-logo-gradient) #ffffff !important;
+}
+
+#logoGrad,
+#logoWhite {
+  pointer-events: none;
+
+  & > path {
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: auto;
+  }
+}
+
+#logoGrad > path {
+  opacity: 0 !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+#logoWhite > path {
+  opacity: 1 !important;
+}
+
+#logoWhite[data-hide='true'] > path {
+  opacity: 0 !important;
+}

@@ -21,6 +21,7 @@ type States = {
   logoTargetClicks: number;
   scrollDownText: string;
   scrollTextFade: string;
+  logoWhiteData: boolean;
 };
 
 export default class Home extends Component<Props, States> {
@@ -34,6 +35,7 @@ export default class Home extends Component<Props, States> {
       logoTargetClicks: targetClicks,
       scrollDownText: '',
       scrollTextFade: '',
+      logoWhiteData: false,
     };
   }
 
@@ -123,10 +125,32 @@ export default class Home extends Component<Props, States> {
                   <TwitchIcon className={iconClasses} />
                 </a>
               </div>
+
+              <svg
+                className="w-0 h-0 absolute"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <linearGradient id="brand-logo-gradient" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#9e1cf3" />
+                  <stop offset="3%" stopColor="#9e1cf3" />
+                  <stop offset="85%" stopColor="#1987bd" />
+                  <stop offset="100%" stopColor="#1987bd" />
+                </linearGradient>
+              </svg>
+              <LogoWhite
+                className="w-32 xs:w-44 mx-auto bg-brand-logo-gradient absolute"
+                onClick={this.handleLogoClick}
+                onMouseEnter={() => this.setState({ logoWhiteData: true })}
+                onMouseLeave={() => this.setState({ logoWhiteData: false })}
+                id="logoGrad"
+              />
               <LogoWhite
                 className="w-32 xs:w-44 mx-auto"
-                onClick={this.handleLogoClick}
+                data-hide={this.state.logoWhiteData}
+                id="logoWhite"
               />
+
               <div
                 className={`${iconContainerClasses} mt-${iconContainerMarginSm} xs:mt-${iconContainerMargin}`}
               >
