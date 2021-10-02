@@ -1,0 +1,5 @@
+User-agent: Googlebot
+User-agent: *
+disallow: /fonts/
+disallow: /icons/
+disallow: /brand/
