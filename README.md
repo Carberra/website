@@ -2,6 +2,29 @@
 
 The repo for the Carberra Tutorials website.
 
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+  - [Overview](#overview)
+  - [Packages](#packages)
+  - [Helpers](#helpers)
+  - [Storybook Addons](#storybook-addons)
+  - [Markdown Plugins](#markdown-plugins)
+- [Structure](#structure)
+  - [Source Structure](#source-structure)
+  - [Public Structure](#public-structure)
+  - [Script Structure](#script-structure)
+- [Branches](#branches)
+- [Development](#development)
+  - [Running Storybook](#running-storybook)
+- [Production](#production)
+  - [Running Next JS](#running-next-js)
+  - [Running Next JS (Automatically)](<#running-next-js-(automatically)>)
+  - [Running Plausible](#running-plausible)
+    - [First Time Only](#first-time-only)
+    - [Every Time](#every-time)
+- [Questions](#questions)
+
 ## Tech Stack
 
 This contains all of the information and specifics on the tech stack that the project uses.
@@ -61,10 +84,11 @@ This contains all of the information and specifics on the tech stack that the pr
 
 ## Structure
 
-| Directory         | Description                            |
-| ----------------- | -------------------------------------- |
-| [src](src/)       | Main codebase                          |
-| [public](public/) | The files that are publicly accessable |
+| Directory           | Description                                |
+| ------------------- | ------------------------------------------ |
+| [src](src/)         | Main codebase                              |
+| [public](public/)   | The files that are publicly accessable     |
+| [scripts](scripts/) | Scripts to help with various related tasks |
 
 #### Source Structure
 
@@ -83,6 +107,12 @@ This contains all of the information and specifics on the tech stack that the pr
 | [favicon](public/favicon/) | Holds favicon assets      |
 | [fonts](public/fonts/)     | Holds font files          |
 | [icons](public/icons/)     | Holds icons for home page |
+
+#### Script Structure
+
+| Directory           | Description                                   |
+| ------------------- | --------------------------------------------- |
+| [bin](scripts/bin/) | Scripts for automation that are added to path |
 
 ## Branches
 
@@ -114,10 +144,18 @@ should also be cloned into `/var/www/`.
 
 #### Running Next JS
 
-Run the following commands from the top folder (this one).
+Run the following commands from the top folder (this one). Also, if another
+version is already running, make sure to stop that container first.
 
 - Build docker image: `docker build . -t carberra/website:<build version>`
 - Run docker image: `docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:<build version>`
+
+#### Running Next JS (Automatically)
+
+If you would like to run a single command to build and relaunch the docker container,
+you can use the `build-and-deploy` script which should be in path (if you ran `setup.sh`
+when you were setting it up). All you have to pass into the `build-and-deploy` script is
+a version (eg. `v1.0.0`) and it should handle the rest for you.
 
 #### Running Plausible
 
@@ -137,4 +175,4 @@ Run the following commands from the Plausible hosting folder (the one cloned bel
 
 ## Questions
 
-If there are any questions, please get in contact with Carberra or MrDogeBro for help.
+If there are any questions, please get in contact with Parafoxia or MrDogeBro for help.
