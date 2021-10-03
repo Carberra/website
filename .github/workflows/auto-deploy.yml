@@ -3,7 +3,7 @@ name: Automatically Deploy On New Tag
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
   deploy:
@@ -12,10 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+          id: get-latest-tag
+
       - name: Run Deploy Script via SSH
         uses: garygrossgarten/github-action-ssh@v0.5.0
         with:
-          command: build-and-deploy
+          command: build-and-deploy ${{ steps.get-latest-tag.outputs.tag }}
           host: ${{ secrets.HOST }}
           username: parafoxia
           privateKey: ${{ secrets.PRIVATE_KEY }}
