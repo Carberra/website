@@ -1,0 +1,11 @@
+#!/bin/bash
+
+running=$(docker inspect --format={{.State.Running}} carberra-website)
+
+if [ $? -eq 0 ] && [ "$running" == "true" ]; then
+  exit 0
+fi
+
+tag_version=$(docker images | grep carberra/website | awk -F " " '/[0-9]/ {print $2; exit}')
+
+docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:$tag_version
