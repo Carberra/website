@@ -1,0 +1,22 @@
+name: Automatically Deploy On New Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Deploy Script via SSH
+        uses: garygrossgarten/github-action-ssh@v0.5.0
+        with:
+          command: build-and-deploy
+          host: ${{ secrets.HOST }}
+          username: parafoxia
+          privateKey: ${{ secrets.PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
