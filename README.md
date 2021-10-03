@@ -19,7 +19,7 @@ The repo for the Carberra Tutorials website.
   - [Running Storybook](#running-storybook)
 - [Production](#production)
   - [Running Next JS](#running-next-js)
-  - [Running Next JS (Automatically)](<#running-next-js-(automatically)>)
+  - [Running Next JS (Automatically)](#running-next-js-automatically)
   - [Running Plausible](#running-plausible)
     - [First Time Only](#first-time-only)
     - [Every Time](#every-time)
