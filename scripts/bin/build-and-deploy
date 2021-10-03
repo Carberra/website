@@ -11,9 +11,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-docker inspect --format="running" carberra-website
+running=$(docker inspect --format={{.State.Running}} carberra-website)
 
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 ] && [ "$running" == "true" ]; then
   docker stop carberra-website
 fi
 
