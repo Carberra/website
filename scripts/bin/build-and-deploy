@@ -4,7 +4,9 @@ cd $WEBSITE_DIRECTORY
 
 git pull origin
 
-docker build . -t carberra/website:$1
+tag="${1//v}"
+
+docker build . -t carberra/website:$tag
 
 if [ $? -ne 0 ]; then
   echo "Failure during build process"
@@ -17,4 +19,4 @@ if [ $? -eq 0 ] && [ "$running" == "true" ]; then
   docker stop carberra-website
 fi
 
-docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:$1
+docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:$tag
