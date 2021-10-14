@@ -39,6 +39,12 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Component {...pageProps} />
+      <script
+        async
+        defer
+        data-domain="carberra.xyz"
+        src="https://carberra.xyz/js/plausible.js"
+      ></script>
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
       />
