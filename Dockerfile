@@ -4,7 +4,7 @@ FROM node:14-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN npm ci
+RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM node:14-alpine AS builder
@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN npm run build
+RUN yarn build
 
 # Production image, copy all the files and run next
 FROM node:14-alpine AS runner
@@ -38,4 +38,4 @@ EXPOSE 3000
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
-CMD ["npm", "run", "start"]
+CMD ["yarn", "start"]
