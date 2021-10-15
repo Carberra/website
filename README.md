@@ -118,7 +118,7 @@ This contains all of the information and specifics on the tech stack that the pr
 
 | Name    | Description                                     |
 | ------- | ----------------------------------------------- |
-| main    | What is running on the server — **DON'T TOUCH** |
+| master  | What is running on the server — **DON'T TOUCH** |
 | develop | Where changes/development occurs                |
 
 ## Development
@@ -152,10 +152,16 @@ version is already running, make sure to stop that container first.
 
 #### Running Next JS (Automatically)
 
-If you would like to run a single command to build and relaunch the docker container,
-you can use the `build-and-deploy` script which should be in path (if you ran `setup.sh`
-when you were setting it up). All you have to pass into the `build-and-deploy` script is
-a version (eg. `v1.0.0`) and it should handle the rest for you.
+To automatically build and deploy the docker container, all you have to do
+is create a new tag with the version number (such as `1.0.0`) and then in
+the next 6-10m approx. it will have built the docker container, sent it
+to the server, stopped the old container, and started the new one on the
+server, automating the whole process of deploying a new version.
+
+If you would like to run a single command to relaunch the docker container,
+you can use the `deploy` script which should be in path (if you ran `setup.sh`
+when you were setting it up). All you have to pass into the `deploy` script is
+a version (eg. `1.0.0`) and it should handle the rest for you.
 
 #### Running Plausible
 
