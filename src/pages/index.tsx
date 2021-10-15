@@ -73,56 +73,43 @@ export default class Home extends Component<Props, States> {
   };
 
   renderPlatformsSection = () => {
-    const iconContainerClasses = 'flex justify-center items-center';
-    const iconClasses = 'w-10 xs:w-11';
-    const iconContainerMargin = '20';
-    const iconSpreadX = '30';
-    const iconSpreadY = '26';
-    const iconSpreadPair = '16';
-    const iconContainerMarginSm = '10';
-    const iconSpreadXSm = '16';
-    const iconSpreadYSm = '16';
-    const iconSpreadPairSm = '9';
-
     return (
       <div className="bg-brand-black h-screen-navbar">
         <div className="absolute w-full h-full top-0 left-0 table">
           <div className="table-cell align-middle">
             <div className="w-min mx-auto">
-              <div
-                className={`${iconContainerClasses} mb-${iconContainerMarginSm} xs:mb-${iconContainerMargin}`}
-              >
+              <div className="flex justify-center items-center mb-10 xs:mb-20">
                 <a
                   href="https://github.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative right-${iconSpreadXSm} xs:right-${iconSpreadX} top-${iconSpreadYSm} xs:top-${iconSpreadY}`}
+                  className="relative right-16 xs:right-30 top-16 xs:top-26"
                 >
-                  <GithubIcon className={iconClasses} />
+                  <GithubIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://discord.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative right-${iconSpreadPairSm} xs:right-${iconSpreadPair}`}
+                  className="relative right-9 xs:right-16"
                 >
-                  <DiscordIcon className={iconClasses} />
+                  <DiscordIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://youtube.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative left-${iconSpreadPairSm} xs:left-${iconSpreadPair}`}
+                  className="relative left-9 xs:left-16"
                 >
-                  <YoutubeIcon className={iconClasses} />
+                  <YoutubeIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://twitch.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative left-${iconSpreadXSm} xs:left-${iconSpreadX} top-${iconSpreadYSm} xs:top-${iconSpreadY}`}
+                  className="relative left-16 xs:left-30 top-16 xs:top-26"
                 >
-                  <TwitchIcon className={iconClasses} />
+                  <TwitchIcon className="w-10 xs:w-11" />
                 </a>
               </div>
 
@@ -151,40 +138,38 @@ export default class Home extends Component<Props, States> {
                 id="logoWhite"
               />
 
-              <div
-                className={`${iconContainerClasses} mt-${iconContainerMarginSm} xs:mt-${iconContainerMargin}`}
-              >
+              <div className="flex justify-center items-center mt-10 xs:mt-20">
                 <a
                   href="https://lbry.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative right-${iconSpreadXSm} xs:right-${iconSpreadX} bottom-${iconSpreadYSm} xs:bottom-${iconSpreadY}`}
+                  className="relative right-16 xs:right-30 bottom-16 xs:bottom-26"
                 >
-                  <LbryIcon className={iconClasses} />
+                  <LbryIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://twitter.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative right-${iconSpreadPairSm} xs:right-${iconSpreadPair}`}
+                  className="relative right-9 xs:right-16"
                 >
-                  <TwitterIcon className={iconClasses} />
+                  <TwitterIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://instagram.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative left-${iconSpreadPairSm} xs:left-${iconSpreadPair}`}
+                  className="relative left-9 xs:left-16"
                 >
-                  <InstagramIcon className={iconClasses} />
+                  <InstagramIcon className="w-10 xs:w-11" />
                 </a>
                 <a
                   href="https://patreon.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative left-${iconSpreadXSm} xs:left-${iconSpreadX} bottom-${iconSpreadYSm} xs:bottom-${iconSpreadY}`}
+                  className="relative left-16 xs:left-30 bottom-16 xs:bottom-26"
                 >
-                  <PatreonIcon className={iconClasses} />
+                  <PatreonIcon className="w-10 xs:w-11" />
                 </a>
               </div>
             </div>
