@@ -41,4 +41,7 @@ jobs:
           username: parafoxia
           key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: deploy ${{ steps.get-latest-tag.outputs.tag }}
+          script: |
+            docker stop carberra-website
+            docker load --input /tmp/carberra-website/carberra-website.tar
+            docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:${{ steps.get-latest-tag.outputs.tag }}
