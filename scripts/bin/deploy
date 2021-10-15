@@ -1,18 +1,5 @@
 #!/bin/bash
 
-cd $WEBSITE_DIRECTORY
-
-git pull origin
-
-tag="${1//v}"
-
-docker build . -t carberra/website:$tag
-
-if [ $? -ne 0 ]; then
-  echo "Failure during build process"
-  exit 1
-fi
-
 running=$(docker inspect --format={{.State.Running}} carberra-website)
 
 if [ $? -eq 0 ] && [ "$running" == "true" ]; then
