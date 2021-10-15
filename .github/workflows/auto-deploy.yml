@@ -20,6 +20,8 @@ jobs:
 
       - name: Build Docker image
         run: |
+          touch .env
+          echo ${{ secrets.ENV_FILE }} > .env
           docker build . -t carberra/website:${{ steps.get-latest-tag.outputs.tag }}
           docker save -o carberra-website.tar carberra/website:${{ steps.get-latest-tag.outputs.tag }}
 
