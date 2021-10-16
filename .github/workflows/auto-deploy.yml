@@ -3,7 +3,7 @@ name: Automatically Deploy on New Tag
 on:
   push:
     tags:
-      - "*"
+      - '*'
 
 jobs:
   deploy:
@@ -32,8 +32,8 @@ jobs:
           username: parafoxia
           key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "carberra-website.tar"
-          target: "/tmp/carberra-website"
+          source: 'carberra-website.tar'
+          target: '/tmp/carberra-website'
           rm: true
 
       - name: Run deploy script via SSH
@@ -46,4 +46,4 @@ jobs:
           script: |
             docker stop carberra-website
             docker load --input /tmp/carberra-website/carberra-website.tar
-            docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:${{ steps.get-latest-tag.outputs.tag }}
+            docker run -p 127.0.0.1:3000:3000 --name carberra-website --rm -d carberra/website:${{ steps.get-latest-tag.outputs.tag }}
