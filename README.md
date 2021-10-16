@@ -148,7 +148,7 @@ Run the following commands from the top folder (this one). Also, if another
 version is already running, make sure to stop that container first.
 
 - Build docker image: `docker build . -t carberra/website:<build version>`
-- Run docker image: `docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:<build version>`
+- Run docker image: `docker run -p 127.0.0.1:3000:3000 --name carberra-website --rm -d carberra/website:<build version>`
 
 #### Running Next JS (Automatically)
 
@@ -178,6 +178,13 @@ Run the following commands from the Plausible hosting folder (the one cloned bel
 ##### Every time
 
 - Build and start required images: `docker-compose up -d`
+
+#### Backup Site
+
+You will find a very simple backup site in the [html](html/) directory. This is meant
+to function as a backup in case for some reason the docker container isn't running or
+accessable. To do so, just setup the nginx config to send to the `index.html` in that
+directory as the backup page and you will be good to go.
 
 ## Questions
 
