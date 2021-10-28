@@ -9,6 +9,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Carberra Tutorials</title>
         <meta name="description" content="The home of Carberra Tutorials" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link
           rel="apple-touch-icon"
