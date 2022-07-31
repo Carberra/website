@@ -1,30 +1,15 @@
 import Head from 'next/head';
 import React, { Component } from 'react';
 
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import twConfig from '@base/tailwind.config';
+import { ThemeProvider } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
 import { Button } from '@ui/Button';
 import { Spinner } from '@ui/Spinner';
+import { muiTheme } from '@styles/theme';
 import API from '@api';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1987bd',
-    },
-    secondary: {
-      main: '#9e1cf3',
-    },
-    type: 'dark',
-  },
-  typography: {
-    fontFamily: twConfig.theme.fontFamily.sans.join(','),
-  },
-});
 
 type Props = {};
 type States = {
@@ -295,7 +280,7 @@ export default class Contact extends Component<Props, States> {
             id="contactForm"
             className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 flex-grow"
           >
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={muiTheme}>
               <div className="flex justify-center py-1">
                 <TextField
                   id="contactName"

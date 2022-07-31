@@ -5,7 +5,7 @@ import React, {
   Fragment,
 } from 'react';
 
-import ButtonBase from '@material-ui/core/ButtonBase';
+import ButtonBase from '@mui/material/ButtonBase';
 
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,

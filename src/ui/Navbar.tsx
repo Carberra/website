@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import { Drawer, IconButton } from '@material-ui/core';
-import {
-  createTheme,
-  ThemeProvider,
-  makeStyles,
-} from '@material-ui/core/styles';
-import { Menu } from '@material-ui/icons';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import { ThemeProvider } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
+import Menu from '@mui/icons-material/Menu';
+
+import { muiTheme } from '@styles/theme';
 
 export interface NavbarProps {
   className?: string;
@@ -18,13 +18,7 @@ interface PageData {
   location: string;
 }
 
-const theme = createTheme({
-  palette: {
-    type: 'dark',
-  },
-});
-
-const styles = makeStyles((_) => ({
+const styles = makeStyles((_: any) => ({
   drawerPaper: {
     backgroundColor: '#0c0c0c',
   },
@@ -69,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
       </div>
 
       <div className="block md:hidden">
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={muiTheme}>
           <IconButton
             aria-label="Open navigation"
             className="relative left-3"
@@ -87,6 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
               setDrawer(false);
             }}
             classes={{
+              //@ts-ignore
               paper: styles().drawerPaper,
             }}
           >
