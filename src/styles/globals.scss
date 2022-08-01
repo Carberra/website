@@ -9,6 +9,18 @@
 
 :root {
   --color-brand-black: #0c0c0c;
+  --color-brand-black-mid: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05)
+    ),
+    var(--color-brand-black);
+  --color-brand-black-light: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    ),
+    var(--color-brand-black);
   --color-brand-blue: #1987bd;
   --color-brand-purple: #9e1cf3;
 }
@@ -57,6 +69,24 @@ a {
 
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+.bg-brand-black-mid {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05)
+    ),
+    var(--color-brand-black);
+}
+
+.bg-brand-black-light {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    ),
+    var(--color-brand-black);
 }
 
 .bg-brand-gradient {

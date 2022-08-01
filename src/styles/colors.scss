@@ -1,3 +1,15 @@
 $color-brand-black: #0c0c0c;
 $color-brand-blue: #1987bd;
 $color-brand-purple: #9e1cf3;
+$color-brand-black-mid: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  ),
+  $color-brand-black;
+$color-brand-black-light: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  ),
+  $color-brand-black;
