@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { Component } from 'react';
 
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
 
@@ -20,7 +23,6 @@ type States = {
   logoTargetClicks: number;
   scrollDownText: string;
   scrollTextFade: string;
-  logoWhiteData: boolean;
 };
 
 export default class Home extends Component<Props, States> {
@@ -34,7 +36,6 @@ export default class Home extends Component<Props, States> {
       logoTargetClicks: targetClicks,
       scrollDownText: '',
       scrollTextFade: '',
-      logoWhiteData: false,
     };
   }
 
@@ -52,6 +53,10 @@ export default class Home extends Component<Props, States> {
     }, 250);
   };
 
+  particlesInit = async (main: any) => {
+    await loadFull(main);
+  };
+
   render() {
     return (
       <div>
@@ -60,16 +65,116 @@ export default class Home extends Component<Props, States> {
           <meta name="description" content="The home of Carberra Tutorials" />
         </Head>
         <div className="flex flex-col min-h-screen bg-brand-black">
-          <Navbar className="z-10" />
+          <Navbar />
+
+          <Particles
+            init={this.particlesInit}
+            className="absolute w-full h-full top-0 left-0"
+            options={{
+              particles: {
+                number: {
+                  value: 80,
+                  density: {
+                    enable: true,
+                    value_area: 700,
+                  },
+                },
+                color: {
+                  value: '#D0D0D0',
+                },
+                shape: {
+                  type: 'circle',
+                  stroke: {
+                    width: 0,
+                    color: '#000000',
+                  },
+                  polygon: {
+                    nb_sides: 5,
+                  },
+                },
+                opacity: {
+                  value: 0.5,
+                  random: false,
+                  anim: {
+                    enable: false,
+                    speed: 0.1,
+                    opacity_min: 0.1,
+                    sync: false,
+                  },
+                },
+                size: {
+                  value: 3,
+                  random: true,
+                  anim: {
+                    enable: false,
+                    speed: 10,
+                    size_min: 0.1,
+                    sync: false,
+                  },
+                },
+                line_linked: {
+                  enable: true,
+                  distance: 150,
+                  color: '#D0D0D0',
+                  opacity: 0.4,
+                  width: 1,
+                },
+                move: {
+                  enable: true,
+                  speed: 2,
+                  direction: 'none',
+                  random: false,
+                  straight: false,
+                  out_mode: 'out',
+                  bounce: false,
+                  attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200,
+                  },
+                },
+              },
+              interactivity: {
+                detect_on: 'canvas',
+                events: {
+                  onhover: {
+                    enable: true,
+                    mode: 'grab',
+                  },
+                  onclick: {
+                    enable: true,
+                    mode: 'push',
+                  },
+                  resize: true,
+                },
+                modes: {
+                  grab: {
+                    distance: 140,
+                    line_linked: {
+                      opacity: 1,
+                    },
+                  },
+                  push: {
+                    particles_nb: 4,
+                  },
+                  remove: {
+                    particles_nb: 2,
+                  },
+                },
+              },
+              retina_detect: true,
+            }}
+          />
+
           <div className="flex-grow flex items-center">
             <div className="ml-20">
               <div className="p-0 m-0" onClick={this.handleLogoClick}>
-                <WordmarkWhite className="p-0 m-0 ml-3 relative z-10" />
+                <WordmarkWhite className="p-0 m-0 ml-3 relative z-20" />
                 <WordmarkTrail
-                  className={`p-0 m-0 mt-1 svg-fill-brand-blue ${styles.WordmarkAnimationBlue}`}
+                  className={`p-0 m-0 mt-1 svg-fill-brand-blue relative z-10 ${styles.WordmarkAnimationBlue}`}
                 />
                 <WordmarkTrail
-                  className={`p-0 m-0 svg-fill-brand-purple position relative bottom-1 ${styles.WordmarkAnimationPurple}`}
+                  className={`p-0 m-0 svg-fill-brand-purple position relative z-10 bottom-1 ${styles.WordmarkAnimationPurple}`}
                 />
               </div>
               <div
@@ -80,50 +185,55 @@ export default class Home extends Component<Props, States> {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <DiscordIcon className="h-10" />
+                  <DiscordIcon className="h-10 relative z-10" />
                 </a>
                 <a
                   href="https://github.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GithubIcon className="h-10" />
+                  <GithubIcon className="h-10 relative z-10" />
                 </a>
                 <a
                   href="https://patreon.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <PatreonIcon className="h-10" />
+                  <PatreonIcon className="h-10 relative z-10" />
                 </a>
                 <a
                   href="https://youtube.carberra.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <YoutubeIcon className="h-10" />
+                  <YoutubeIcon className="h-10 relative z-10" />
                 </a>
               </div>
             </div>
             <div className="flex justify-end w-full">
-              <div className="bg-brand-gradient-fade h-screen-navbar w-7/12 ml-3"></div>
+              <div
+                className="bg-gradient-to-l from-brand-black via-brand-black h-screen-navbar w-7/12 ml-3 relative"
+                style={{ zIndex: 5 }}
+              >
+                <div className="bg-brand-gradient-fade h-screen-navbar w-full relative z-10"></div>
+              </div>
             </div>
 
             <div className="absolute w-full bottom-0">
               <div className="absolute w-full bottom-10 md:bottom-20">
                 <h2
                   className={
-                    'text-white font-sans text-center text-xl px-8 transition duration-800 ease-in-out' +
+                    'text-white font-sans text-center text-xl px-8 transition duration-800 ease-in-out relative z-10' +
                     this.state.scrollTextFade
                   }
                 >
                   {this.state.scrollDownText}
                 </h2>
               </div>
-              <Footer id="footer" className="hidden md:block" />
+              <Footer id="footer" className="hidden md:block relative z-10" />
             </div>
           </div>
-          <Footer id="footer" className="block md:hidden" />
+          <Footer id="footer" className="block md:hidden relative z-10" />
         </div>
       </div>
     );

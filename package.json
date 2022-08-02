@@ -25,10 +25,12 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-markdown": "^7.0.0",
+    "react-particles": "^2.1.4",
     "rehype-raw": "^6.0.0",
     "remark-gfm": "^2.0.0",
     "remark-slug": "^7.0.0",
-    "storybook": "^6.5.9"
+    "storybook": "^6.5.9",
+    "tsparticles": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
