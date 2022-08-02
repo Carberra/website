@@ -1,0 +1,53 @@
+.WordmarkAnimationBlue {
+  animation: wordmark-animation-blue 0.8s ease;
+}
+
+.WordmarkAnimationPurple {
+  animation: wordmark-animation-purple 0.9s ease;
+}
+
+.IconAnimation {
+  animation: icon-fade-in 1.5s ease;
+}
+
+@keyframes wordmark-animation-blue {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes wordmark-animation-purple {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes icon-fade-in {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
