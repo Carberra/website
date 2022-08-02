@@ -14,7 +14,7 @@ const PageNotFound: React.FC<Props> = () => {
       </Head>
       <div className="flex justify-center items-center min-h-screen">
         <div>
-          <p className="text-brand-gradient text-7xl font-brand lowercase text-center mb-3">
+          <p className="text-brand-gradient text-7xl font-brand uppercase text-center mb-3">
             404
           </p>
           <p className="text-white text-3xl font-sans text-center">

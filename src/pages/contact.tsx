@@ -272,13 +272,13 @@ export default class Contact extends Component<Props, States> {
               </p>
             </div>
           )}
-          <h1 className="text-brand-gradient font-brand text-3xl text-center mt-10 mb-5 lowercase">
+          <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
             Get in Touch
           </h1>
           <form
             onSubmit={this.handleFormSubmit}
             id="contactForm"
-            className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 flex-grow"
+            className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 flex-grow mt-4"
           >
             <ThemeProvider theme={muiTheme}>
               <div className="flex justify-center py-1">

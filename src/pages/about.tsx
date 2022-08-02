@@ -41,7 +41,7 @@ tagline: **the future starts with you**.
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <h1 className="text-brand-gradient font-brand text-3xl text-center mt-10 mb-5 lowercase">
+        <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
           About
         </h1>
         <div className="flex-grow">
