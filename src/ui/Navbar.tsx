@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import Menu from '@mui/icons-material/Menu';
 
 import { muiTheme } from '@styles/theme';
+import styles from '@styles/modules/Navbar.module.scss';
 
 export interface NavbarProps {
   className?: string;
@@ -37,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
 
   return (
     <nav
-      className={`h-14 bg-brand-black-mid flex justify-center items-center sticky z-20 w-full px-10 xs:px-20 ${className}`}
+      className={`h-14 bg-brand-black-mid flex justify-center items-center sticky z-20 w-full px-10 xs:px-20 ${styles.NavbarShadow} ${className}`}
     >
       <Link href="/">
         <span className="text-2xl font-brand text-brand-gradient uppercase cursor-pointer">
