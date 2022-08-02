@@ -10,7 +10,7 @@ export type FooterProps = {
 export const Footer: React.FC<FooterProps> = (props) => {
   return (
     <footer
-      className={`bg-brand-black text-white px-4 md:px-20 py-6 ${props.className}`}
+      className={`text-white px-4 md:px-20 py-6 ${props.className}`}
       id={props.id}
     >
       <div className="block md:flex w-full md:items-center md:justify-start">
