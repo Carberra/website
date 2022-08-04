@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Component } from 'react';
 
 import Particles from 'react-particles';
@@ -7,13 +8,15 @@ import { loadFull } from 'tsparticles';
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
 
-import DiscordIcon from '@public/icons/discord.svg';
-import GithubIcon from '@public/icons/github.svg';
-import PatreonIcon from '@public/icons/patreon.svg';
-import YoutubeIcon from '@public/icons/youtube.svg';
+import DiscordIcon from '@public/assets/icons/discord.svg';
+import GithubIcon from '@public/assets/icons/github.svg';
+import PatreonIcon from '@public/assets/icons/patreon.svg';
+import YoutubeIcon from '@public/assets/icons/youtube.svg';
 
 import WordmarkWhite from '@public/brand/wordmark/wordmark-white.svg';
 import WordmarkTrail from '@public/brand/wordmark/wordmark-trail.svg';
+
+import Arrow from '@public/assets/graphics/arrow.svg';
 
 import styles from '@styles/modules/Home.module.scss';
 
@@ -64,7 +67,7 @@ export default class Home extends Component<Props, States> {
           <title>Carberra Tutorials</title>
           <meta name="description" content="The home of Carberra Tutorials" />
         </Head>
-        <div className="flex flex-col min-h-screen bg-brand-black">
+        <div className="flex flex-col min-h-screen overflow-hidden bg-brand-black">
           <Navbar />
 
           <Particles
@@ -166,56 +169,69 @@ export default class Home extends Component<Props, States> {
             }}
           />
 
-          <div className="flex-grow flex items-center">
-            <div className="ml-20">
-              <div className="p-0 m-0" onClick={this.handleLogoClick}>
-                <WordmarkWhite className="p-0 m-0 ml-3 relative z-20" />
-                <WordmarkTrail
-                  className={`p-0 m-0 mt-1 svg-fill-brand-blue relative z-10 ${styles.WordmarkAnimationBlue}`}
-                />
-                <WordmarkTrail
-                  className={`p-0 m-0 svg-fill-brand-purple position relative z-10 bottom-1 ${styles.WordmarkAnimationPurple}`}
-                />
+          <div className="grow flex">
+            <div className="self-stretch w-full relative flex flex-col md:flex-row items-center justify-center md:justify-start mb-4 md:mt-0">
+              <div className="h-full flex items-center md:ml-20 transform md:origin-left scale-50 sm:scale-75 md:scale-50 lg:scale-75 xl:scale-100 md:w-md lg:w-lg xl:w-auto">
+                <div>
+                  <div className="p-0 m-0 " onClick={this.handleLogoClick}>
+                    <WordmarkWhite className="p-0 m-0 ml-3 relative z-20" />
+                    <WordmarkTrail
+                      className={`p-0 m-0 mt-1 svg-fill-brand-blue relative z-10 ${styles.WordmarkAnimationBlue}`}
+                    />
+                    <WordmarkTrail
+                      className={`p-0 m-0 svg-fill-brand-purple position relative z-10 bottom-2.5 ${styles.WordmarkAnimationPurple}`}
+                    />
+                  </div>
+                  <div
+                    className={`flex md:w-12/12 lg:w-9/12 xl:w-7/12 justify-around mt-2 ${styles.IconAnimation}`}
+                  >
+                    <a
+                      href="https://discord.carberra.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <DiscordIcon className="h-10 relative z-10" />
+                    </a>
+                    <a
+                      href="https://github.carberra.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <GithubIcon className="h-10 relative z-10" />
+                    </a>
+                    <a
+                      href="https://patreon.carberra.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <PatreonIcon className="h-10 relative z-10" />
+                    </a>
+                    <a
+                      href="https://youtube.carberra.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <YoutubeIcon className="h-10 relative z-10" />
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div
-                className={`flex w-7/12 justify-around mt-2 ${styles.IconAnimation}`}
-              >
-                <a
-                  href="https://discord.carberra.xyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div className="md:flex md:justify-end w-full">
+                <div
+                  className="md:bg-gradient-to-l md:from-brand-black md:via-brand-black md:h-screen-navbar w-full 2xl:w-7/12 md:ml-3 relative"
+                  style={{ zIndex: 5 }}
                 >
-                  <DiscordIcon className="h-10 relative z-10" />
-                </a>
-                <a
-                  href="https://github.carberra.xyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubIcon className="h-10 relative z-10" />
-                </a>
-                <a
-                  href="https://patreon.carberra.xyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <PatreonIcon className="h-10 relative z-10" />
-                </a>
-                <a
-                  href="https://youtube.carberra.xyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <YoutubeIcon className="h-10 relative z-10" />
-                </a>
-              </div>
-            </div>
-            <div className="flex justify-end w-full">
-              <div
-                className="bg-gradient-to-l from-brand-black via-brand-black h-screen-navbar w-7/12 ml-3 relative"
-                style={{ zIndex: 5 }}
-              >
-                <div className="bg-brand-gradient-fade h-screen-navbar w-full relative z-10"></div>
+                  <div className="bg-gradient-to-r from-brand-purple to-brand-blue md:bg-brand-gradient-fade md:h-screen-navbar w-full relative z-10 flex justify-center md:justify-end items-center py-8 md:py-0">
+                    <Link href="/series">
+                      <span className="font-brand text-white uppercase text-xl sm:text-2xl lg:text-3xl mr-4 cursor-pointer">
+                        Series
+                      </span>
+                    </Link>
+                    <Link href="/series">
+                      <Arrow className="relative z-20 md:mr-20 cursor-pointer" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
 
