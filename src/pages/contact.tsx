@@ -278,7 +278,7 @@ export default class Contact extends Component<Props, States> {
           <form
             onSubmit={this.handleFormSubmit}
             id="contactForm"
-            className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 flex-grow mt-4"
+            className="w-11/12 md:w-9/12 lg:w-7/12 xl:w-6/12 2xl:w-5/12 mx-auto px-3 md:px-10 grow mt-4"
           >
             <ThemeProvider theme={muiTheme}>
               <div className="flex justify-center py-1">

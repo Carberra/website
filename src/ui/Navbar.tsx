@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
         </span>
       </Link>
 
-      <div className="flex-grow" />
+      <div className="grow" />
 
       <div className="hidden md:flex justify-end items-center">
         {links.map((link: PageData, i: number) => (

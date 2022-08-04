@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
             </span>
           </div>
         </div>
-        <div className="md:justify-end flex-grow md:pl-5 pt-2 md:pt-0">
+        <div className="md:justify-end grow md:pl-5 pt-2 md:pt-0">
           <p
             className={`font-sans font-light text-md text-center md:text-right ${styles.FooterTextShadow}`}
           >
