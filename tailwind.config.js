@@ -1,10 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./src/**/*.tsx', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.tsx', './public/index.html'],
   important: true,
   theme: {
+    screens: {
+      xs: '508px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ['Anybody', ...defaultTheme.fontFamily.sans],
@@ -19,8 +22,9 @@ module.exports = {
         26: '6.5rem',
         30: '7.5rem',
       },
-      screens: {
-        xs: '508px',
+      spacing: {
+        md: '23.5rem',
+        lg: '35.5rem',
       },
     },
   },
