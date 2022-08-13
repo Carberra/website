@@ -5,6 +5,7 @@ module.exports = {
   important: true,
   theme: {
     screens: {
+      '2xs': '400px',
       xs: '508px',
       ...defaultTheme.screens,
     },
@@ -28,5 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-children')],
 };
