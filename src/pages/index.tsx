@@ -170,8 +170,8 @@ export default class Home extends Component<Props, States> {
           />
 
           <div className="grow flex">
-            <div className="self-stretch w-full relative flex flex-col md:flex-row items-center justify-center md:justify-start mb-4 md:mt-0">
-              <div className="h-full flex items-center md:ml-20 transform md:origin-left scale-50 sm:scale-75 md:scale-50 lg:scale-75 xl:scale-100 md:w-md lg:w-lg xl:w-auto">
+            <div className="self-stretch w-full flex flex-col md:flex-row items-center justify-around md:justify-start mb-4 mt-16 md:mt-0">
+              <div className="flex items-center mb-12 md:mb-0 md:ml-20 transform md:origin-left scale-[0.4] 2xs:scale-50 sm:scale-75 md:scale-50 lg:scale-75 xl:scale-100 md:w-md lg:w-lg xl:w-auto">
                 <div>
                   <div className="p-0 m-0 " onClick={this.handleLogoClick}>
                     <WordmarkWhite className="p-0 m-0 ml-3 relative z-20" />
@@ -183,45 +183,45 @@ export default class Home extends Component<Props, States> {
                     />
                   </div>
                   <div
-                    className={`flex md:w-12/12 lg:w-9/12 xl:w-7/12 justify-around mt-2 ${styles.IconAnimation}`}
+                    className={`flex md:w-6/12 justify-around md:justify-between mx-6 mt-2 ${styles.IconAnimation} descendant-svg:h-14 2xs:descendant-svg:h-12 sm:descendant-svg:h-10 descendant-svg:relative descendant-svg:z-10`}
                   >
                     <a
                       href="https://discord.carberra.xyz"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <DiscordIcon className="h-10 relative z-10" />
+                      <DiscordIcon />
                     </a>
                     <a
                       href="https://github.carberra.xyz"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <GithubIcon className="h-10 relative z-10" />
+                      <GithubIcon />
                     </a>
                     <a
                       href="https://patreon.carberra.xyz"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <PatreonIcon className="h-10 relative z-10" />
+                      <PatreonIcon />
                     </a>
                     <a
                       href="https://youtube.carberra.xyz"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <YoutubeIcon className="h-10 relative z-10" />
+                      <YoutubeIcon />
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="md:flex md:justify-end w-full">
+              <div className="md:flex md:justify-end w-full mb-8 md:mb-0">
                 <div
                   className="md:bg-gradient-to-l md:from-brand-black md:via-brand-black md:h-screen-navbar w-full 2xl:w-7/12 md:ml-3 relative"
                   style={{ zIndex: 5 }}
                 >
-                  <div className="bg-gradient-to-r from-brand-purple to-brand-blue md:bg-brand-gradient-fade md:h-screen-navbar w-full relative z-10 flex justify-center md:justify-end items-center py-8 md:py-0">
+                  <div className="bg-gradient-to-r from-brand-purple to-brand-blue md:bg-brand-gradient-fade md:h-screen-navbar w-full relative z-10 flex justify-center md:justify-end items-center py-12 md:py-0">
                     <Link href="/series">
                       <span className="font-brand text-white uppercase text-xl sm:text-2xl lg:text-3xl mr-4 cursor-pointer">
                         Series
