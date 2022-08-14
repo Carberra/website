@@ -66,14 +66,14 @@ If you have any questions regarding this policy, feel free to contact the Organi
         <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
           Privacy Policy
         </h1>
-        <p className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
+        <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
           <ReactMarkdown
             children={policyContent}
             className="text-white font-sans unreset markdown grow"
             remarkPlugins={[remarkGfm, remarkSlug]}
             rehypePlugins={[rehypeRaw]}
           />
-        </p>
+        </div>
         <Footer />
       </div>
     </div>

@@ -45,14 +45,14 @@ tagline: **the future starts with you**.
           About
         </h1>
         <div className="grow">
-          <p className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
+          <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
             <ReactMarkdown
               children={aboutContent}
               className="text-white font-sans unreset markdown grow"
               remarkPlugins={[remarkGfm, remarkSlug]}
               rehypePlugins={[rehypeRaw]}
             />
-          </p>
+          </div>
         </div>
         <Footer />
       </div>
