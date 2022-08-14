@@ -40,7 +40,7 @@ export const getAllSeries = (fields: string[] = []) => {
 export type SeriesType = {
   slug: string;
   title: string;
-  tag_line: string;
+  tagline: string;
   thumbnail: string;
   launch_date: string;
   last_updated: string;

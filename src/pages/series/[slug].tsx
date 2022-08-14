@@ -34,7 +34,7 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
   };
 
   const content =
-    series.tag_line +
+    series.tagline +
     '\n' +
     `
 ## Info
@@ -99,7 +99,7 @@ type Params = {
 export const getStaticProps = async ({ params }: Params) => {
   const series = getSeriesBySlug(params.slug, [
     'title',
-    'tag_line',
+    'tagline',
     'launch_date',
     'last_updated',
     'status',
