@@ -170,7 +170,7 @@ export default class Home extends Component<Props, States> {
           />
 
           <div className="grow flex">
-            <div className="self-stretch w-full flex flex-col md:flex-row items-center justify-around md:justify-start mb-4 mt-16 md:mt-0">
+            <div className="self-stretch w-full flex flex-col md:flex-row items-center justify-around md:justify-start mb-4 mt-16 md:my-0">
               <div className="flex items-center mb-12 md:mb-0 md:ml-20 transform md:origin-left scale-[0.4] 2xs:scale-50 sm:scale-75 md:scale-50 lg:scale-75 xl:scale-100 md:w-md lg:w-lg xl:w-auto">
                 <div>
                   <div className="p-0 m-0 " onClick={this.handleLogoClick}>
