@@ -293,7 +293,7 @@ export default class Contact extends Component<Props, States> {
                   onChange={this.handleValueChange}
                   data-state="name"
                   inputProps={{ 'aria-label': 'name' }}
-                  className="w-full mr-0 sm:mr-5"
+                  className="w-full mr-0 sm:mr-1"
                   error={this.state.invalidFields.name.invalid}
                   helperText={this.state.invalidFields.name.reason}
                 />
@@ -305,7 +305,7 @@ export default class Contact extends Component<Props, States> {
                   onChange={this.handleValueChange}
                   data-state="email"
                   inputProps={{ 'aria-label': 'email' }}
-                  className="hidden sm:flex w-full ml-5"
+                  className="hidden sm:flex w-full ml-0 sm:ml-1"
                   error={this.state.invalidFields.email.invalid}
                   helperText={this.state.invalidFields.email.reason}
                 />
