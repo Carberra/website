@@ -272,9 +272,12 @@ export default class Contact extends Component<Props, States> {
               </p>
             </div>
           )}
-          <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
-            Get in Touch
-          </h1>
+
+          <div className="flex justify-center">
+            <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
+              Get in Touch
+            </h1>
+          </div>
           <form
             onSubmit={this.handleFormSubmit}
             id="contactForm"

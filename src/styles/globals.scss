@@ -149,7 +149,11 @@ a {
   }
 
   .text-brand-gradient {
-    background-image: linear-gradient(to right, #1987bd, #9e1cf3);
+    background: linear-gradient(
+      90deg,
+      $color-brand-purple 0%,
+      $color-brand-blue 100%
+    );
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }

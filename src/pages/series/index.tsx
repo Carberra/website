@@ -28,9 +28,11 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
-          Series
-        </h1>
+        <div className="flex justify-center">
+          <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
+            Series
+          </h1>
+        </div>
         <div className="grow mx-4 lg:mx-24">
           <div className="flex flex-wrap justify-center mt-4 child:mx-5 child:mb-10">
             <ThemeProvider theme={muiTheme}>

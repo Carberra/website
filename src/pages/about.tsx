@@ -41,9 +41,11 @@ tagline: **the future starts with you**.
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
-          About
-        </h1>
+        <div className="flex justify-center">
+          <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 uppercase">
+            About
+          </h1>
+        </div>
         <div className="grow">
           <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
             <ReactMarkdown
