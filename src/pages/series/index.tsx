@@ -35,8 +35,11 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
           <div className="flex flex-wrap justify-center mt-4 child:mx-5 child:mb-10">
             <ThemeProvider theme={muiTheme}>
               {allSeries.map((series) => (
-                <Card sx={{ maxWidth: 345 }} className="outline-brand-gradient">
-                  <div className="overflow-hidden relative">
+                <Card
+                  sx={{ maxWidth: 345 }}
+                  className="outline-brand-gradient flex flex-col"
+                >
+                  <div className="overflow-hidden">
                     <CardMedia
                       component="img"
                       height="140"
@@ -45,22 +48,22 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
                       alt={series.title}
                     />
                   </div>
-                  <CardContent>
+                  <CardContent className="grow">
                     <h1 className="font-sans text-2xl font-bold mb-2">
                       {series.title}
                     </h1>
                     <p className="font-sans font-light">{series.tagline}</p>
                   </CardContent>
-                  <CardActions>
+                  <CardActions className="pt-0 pb-4">
                     <Chip
                       label={series.status.toUpperCase()}
                       className={`ml-2 mr-3 child:mt-[0.2em] ${
                         series.status.toLowerCase() == 'active'
-                          ? 'bg-green-700/95'
+                          ? 'bg-green-700'
                           : series.status.toLowerCase() == 'dormant'
-                          ? 'bg-yellow-700/95'
+                          ? 'bg-yellow-700'
                           : series.status.toLowerCase() == 'dead'
-                          ? 'bg-red-700/95'
+                          ? 'bg-red-700'
                           : ''
                       }`}
                     />
@@ -94,15 +97,7 @@ export const getStaticProps = async () => {
     'slug',
   ]);
 
-  const allSeriesMod = [
-    ...allSeries,
-    ...allSeries,
-    ...allSeries,
-    ...allSeries,
-    ...allSeries,
-  ];
-
   return {
-    props: { allSeries: allSeriesMod },
+    props: { allSeries },
   };
 };
