@@ -1,9 +1,0 @@
-#!/bin/bash
-
-running=$(docker inspect --format={{.State.Running}} carberra-website)
-
-if [ $? -eq 0 ] && [ "$running" == "true" ]; then
-  docker stop carberra-website
-fi
-
-docker run -p 3000:3000 --name carberra-website --rm -d carberra/website:$1
