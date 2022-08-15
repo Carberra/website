@@ -13,7 +13,6 @@ The repo for the Carberra Tutorials website.
 - [Structure](#structure)
   - [Source Structure](#source-structure)
   - [Public Structure](#public-structure)
-  - [Script Structure](#script-structure)
 - [Branches](#branches)
 - [Development](#development)
   - [Running Storybook](#running-storybook)
@@ -23,6 +22,12 @@ The repo for the Carberra Tutorials website.
   - [Running Plausible](#running-plausible)
     - [First Time Only](#first-time-only)
     - [Every Time](#every-time)
+- [Adding a New Series](#adding-a-new-series)
+  - [Creating the Markdown File](#creating-the-markdown-file)
+  - [Adding the Metadata](#adding-the-metadata)
+  - [Adding Extra Information](#adding-extra-information)
+  - [Adding the Thumbnail](#adding-the-thumbnail)
+  - [Full File Example](#full-file-example)
 - [Questions](#questions)
 
 ## Tech Stack
@@ -31,48 +36,50 @@ This contains all of the information and specifics on the tech stack that the pr
 
 ### Overview
 
-| Item            | Value              | Version        |
-| --------------- | ------------------ | -------------- |
-| Language        | Typescript         | 4.3.2          |
-| Package Manager | Yarn               | 1.22.10        |
-| Server          | Node.JS            | 14.15.3        |
-| Framework       | Next JS (React)    | 11.1.0         |
-| Preview         | Storybook          | 6.4.0-alpha.18 |
-| CSS Processor   | PostCSS            | 8.3.0          |
-| Analytics/Stats | Plausible          | 1.3.0          |
-| API             | Next JS API Routes | 11.1.0         |
+| Item            | Value              | Version |
+| --------------- | ------------------ | ------- |
+| Language        | Typescript         | 4.3.2   |
+| Package Manager | Yarn               | 1.22.10 |
+| Server          | Node.JS            | 14.15.3 |
+| Framework       | Next JS (React)    | 12.2.3  |
+| Preview         | Storybook          | 6.5.9   |
+| CSS Processor   | PostCSS            | 8.3.0   |
+| Analytics/Stats | Plausible          | 1.3.0   |
+| API             | Next JS API Routes | 12.2.3  |
 
 ### Packages
 
-| Name                       | Version         | Use                                               |
-| -------------------------- | --------------- | ------------------------------------------------- |
-| Tailwind CSS               | 2.1.4           | Styling from HTML via classes                     |
-| Axios                      | 0.21.1          | API requests                                      |
-| Material UI (core & icons) | 4.12.2 & 4.11.2 | Nice, pre-made components to speed up development |
-| Node Mailer                | 6.6.3           | Send emails for contact form                      |
-| React Markdown             | 7.0.0           | Render markdown on pages                          |
-| SASS                       | 1.34.1          | Use SASS/SCSS for styling                         |
-| Babel (core)               | 7.14.3          | Part of Storybook                                 |
+| Name                                  | Version               | Use                                               |
+| ------------------------------------- | --------------------- | ------------------------------------------------- |
+| TailwindCSS                           | 3.1.7                 | Styling from HTML via classes                     |
+| Axios                                 | 0.21.1                | API requests                                      |
+| Material UI (core, icons, and styles) | 5.9.2 & 5.8.4 & 5.9.2 | Nice, pre-made components to speed up development |
+| Node Mailer                           | 6.6.3                 | Send emails for contact form                      |
+| React Markdown                        | 7.0.0                 | Render markdown on pages                          |
+| Gray Matter                           | 4.0.3                 | Interpret and parse markdown files                |
+| SASS                                  | 1.34.1                | Use SASS/SCSS for styling                         |
+| Babel (core)                          | 7.14.3                | Part of Storybook                                 |
 
 ### Helpers
 
-| Name                          | Version | Use                                  |
-| ----------------------------- | ------- | ------------------------------------ |
-| Babel Loader                  | 8.2.2   | Part of storybook                    |
-| SVGR/Webpack                  | 5.5.0   | Loading svgs via webpack             |
-| PostCSS Loader                | 4.2.0   | Load PostCSS in Storybook            |
-| SASS Loader                   | 10.1.1  | Load SASS in Storybook               |
-| TSConfig Paths Webpack Plugin | 3.5.1   | Support TS path aliases in Storybook |
-| Auto Prefixer                 | 10.2.6  | PostCSS plugin to add CSS prefixes   |
+| Name                          | Version | Use                                                  |
+| ----------------------------- | ------- | ---------------------------------------------------- |
+| Babel Loader                  | 8.2.2   | Part of storybook                                    |
+| SVGR/Webpack                  | 5.5.0   | Loading svgs via webpack                             |
+| PostCSS Loader                | 4.2.0   | Load PostCSS in Storybook                            |
+| SASS Loader                   | 10.1.1  | Load SASS in Storybook                               |
+| TSConfig Paths Webpack Plugin | 3.5.1   | Support TS path aliases in Storybook                 |
+| Auto Prefixer                 | 10.2.6  | PostCSS plugin to add CSS prefixes                   |
+| Tailwind Children (plugin)    | 0.5.0   | TailwindCSS plugin to allow styling child components |
 
 ### Storybook Addons
 
-| Name                         | Version        | Use                                          |
-| ---------------------------- | -------------- | -------------------------------------------- |
-| Actions, Essentials, Links   | 6.4.0-alpha.18 | Automatically installed with Storybook       |
-| PostCSS                      | 2.0.0          | Allow for loading of PostCSS                 |
-| Builder, Manager (Webpack 5) | 6.4.0-alpha.18 | Use Webpack 5 to be consistent with main app |
-| Theming                      | 6.4.0-alpha.18 | Add dark mode (essential)                    |
+| Name                         | Version | Use                                          |
+| ---------------------------- | ------- | -------------------------------------------- |
+| Actions, Essentials, Links   | 6.5.9   | Automatically installed with Storybook       |
+| PostCSS                      | 2.0.0   | Allow for loading of PostCSS                 |
+| Builder, Manager (Webpack 5) | 6.5.9   | Use Webpack 5 to be consistent with main app |
+| Theming                      | 6.5.9   | Add dark mode (essential)                    |
 
 ### Markdown Plugins
 
@@ -92,27 +99,26 @@ This contains all of the information and specifics on the tech stack that the pr
 
 #### Source Structure
 
-| Directory               | Description                   |
-| ----------------------- | ----------------------------- |
-| [pages](src/pages/)     | Source for pages              |
-| [styles](src/styles/)   | Source for custom styling     |
-| [ui](src/ui/)           | Source for ui components      |
-| [stories](src/stories/) | Source for storybook previews |
+| Directory                | Description                   |
+| ------------------------ | ----------------------------- |
+| [pages](src/pages/)      | Source for pages              |
+| [styles](src/styles/)    | Source for custom styling     |
+| [ui](src/ui/)            | Source for ui components      |
+| [stories](src/stories/)  | Source for storybook previews |
+| [\_series](src/_series/) | Source for series info pages  |
+| [utils](src/utils/)      | Source for utility files      |
 
 #### Public Structure
 
-| Directory                  | Description               |
-| -------------------------- | ------------------------- |
-| [brand](public/brand/)     | Holds brand assets        |
-| [favicon](public/favicon/) | Holds favicon assets      |
-| [fonts](public/fonts/)     | Holds font files          |
-| [icons](public/icons/)     | Holds icons for home page |
-
-#### Script Structure
-
-| Directory           | Description                                   |
-| ------------------- | --------------------------------------------- |
-| [bin](scripts/bin/) | Scripts for automation that are added to path |
+| Directory                                            | Description                              |
+| ---------------------------------------------------- | ---------------------------------------- |
+| [brand](public/brand/)                               | Holds brand assets                       |
+| [favicon](public/favicon/)                           | Holds favicon assets                     |
+| [assets](public/assets/)                             | Holds general assets                     |
+| [assets/graphics](public/assets/graphics/)           | Holds graphics assets                    |
+| [assets/icons](public/assets/icons/)                 | Holds icon assets (mainly for home page) |
+| [assets/images](public/assets/images/)               | Holds image assets                       |
+| [assets/images/series](public/assets/images/series/) | Holds thumbnails for series pages        |
 
 ## Branches
 
@@ -158,11 +164,6 @@ the next 6-10m approx. it will have built the docker container, sent it
 to the server, stopped the old container, and started the new one on the
 server, automating the whole process of deploying a new version.
 
-If you would like to run a single command to relaunch the docker container,
-you can use the `deploy` script which should be in path (if you ran `setup.sh`
-when you were setting it up). All you have to pass into the `deploy` script is
-a version (eg. `1.0.0`) and it should handle the rest for you.
-
 #### Running Plausible
 
 Run the following commands from the Plausible hosting folder (the one cloned below).
@@ -185,6 +186,97 @@ You will find a very simple backup site in the [html](html/) directory. This is 
 to function as a backup in case for some reason the docker container isn't running or
 accessable. To do so, just setup the nginx config to send to the `index.html` in that
 directory as the backup page and you will be good to go.
+
+## Adding a New Series
+
+To add a new series, you just need to create a markdown file for the series with the
+information required as well as any other information you want to include and place the
+thumbnail in the correct location.
+
+### Creating the Markdown File
+
+Create a new markdown file in the [\_series](src/series/) directory, with the name being
+what the url will be. So if the file is named `how-to-python.md`, the url will be `how-to-python`.
+
+### Adding the Metadata
+
+Then, you need to enter the metadata at the top of the file, which is used to construct
+the page and card, following the template below.
+
+```md
+---
+title: 'TITLE'
+tagline: >
+  TAGLINE
+thumbnail: '/assets/images/series/THUMBNAIL.jpg'
+launch_date: 'DATE (YYYY-MM-DD)'
+last_updated: 'DATE (YYYY-MM-DD)'
+status: 'STATUS (ACTIVE, DORMANT, OR DEAD)'
+support: 'SUPPORT LEVEL (FULL, PARTIAL, OR NONE)'
+playlist_link: 'https://www.youtube.com/playlist?list=PLAYLIST_ID'
+---
+```
+
+An example of what this metadata should look like is shown below.
+
+```md
+---
+title: 'How to Python'
+tagline: >
+  Ever wanted to get into Python, or even programming as a whole, but didn't know where to start? This playlist might be just for you.
+thumbnail: '/assets/images/series/how-to-python.jpg'
+launch_date: '2020-11-30'
+last_updated: '2022-06-10'
+status: 'Active'
+support: 'Full'
+playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05J2tJAAoS'
+---
+```
+
+This information is used to create the series card as well as the top part of the series
+info page.
+
+### Adding Extra Information
+
+After that, you can add any extra information that you want (such as requirements, notes,
+etc.) on the page below the metadata area in markdown. This extra information will be
+rendered below the info section on the series info page.
+
+### Adding the Thumbnail
+
+Upload the thumbnail in jpg format to the folder for thumbnails, found at
+[assets/images/series/](public/assets/images/series), ideally naming it the same name as
+the corresponding markdown file. So if the markdown file was `how-to-python.md`, then the
+thumbnail file should be `how-to-python.jpg`. Then link to that file in the thumbnail
+metadata area in the markdown file and you are good to go.
+
+### Full File Example
+
+```md
+---
+title: 'How to Python'
+tagline: >
+  Ever wanted to get into Python, or even programming as a whole, but didn't know where to start? This playlist might be just for you.
+thumbnail: '/assets/images/series/how-to-python.jpg'
+launch_date: '2020-11-30'
+last_updated: '2022-06-10'
+status: 'Active'
+support: 'Full'
+playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05J2tJAAoS'
+---
+
+## Required
+
+- Python 3.10.2 or higher
+
+## Optional
+
+- WSL
+
+## Notes
+
+This is a beginner series. If you are not a beginner, most of this will probably cover items you already know. I would suggest skipping ahead to later intermediate or hard episodes of the series if you would like to watch.
+```
 
 ## Questions
 
