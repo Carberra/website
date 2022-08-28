@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -42,18 +43,22 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
                   className="outline-brand-gradient flex flex-col"
                 >
                   <div className="overflow-hidden">
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      className="transform scale-[1.04]"
-                      image={series.thumbnail}
-                      alt={series.title}
-                    />
+                    <Link href={`/series/${series.slug}`}>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        className="transform scale-[1.04] hover:cursor-pointer"
+                        image={series.thumbnail}
+                        alt={series.title}
+                      />
+                    </Link>
                   </div>
                   <CardContent className="grow">
-                    <h1 className="font-sans text-2xl font-bold mb-2">
-                      {series.title}
-                    </h1>
+                    <Link href={`/series/${series.slug}`}>
+                      <h1 className="font-sans text-2xl font-bold mb-2 hover:cursor-pointer">
+                        {series.title}
+                      </h1>
+                    </Link>
                     <p className="font-sans font-light">{series.tagline}</p>
                   </CardContent>
                   <CardActions className="pt-0 pb-4">
