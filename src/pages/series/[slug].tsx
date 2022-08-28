@@ -3,6 +3,11 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import React from 'react';
 
+import InfoIcon from '@mui/icons-material/Info';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import { ThemeProvider } from '@mui/material/styles';
+
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkSlug from 'remark-slug';
@@ -12,6 +17,7 @@ import { getSeriesBySlug, getAllSeries, SeriesType } from '@utils/series';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
+import { muiTheme } from '@styles/theme';
 
 interface Props {
   series: SeriesType;
@@ -40,7 +46,7 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
 ## Info
 *Launch Date: ${formatDate(new Date(series.launch_date))}*  
 *Last Updated: ${formatDate(new Date(series.last_updated))}*  
-*Status: ${series.status}*  
+*Status: ${series.status}* <i></i>  
 *Support: ${series.support}*  
 ` +
     series.content;
@@ -79,6 +85,21 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
               className="text-white font-sans unreset markdown grow"
               remarkPlugins={[remarkGfm, remarkSlug]}
               rehypePlugins={[rehypeRaw]}
+              components={{
+                i: () => (
+                  <ThemeProvider theme={muiTheme}>
+                    <Tooltip title="Learn more" placement="top">
+                      <IconButton
+                        className="m-0 p-1"
+                        href="/series/info/lifecycles"
+                        target="_blank"
+                      >
+                        <InfoIcon className="text-base text-white" />
+                      </IconButton>
+                    </Tooltip>
+                  </ThemeProvider>
+                ),
+              }}
             />
           </div>
         </div>
