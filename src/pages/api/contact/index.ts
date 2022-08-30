@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import fs from 'fs';
+
 import NodeMailer from 'nodemailer';
 
 interface FormData {
@@ -21,14 +23,43 @@ const sendEmail = async (data: FormData) => {
     from: process.env.EMAIL_FROM,
     to: process.env.NEXT_PUBLIC_EMAIL_TO,
     subject: `Contact Request | ${data.subject}`,
-    text: data.message,
+    text: `Name: ${data.name}
+
+Email: ${data.email}
+
+Subject: ${data.subject}
+
+Message: ${data.message}`,
+    html: fs
+      .readFileSync(`${process.cwd()}/src/emails/contact-request.html`, 'utf8')
+      .replaceAll('${name}', data.name)
+      .replaceAll('${email}', data.email)
+      .replaceAll('${subject}', data.subject)
+      .replaceAll('${message}', data.message),
   };
 
   const submittedMessage = {
     from: process.env.EMAIL_FROM,
     to: data.email,
-    subject: 'Contact Submission Recieved',
-    text: 'Your contact submission to Carberra Tutorials has been recieved.',
+    subject: `Contact Submission | ${data.subject}`,
+    text: `Hi ${data.name}, your contact submission to Carberra has been received. A copy of your submission has been left below.
+
+Name: ${data.name}
+
+Email: ${data.email}
+
+Subject: ${data.subject}
+
+Message: ${data.message}`,
+    html: fs
+      .readFileSync(
+        `${process.cwd()}/src/emails/contact-submission-recieved.html`,
+        'utf8'
+      )
+      .replaceAll('${name}', data.name)
+      .replaceAll('${email}', data.email)
+      .replaceAll('${subject}', data.subject)
+      .replaceAll('${message}', data.message),
   };
 
   transport.sendMail(contactMessage, (err: any) => {
