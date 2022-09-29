@@ -69,7 +69,8 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
                           ? 'bg-green-700'
                           : series.status.toLowerCase() == 'dormant'
                           ? 'bg-yellow-700'
-                          : series.status.toLowerCase() == 'dead'
+                          : series.status.toLowerCase() == 'finished' ||
+                            series.status.toLowerCase() == 'cancelled'
                           ? 'bg-red-700'
                           : ''
                       }`}
