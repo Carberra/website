@@ -195,6 +195,10 @@ To add a new series, you just need to create a markdown file for the series with
 information required as well as any other information you want to include and place the
 thumbnail in the correct location.
 
+[^note]:
+    Previously, there was a `support` metatag. This has since been removed due to
+    being redundant. Any references to it are legacy.
+
 ### Creating the Markdown File
 
 Create a new markdown file in the [\_series](src/series/) directory, with the name being
@@ -214,7 +218,6 @@ thumbnail: '/assets/images/series/THUMBNAIL.jpg'
 launch_date: 'DATE (YYYY-MM-DD)'
 last_updated: 'DATE (YYYY-MM-DD)'
 status: 'STATUS (ACTIVE, DORMANT, OR DEAD)'
-support: 'SUPPORT LEVEL (FULL, PARTIAL, OR NONE)'
 playlist_link: 'https://www.youtube.com/playlist?list=PLAYLIST_ID'
 ---
 ```
@@ -230,7 +233,6 @@ thumbnail: '/assets/images/series/how-to-python.jpg'
 launch_date: '2020-11-30'
 last_updated: '2022-06-10'
 status: 'Active'
-support: 'Full'
 playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05J2tJAAoS'
 ---
 ```
@@ -263,7 +265,6 @@ thumbnail: '/assets/images/series/how-to-python.jpg'
 launch_date: '2020-11-30'
 last_updated: '2022-06-10'
 status: 'Active'
-support: 'Full'
 playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05J2tJAAoS'
 ---
 

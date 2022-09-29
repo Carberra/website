@@ -47,7 +47,6 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
 *Launch Date: ${formatDate(new Date(series.launch_date))}*  
 *Last Updated: ${formatDate(new Date(series.last_updated))}*  
 *Status: ${series.status}* <i></i>  
-*Support: ${series.support}*  
 ` +
     series.content;
 
@@ -124,7 +123,6 @@ export const getStaticProps = async ({ params }: Params) => {
     'launch_date',
     'last_updated',
     'status',
-    'support',
     'playlist_link',
     'slug',
     'content',

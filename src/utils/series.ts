@@ -45,7 +45,6 @@ export type SeriesType = {
   launch_date: string;
   last_updated: string;
   status: string;
-  support: string;
   playlist_link: string;
   content: string;
 };

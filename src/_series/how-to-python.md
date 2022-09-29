@@ -6,7 +6,6 @@ thumbnail: '/assets/images/series/how-to-python.jpg'
 launch_date: '2020-11-30'
 last_updated: '2022-06-10'
 status: 'Active'
-support: 'Full'
 playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05J2tJAAoS'
 ---
 
