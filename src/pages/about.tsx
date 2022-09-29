@@ -47,7 +47,7 @@ tagline: **the future starts with you**.
           </h1>
         </div>
         <div className="grow">
-          <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
+          <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:w-text md:mx-auto">
             <ReactMarkdown
               children={aboutContent}
               className="text-white font-sans unreset markdown grow"
