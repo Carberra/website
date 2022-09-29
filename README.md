@@ -28,6 +28,7 @@ The repo for the Carberra Tutorials website.
   - [Adding Extra Information](#adding-extra-information)
   - [Adding the Thumbnail](#adding-the-thumbnail)
   - [Full File Example](#full-file-example)
+  - [File Mapping](#file-mapping)
 - [Notes](#notes)
 - [Questions](#questions)
 
@@ -278,6 +279,10 @@ playlist_link: 'https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05
 
 This is a beginner series. If you are not a beginner, most of this will probably cover items you already know. I would suggest skipping ahead to later intermediate or hard episodes of the series if you would like to watch.
 ```
+
+### File Mapping
+
+![Series markdown file mapping](docs/images/series-md-mapping.jpg)
 
 ## Notes
 
