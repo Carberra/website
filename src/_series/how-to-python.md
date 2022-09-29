@@ -11,7 +11,7 @@ playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHRFwzIA3VAy05
 
 ## Required
 
-- Python 3.9.0 or greater
+- Python
 - A code editor
 
 ## Notes
