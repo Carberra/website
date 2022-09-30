@@ -35,3 +35,4 @@ yarn-error.log*
 # include
 !/public
 !/scripts/bin
+.vercel
