@@ -18,11 +18,11 @@ const PageNotFound: React.FC<Props> = () => {
             404
           </p>
           <p className="text-white text-3xl font-sans text-center">
-            Page Not Found
+            Page not found.
           </p>
           <div className="flex justify-center">
             <Button className="w-11/12 mt-4" href="/">
-              Return Home
+              Return home
             </Button>
           </div>
         </div>
