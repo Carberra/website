@@ -41,13 +41,13 @@ Same as finished, but where the series was not completed. You will not be able t
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex justify-center">
-          <h1 className="text-brand-gradient font-brand text-4xl mt-10 mb-5 mx-6 uppercase">
+          <h1 className="text-brand-gradient font-brand text-4xl mt-10 mb-5 mx-6 uppercase text-center">
             Series Lifecycles
           </h1>
         </div>
 
         <div className="grow">
-          <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:mx-20 lg:w-7/12 lg:mx-auto">
+          <div className="font-sans text-white text-md mt-4 mx-6 sm:mx-10 md:w-text md:mx-auto">
             <ReactMarkdown
               children={lifecyclesContent}
               className="text-white font-sans unreset markdown grow"
