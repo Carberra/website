@@ -22,4 +22,5 @@ playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6ZIfraPiUsJWuxj
 
 1. This series **does not** support discord.py 2.0.
 2. This series **does not** support Wavelink 1.0.
-3. Lavalink 1079 no longer works. Use the latest version instead.
+3. Lavalink 1079 no longer works.
+   Use the latest version instead.

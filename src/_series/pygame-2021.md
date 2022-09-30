@@ -20,4 +20,5 @@ playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6YoYZL4ZiyELHRv
 ## Notes
 
 1. PyGame recommends Python 3.7.7 or greater for performance reasons.
-2. NumPy is only required if you want to use the [SurfArray module](https://www.pygame.org/docs/ref/surfarray.html). It is not used in the series.
+2. NumPy is only required if you want to use the [SurfArray module](https://www.pygame.org/docs/ref/surfarray.html).
+   It is not used in the series.
