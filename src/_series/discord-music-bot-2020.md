@@ -1,6 +1,8 @@
 ---
 title: "Building a discord.py music bot (2020)"
-tagline: "No description provided."
+tagline: >
+   So you know how to make a Discord bot, but you now want it to play music.
+   Well, this series aims to show you how to do just that!
 thumbnail: "/assets/images/series/discord-music-bot-2020.jpg"
 launch_date: "2020-08-19"
 last_updated: "2021-07-16"

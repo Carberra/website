@@ -1,6 +1,8 @@
 ---
 title: "Things to Do in Python"
-tagline: "No description provided."
+tagline: >
+    Python is everywhere.
+    Let's go sightseeing together!
 thumbnail: "/assets/images/series/things-to-do-in-python.jpg"
 launch_date: "2022-10-03"
 last_updated: "2022-10-03"
