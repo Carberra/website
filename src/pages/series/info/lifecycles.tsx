@@ -13,25 +13,23 @@ interface Props {}
 
 const SeriesLifecycles: React.FC<Props> = () => {
   const lifecyclesContent = `
-Every tutorial series (episodic or otherwise) have a "lifecycle", defined here as the current running and support statuses. Every series has one of three statuses.
+Every tutorial series (episodic or otherwise) has one of four statuses that denote whether it is still receiving updates, and whether you can get support for it.
 
 ## Active
 
-If a series is active, it is still receiving updates or has received an update recently. You will be able to get support for it in the comments or in the Discord server.
+If a series is active, it is still receiving updates. You will be able to get support for it in the comments or in the Discord server.
 
 ## Dormant
 
-If a series is dormant, it is either on hiatus or has not received an update in the last four weeks. A dormant series may still receive updates, at which point it will become active again. You may be able to get support in the comments or in the Discord server depending on how long the series has been dormant.
+If a series is dormant, it is not currently receiving updates, but may receive some in the future. If it does, it will become active again. You may be able to get support in the comments or in the Discord server depending on how long the series has been dormant.
 
-## Dead
+## Finished
 
-If a series is dead, that means it will no longer receive updates, even in the case of breaking changes. A series can die for a number of reasons:
+If a series is finished, all planned content has been completed, and it will no longer receive updates. A finished series may or may not be broken, depending on the state of the libraries used within it. You may still be able to get support in the comments or in the Discord server depending on whether the series still works.
 
-- It has been dormant for a long time and no updates are expected
-- Breaking changes mean the series no longer works
-- It has been superceded by a newer series
+## Cancelled
 
-You still may be able to receive support in the Discord server depending on the series' popularity and the circumstances surrounding its death, but you will likely not be able to get help in the comments.
+Same as finished, but where the series was not completed. You will not be able to get support for the series.
 `;
 
   return (
