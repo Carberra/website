@@ -41,6 +41,7 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
                 <Card
                   sx={{ maxWidth: 345 }}
                   className="outline-brand-gradient flex flex-col"
+                  key={series.slug}
                 >
                   <div className="overflow-hidden">
                     <Link href={`/series/${series.slug}`}>
@@ -101,6 +102,7 @@ export const getStaticProps = async () => {
     'tagline',
     'thumbnail',
     'playlist_link',
+    'last_updated',
     'status',
     'slug',
   ]);

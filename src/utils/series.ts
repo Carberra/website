@@ -34,7 +34,9 @@ export const getAllSeries = (fields: string[] = []) => {
   const slugs = getSeriesSlugs();
   return slugs
     .map((slug) => getSeriesBySlug(slug, fields))
-    .sort((series1, series2) => (series1.date > series2.date ? 1 : -1));
+    .sort((series1, series2) =>
+      series1.last_updated > series2.last_updated ? -1 : 1
+    );
 };
 
 export type SeriesType = {
