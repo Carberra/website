@@ -3,7 +3,7 @@ title: "Python is Awesome"
 tagline: >
   Ya know, Python is awesome!
   There's so many cool things it can do, but a lot of them aren't as well known as they should be.
-  This series aims to be a knowledge-centre for such things.
+  This series aims to highlight such things, all of which you can do without installing a thing!
 thumbnail: "/assets/images/series/python-is-awesome.jpg"
 launch_date: "2022-05-06"
 last_updated: "2022-09-27"
