@@ -38,7 +38,6 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="application-name" content="Carberra Tutorials" />
         <meta name="msapplication-TileColor" content="#0c0c0c" />
         <meta name="theme-color" content="#ffffff" />
-        {loadPlausible()}
       </Head>
       <Component {...pageProps} />
       <Script
@@ -47,17 +46,5 @@ function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
-
-const loadPlausible = () => {
-  if (process.env.NODE_ENV === 'production')
-    return (
-      <script
-        async
-        defer
-        data-domain="carberra.xyz"
-        src="https://stats.carberra.xyz/js/plausible.js"
-      ></script>
-    );
-};
 
 export default App;
