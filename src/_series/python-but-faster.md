@@ -1,9 +1,8 @@
 ---
 title: "Python but Faster"
 tagline: >
-  Ya know, Python is awesome!
-  There's so many cool things it can do, but a lot of them aren't as well known as they should be.
-  This series aims to be a knowledge-centre for such things.
+  Ever wanted Python to just speed up?
+  This is probably the series for you.
 thumbnail: "/assets/images/series/python-but-faster.jpg"
 launch_date: "2022-06-23"
 last_updated: "2022-07-08"

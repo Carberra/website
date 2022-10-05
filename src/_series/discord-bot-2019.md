@@ -1,6 +1,8 @@
 ---
 title: "Building a discord.py bot (2019)"
-tagline: "This series is outdated."
+tagline: >
+    Ever wanted to find out how to build a Discord bot for your server?
+    You've come to the right place!
 thumbnail: "/assets/images/series/discord-bot-2019.jpg"
 launch_date: "2019-07-14"
 last_updated: "2019-09-06"

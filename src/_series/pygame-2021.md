@@ -1,6 +1,9 @@
 ---
 title: "Game development with Pygame (2021)"
-tagline: "No description provided."
+tagline: >
+   Did you know you can build games in Python?
+   No?
+   In this series, you'll find out how to make your very own game using the Pygame engine!
 thumbnail: "/assets/images/series/pygame-2021.jpg"
 launch_date: "2021-07-19"
 last_updated: "2021-08-16"

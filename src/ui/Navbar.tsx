@@ -30,10 +30,10 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
       name: 'About',
       location: '/about',
     },
-    {
-      name: 'Contact',
-      location: '/contact',
-    },
+    // {
+    //   name: 'Contact',
+    //   location: '/contact',
+    // },
   ];
 
   return (
