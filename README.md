@@ -38,58 +38,58 @@ This contains all of the information and specifics on the tech stack that the pr
 
 ### Overview
 
-| Item            | Value              | Version |
-| --------------- | ------------------ | ------- |
-| Language        | Typescript         | 4.3.2   |
-| Package Manager | Yarn               | 1.22.10 |
-| Server          | Node.JS            | 14.15.3 |
-| Framework       | Next JS (React)    | 12.2.3  |
-| Preview         | Storybook          | 6.5.9   |
-| CSS Processor   | PostCSS            | 8.3.0   |
-| Analytics/Stats | Plausible          | 1.3.0   |
-| API             | Next JS API Routes | 12.2.3  |
+| Item            | Value              |
+| --------------- | ------------------ |
+| Language        | Typescript         |
+| Package Manager | Yarn               |
+| Server          | Node.JS            |
+| Framework       | Next JS (React)    |
+| Preview         | Storybook          |
+| CSS Processor   | PostCSS            |
+| Analytics/Stats | Plausible          |
+| API             | Next JS API Routes |
 
 ### Packages
 
-| Name                                  | Version               | Use                                               |
-| ------------------------------------- | --------------------- | ------------------------------------------------- |
-| TailwindCSS                           | 3.1.7                 | Styling from HTML via classes                     |
-| Axios                                 | 0.21.1                | API requests                                      |
-| Material UI (core, icons, and styles) | 5.9.2 & 5.8.4 & 5.9.2 | Nice, pre-made components to speed up development |
-| Node Mailer                           | 6.6.3                 | Send emails for contact form                      |
-| React Markdown                        | 7.0.0                 | Render markdown on pages                          |
-| Gray Matter                           | 4.0.3                 | Interpret and parse markdown files                |
-| SASS                                  | 1.34.1                | Use SASS/SCSS for styling                         |
-| Babel (core)                          | 7.14.3                | Part of Storybook                                 |
+| Name                                  | Use                                               |
+| ------------------------------------- | ------------------------------------------------- |
+| TailwindCSS                           | Styling from HTML via classes                     |
+| Axios                                 | API requests                                      |
+| Material UI (core, icons, and styles) | Nice, pre-made components to speed up development |
+| Node Mailer                           | Send emails for contact form                      |
+| React Markdown                        | Render markdown on pages                          |
+| Gray Matter                           | Interpret and parse markdown files                |
+| SASS                                  | Use SASS/SCSS for styling                         |
+| Babel (core)                          | Part of Storybook                                 |
 
 ### Helpers
 
-| Name                          | Version | Use                                                  |
-| ----------------------------- | ------- | ---------------------------------------------------- |
-| Babel Loader                  | 8.2.2   | Part of storybook                                    |
-| SVGR/Webpack                  | 5.5.0   | Loading svgs via webpack                             |
-| PostCSS Loader                | 4.2.0   | Load PostCSS in Storybook                            |
-| SASS Loader                   | 10.1.1  | Load SASS in Storybook                               |
-| TSConfig Paths Webpack Plugin | 3.5.1   | Support TS path aliases in Storybook                 |
-| Auto Prefixer                 | 10.2.6  | PostCSS plugin to add CSS prefixes                   |
-| Tailwind Children (plugin)    | 0.5.0   | TailwindCSS plugin to allow styling child components |
+| Name                          | Use                                                  |
+| ----------------------------- | ---------------------------------------------------- |
+| Babel Loader                  | Part of storybook                                    |
+| SVGR/Webpack                  | Loading svgs via webpack                             |
+| PostCSS Loader                | Load PostCSS in Storybook                            |
+| SASS Loader                   | Load SASS in Storybook                               |
+| TSConfig Paths Webpack Plugin | Support TS path aliases in Storybook                 |
+| Auto Prefixer                 | PostCSS plugin to add CSS prefixes                   |
+| Tailwind Children (plugin)    | TailwindCSS plugin to allow styling child components |
 
 ### Storybook Addons
 
-| Name                         | Version | Use                                          |
-| ---------------------------- | ------- | -------------------------------------------- |
-| Actions, Essentials, Links   | 6.5.9   | Automatically installed with Storybook       |
-| PostCSS                      | 2.0.0   | Allow for loading of PostCSS                 |
-| Builder, Manager (Webpack 5) | 6.5.9   | Use Webpack 5 to be consistent with main app |
-| Theming                      | 6.5.9   | Add dark mode (essential)                    |
+| Name                         | Use                                          |
+| ---------------------------- | -------------------------------------------- |
+| Actions, Essentials, Links   | Automatically installed with Storybook       |
+| PostCSS                      | Allow for loading of PostCSS                 |
+| Builder, Manager (Webpack 5) | Use Webpack 5 to be consistent with main app |
+| Theming                      | Add dark mode (essential)                    |
 
 ### Markdown Plugins
 
-| Name        | Version | Use                                                |
-| ----------- | ------- | -------------------------------------------------- |
-| Remark GFM  | 2.0.0   | Add GitHub style markdown support (such as tables) |
-| Remark Slug | 7.0.0   | Add linking to markdown headers                    |
-| Rehype Raw  | 6.0.0   | Process HTML tags within markdown                  |
+| Name        | Use                                                |
+| ----------- | -------------------------------------------------- |
+| Remark GFM  | Add GitHub style markdown support (such as tables) |
+| Remark Slug | Add linking to markdown headers                    |
+| Rehype Raw  | Process HTML tags within markdown                  |
 
 ## Structure
 
