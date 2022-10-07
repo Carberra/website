@@ -28,10 +28,9 @@ jobs:
       - name: SCP image to server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }}
           username: parafoxia
+          host: ${{ secrets.HOST }}
           key: ${{ secrets.PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           source: 'carberra-website.tar'
           target: '/tmp/carberra-website'
           rm: true
