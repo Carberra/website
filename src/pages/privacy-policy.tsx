@@ -13,36 +13,24 @@ interface Props {}
 
 const PrivacyPolicy: React.FC<Props> = () => {
   const policyContent = `
-Organisation: Carberra Tutorials  
-Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}  
-Last updated: 2 Oct 2021  
+Organisation: Carberra Tutorials
+Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}
+Last updated: 8 Oct 2022
 
 ## Definitions
 
-**"Site"** -- this website  
-**"Organisation"** -- the organisation in which the Site is an asset  
-**"User"** -- any user of the Site  
+**"Site"** -- this website
+**"Organisation"** -- the organisation in which the Site is an asset
+**"User"** -- any user of the Site
 
 ## Information we collect
 
 The Site does not collect any personal information automatically from the User, nor does it store tracking information such
-as cookies in the browser. Anonymous usage data is collected via Plausible Analytics for statistical purposes. You can read
-more in their [privacy policy](https://plausible.io/privacy).
-
-Some manual data is collected from the User in the following situations:
-
-- When using the contact form -- the User's name and email address are collected in order to be able to reply to their query if necessary
+as cookies in the browser.
 
 ## Information we share
 
-The User's name and email address are shared with the Organisation upon completing the contact form. No other information
-is shared between or sold to any member of the Organisation nor any third parties at any point.
-
-## Our usage of collected information
-
-The name and email address of the User are used to provide the Organisation with the necessary information to be able to process
-the query. This information is kept until a notification of contact and the information itself has been sent to the Organisation,
-after which it is deleted.
+None!
 
 ## Changes and questions
 
