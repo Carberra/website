@@ -13,15 +13,15 @@ interface Props {}
 
 const PrivacyPolicy: React.FC<Props> = () => {
   const policyContent = `
-Organisation: Carberra Tutorials
-Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}
-Last updated: 8 Oct 2022
+Organisation: Carberra Tutorials  
+Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}  
+Last updated: 8 Oct 2022  
 
 ## Definitions
 
-**"Site"** -- this website
-**"Organisation"** -- the organisation in which the Site is an asset
-**"User"** -- any user of the Site
+**"Site"** -- this website  
+**"Organisation"** -- the organisation in which the Site is an asset  
+**"User"** -- any user of the Site  
 
 ## Information we collect
 
