@@ -1,6 +1,6 @@
 import '@styles/globals.scss';
 import Head from 'next/head';
-import Script from 'next/script';
+// import Script from 'next/script';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -43,9 +43,9 @@ export default function App({ Component, pageProps }: AppProps) {
         //@ts-ignore
         <Component {...pageProps} />
       }
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-      />
+      {/* <Script */}
+      {/*   src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} */}
+      {/* /> */}
     </div>
   );
 }
