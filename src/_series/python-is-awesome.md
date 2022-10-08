@@ -6,7 +6,7 @@ tagline: >
   This series aims to highlight such things, all of which you can do without installing a thing!
 thumbnail: "/assets/images/series/python-is-awesome.jpg"
 launch_date: "2022-05-06"
-last_updated: "2022-09-27"
+last_updated: "2022-10-10"
 status: "Active"
 playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6aJ8ZlA4vGvgGVo42IhF-Pc"
 ---
