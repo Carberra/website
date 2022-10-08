@@ -1,9 +1,10 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { Component } from 'react';
 
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
+
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -63,10 +64,10 @@ export default class Home extends Component<Props, States> {
   render() {
     return (
       <div>
-        <Head>
-          <title>Carberra</title>
-          <meta name="description" content="The home of Carberra" />
-        </Head>
+        <Meta
+          title="Carberra"
+          description="The home of Carberra. Regardless of whether you're a budding programmer or an avid computer user, this is the place for you."
+        />
         <div className="flex flex-col min-h-screen overflow-hidden bg-brand-black">
           <Navbar />
 

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import React from 'react';
@@ -14,6 +13,7 @@ import remarkSlug from 'remark-slug';
 import rehypeRaw from 'rehype-raw';
 
 import { getSeriesBySlug, getAllSeries, SeriesType } from '@utils/series';
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -52,10 +52,7 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
 
   return (
     <div>
-      <Head>
-        <title>{series.title} | Carberra</title>
-        <meta name="description" content={series.tagline} />
-      </Head>
+      <Meta title={`${series.title} | Carberra`} description={series.tagline} />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 mx-6 uppercase">

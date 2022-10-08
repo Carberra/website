@@ -1,10 +1,11 @@
-import Head from 'next/head';
 import React from 'react';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkSlug from 'remark-slug';
 import rehypeRaw from 'rehype-raw';
+
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -34,13 +35,10 @@ Same as finished, but where the series was not completed. You will not be able t
 
   return (
     <div>
-      <Head>
-        <title>Series Lifecycles | Carberra</title>
-        <meta
-          name="description"
-          content="Carberra video series lifecycle information"
-        />
-      </Head>
+      <Meta
+        title="Series Lifecycles | Carberra"
+        description="Information about the series lifecycles."
+      />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex justify-center">

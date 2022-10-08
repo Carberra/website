@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
@@ -11,6 +10,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 
 import { getAllSeries, SeriesType } from '@utils/series';
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -23,10 +23,10 @@ interface Props {
 const Series: React.FC<Props> = ({ allSeries }: Props) => {
   return (
     <div>
-      <Head>
-        <title>Series | Carberra</title>
-        <meta name="description" content="Carberra video series" />
-      </Head>
+      <Meta
+        title="Series | Carberra"
+        description="A catalog of all of the series on the Caberra channel and information about them."
+      />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex justify-center">

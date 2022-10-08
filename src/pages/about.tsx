@@ -1,10 +1,11 @@
-import Head from 'next/head';
 import React from 'react';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkSlug from 'remark-slug';
 import rehypeRaw from 'rehype-raw';
+
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -35,10 +36,10 @@ tagline: **the future starts with you**.
 
   return (
     <div>
-      <Head>
-        <title>About | Carberra</title>
-        <meta name="description" content="Learn about Carberra" />
-      </Head>
+      <Meta
+        title="About | Carberra"
+        description="Learn about Carberra, who he is, the channel, and more!"
+      />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex justify-center">

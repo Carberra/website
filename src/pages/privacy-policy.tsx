@@ -1,10 +1,11 @@
-import Head from 'next/head';
 import React from 'react';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkSlug from 'remark-slug';
 import rehypeRaw from 'rehype-raw';
+
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -41,10 +42,10 @@ If you have any questions regarding this policy, feel free to contact the Organi
 
   return (
     <div>
-      <Head>
-        <title>Privacy Policy | Carberra</title>
-        <meta name="description" content="Carberra website privacy policy" />
-      </Head>
+      <Meta
+        title="Privacy Policy | Carberra"
+        description="Your data and privacy are essential, so learn about how we take care of your data."
+      />
 
       <div className="flex flex-col min-h-screen">
         <Navbar />

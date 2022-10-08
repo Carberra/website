@@ -1,5 +1,6 @@
-import Head from 'next/head';
 import React from 'react';
+
+import Meta from '@utils/meta';
 
 import { Button } from '@ui/Button';
 
@@ -8,10 +9,10 @@ interface Props {}
 const PageNotFound: React.FC<Props> = () => {
   return (
     <div>
-      <Head>
-        <title>404 | Carberra</title>
-        <meta name="description" content="The requested page doesn't exist" />
-      </Head>
+      <Meta
+        title="404 | Carberra"
+        description="The requested does not exist."
+      />
       <div className="flex justify-center items-center min-h-screen">
         <div>
           <p className="text-brand-gradient text-7xl font-brand uppercase text-center mb-3">

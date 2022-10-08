@@ -1,8 +1,9 @@
-import Head from 'next/head';
 import React, { Component } from 'react';
 
 import { ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+
+import Meta from '@utils/meta';
 
 import { Navbar } from '@ui/Navbar';
 import { Footer } from '@ui/Footer';
@@ -246,10 +247,11 @@ export default class Contact extends Component<Props, States> {
   render() {
     return (
       <div className="bg-brand-black">
-        <Head>
-          <title>Contact | Carberra</title>
-          <meta name="description" content="Get in touch with Carberra" />
-        </Head>
+        <Meta
+          title="Contact | Carberra"
+          description="Get in touch with Carberra."
+        />
+
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <Spinner

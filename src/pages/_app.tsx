@@ -3,42 +3,15 @@ import Head from 'next/head';
 // import Script from 'next/script';
 import type { AppProps } from 'next/app';
 
+import Meta from '@utils/meta';
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
-      <Head>
-        <title>Carberra</title>
-        <meta name="description" content="The home of Carberra" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href="/favicon/safari-pinned-tab.svg"
-          color="#0c0c0c"
-        />
-        <meta name="apple-mobile-web-app-title" content="Carberra" />
-        <meta name="application-name" content="Carberra" />
-        <meta name="msapplication-TileColor" content="#0c0c0c" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
+      <Meta
+        title="Carberra"
+        description="The home of Carberra. Regardless of whether you're a budding programmer or an avid computer user, this is the place for you."
+      />
       {
         //@ts-ignore
         <Component {...pageProps} />
