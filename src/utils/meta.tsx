@@ -4,10 +4,15 @@ import React from 'react';
 interface Props {
   title: string;
   description: string;
+  image?: string;
   children?: React.ReactNode;
 }
 
 const Meta: React.FC<Props> = (props) => {
+  const imagePath = props.image
+    ? props.image
+    : '/assets/images/meta/home-preview.jpg';
+
   return (
     <Head>
       {/* Primary meta tags */}
@@ -24,20 +29,14 @@ const Meta: React.FC<Props> = (props) => {
       <meta property="og:url" content="https://carberra.xyz/" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
-      <meta
-        property="og:image"
-        content="/assets/images/meta/home-preview.jpg"
-      />
+      <meta property="og:image" content={imagePath} />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://carberra.xyz/" />
       <meta property="twitter:title" content={props.title} />
       <meta property="twitter:description" content={props.description} />
-      <meta
-        property="twitter:image"
-        content="/assets/images/meta/home-preview.jpg"
-      />
+      <meta property="twitter:image" content={imagePath} />
 
       {/* Favicon */}
       <link
