@@ -1,6 +1,6 @@
-# Carberra Tutorials Website
+# Carberra Website
 
-The repo for the Carberra Tutorials website.
+The repo for the Carberra website.
 
 ## Table of Contents
 

@@ -13,7 +13,7 @@ interface Props {}
 
 const PrivacyPolicy: React.FC<Props> = () => {
   const policyContent = `
-Organisation: Carberra Tutorials  
+Organisation: Carberra  
 Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}  
 Last updated: 8 Oct 2022  
 
@@ -42,11 +42,8 @@ If you have any questions regarding this policy, feel free to contact the Organi
   return (
     <div>
       <Head>
-        <title>Privacy Policy | Carberra Tutorials</title>
-        <meta
-          name="description"
-          content="The privacy policy for the Carberra Tutorials website"
-        />
+        <title>Privacy Policy | Carberra</title>
+        <meta name="description" content="Carberra website privacy policy" />
       </Head>
 
       <div className="flex flex-col min-h-screen">

@@ -9,7 +9,7 @@ const PageNotFound: React.FC<Props> = () => {
   return (
     <div>
       <Head>
-        <title>404 | Carberra Tutorials</title>
+        <title>404 | Carberra</title>
         <meta name="description" content="The requested page doesn't exist" />
       </Head>
       <div className="flex justify-center items-center min-h-screen">

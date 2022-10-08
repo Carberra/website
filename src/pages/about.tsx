@@ -13,7 +13,7 @@ interface Props {}
 
 const About: React.FC<Props> = () => {
   const aboutContent = `
-Welcome to Carberra Tutorials! Here we (or really, I) do programming tutorials and the like for the internet. I sort of
+Welcome to Carberra! Here we (or really, I) do programming tutorials and the like for the internet. I sort of
 fell into this position by accident; I'd been on YouTube for a long time (mainly gaming videos), and thought to myself
 "I should really do programming stuff, seen as that's what I spend most of my time doing anyways". And now here I am a
 couple of years later with a decently sized community and a website that someone else offered to make for me, wondering
@@ -36,8 +36,8 @@ tagline: **the future starts with you**.
   return (
     <div>
       <Head>
-        <title>About | Carberra Tutorials</title>
-        <meta name="description" content="Learn about Carberra Tutorials" />
+        <title>About | Carberra</title>
+        <meta name="description" content="Learn about Carberra" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />

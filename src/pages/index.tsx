@@ -64,8 +64,8 @@ export default class Home extends Component<Props, States> {
     return (
       <div>
         <Head>
-          <title>Carberra Tutorials</title>
-          <meta name="description" content="The home of Carberra Tutorials" />
+          <title>Carberra</title>
+          <meta name="description" content="The home of Carberra" />
         </Head>
         <div className="flex flex-col min-h-screen overflow-hidden bg-brand-black">
           <Navbar />

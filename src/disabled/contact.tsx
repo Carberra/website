@@ -247,11 +247,8 @@ export default class Contact extends Component<Props, States> {
     return (
       <div className="bg-brand-black">
         <Head>
-          <title>Contact | Carberra Tutorials</title>
-          <meta
-            name="description"
-            content="Get in touch with Carberra Tutorials"
-          />
+          <title>Contact | Carberra</title>
+          <meta name="description" content="Get in touch with Carberra" />
         </Head>
         <div className="flex flex-col min-h-screen">
           <Navbar />

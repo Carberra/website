@@ -53,7 +53,7 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
   return (
     <div>
       <Head>
-        <title>{series.title} | Carberra Tutorials</title>
+        <title>{series.title} | Carberra</title>
         <meta name="description" content={series.tagline} />
       </Head>
       <div className="flex flex-col min-h-screen">

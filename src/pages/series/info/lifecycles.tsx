@@ -35,8 +35,11 @@ Same as finished, but where the series was not completed. You will not be able t
   return (
     <div>
       <Head>
-        <title>Series Lifecycles | Carberra Tutorials</title>
-        <meta name="description" content="Learn about Carberra Tutorials" />
+        <title>Series Lifecycles | Carberra</title>
+        <meta
+          name="description"
+          content="Carberra video series lifecycle information"
+        />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />

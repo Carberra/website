@@ -24,8 +24,8 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
   return (
     <div>
       <Head>
-        <title>Series | Carberra Tutorials</title>
-        <meta name="description" content="Learn about Carberra Tutorials" />
+        <title>Series | Carberra</title>
+        <meta name="description" content="Carberra video series" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
