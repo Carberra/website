@@ -1,4 +1,4 @@
-name: Automatically Deploy on New Tag
+name: Deploy
 
 on:
   push:
