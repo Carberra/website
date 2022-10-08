@@ -2,8 +2,8 @@ name: Automatically Deploy on New Tag
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - "master"
 
 jobs:
   deploy:
