@@ -52,7 +52,11 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
 
   return (
     <div>
-      <Meta title={`${series.title} | Carberra`} description={series.tagline} />
+      <Meta
+        title={`${series.title} | Carberra`}
+        description={series.tagline}
+        image={series.thumbnail}
+      />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <h1 className="text-brand-gradient font-brand text-4xl text-center mt-10 mb-5 mx-6 uppercase">
@@ -117,6 +121,7 @@ export const getStaticProps = async ({ params }: Params) => {
   const series = getSeriesBySlug(params.slug, [
     'title',
     'tagline',
+    'thumbnail',
     'launch_date',
     'last_updated',
     'status',
