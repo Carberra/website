@@ -5,7 +5,7 @@ tagline: >
 thumbnail: "/assets/images/series/hikari-supplementary.jpg"
 launch_date: "2021-10-18"
 last_updated: "2022-06-17"
-status: "Dormant"
+status: "Finished"
 playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6bavdLzROgQl6PAVuLh-xhE"
 ---
 

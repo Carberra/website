@@ -6,7 +6,7 @@ tagline: >
   This series aims to highlight such things, all of which you can do without installing a thing!
 thumbnail: "/assets/images/series/python-is-awesome.jpg"
 launch_date: "2022-05-06"
-last_updated: "2022-10-10"
+last_updated: "2022-12-05"
 status: "Active"
 playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6aJ8ZlA4vGvgGVo42IhF-Pc"
 ---
@@ -18,5 +18,5 @@ playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6aJ8ZlA4vGvgGVo
 
 ## Notes
 
-1. This series primarily uses Python 3.10.
+1. This series primarily uses Python 3.10 and 3.11.
 2. This series contains some videos originally intended for the How to Python series, which were recorded before the series launch date.
