@@ -11,7 +11,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Anybody', ...defaultTheme.fontFamily.sans],
+        sans: ['D-DIN', ...defaultTheme.fontFamily.sans],
         brand: ['Zen Dots'],
       },
       colors: {

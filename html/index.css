@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anybody&display=swap');
+@font-face {
+  font-family: "D-DIN";
+  src: "public/fonts/D-DIN.otf";
+}
 
 :root {
   --brand-black: #0c0c0c;
@@ -28,7 +32,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Anybody, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: D-DIN, Anybody, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 

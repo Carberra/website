@@ -56,7 +56,7 @@ const Series: React.FC<Props> = ({ allSeries }: Props) => {
                   </div>
                   <CardContent className="grow">
                     <Link href={`/series/${series.slug}`}>
-                      <h1 className="font-sans text-2xl font-bold italic mb-2 hover:cursor-pointer">
+                      <h1 className="font-sans text-2xl font-bold mb-2 hover:cursor-pointer">
                         {series.title}
                       </h1>
                     </Link>
