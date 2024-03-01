@@ -2,8 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - "master"
+  workflow_trigger:
 
 jobs:
   deploy:
