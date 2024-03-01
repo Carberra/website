@@ -1,7 +1,7 @@
 ---
 title: "Python 3.12"
 tagline: >
-    All the updates from Python 3.13.
+    All the updates from Python 3.12.
 thumbnail: "/assets/images/series/python-312.jpg"
 launch_date: "2022-11-07"
 last_updated: "2024-01-31"
