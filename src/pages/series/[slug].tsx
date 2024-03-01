@@ -45,7 +45,6 @@ const SeriesInfo: React.FC<Props> = ({ series }: Props) => {
     `
 ## Info
 *Launch Date: ${formatDate(new Date(series.launch_date))}*  
-*Last Updated: ${formatDate(new Date(series.last_updated))}*  
 *Status: ${series.status}* <i></i>  
 ` +
     series.content;
