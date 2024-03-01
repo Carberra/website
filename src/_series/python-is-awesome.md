@@ -6,7 +6,7 @@ tagline: >
   This series aims to highlight such things, both within the standard library, and with the aid of awesome third-party packages!
 thumbnail: "/assets/images/series/python-is-awesome.jpg"
 launch_date: "2021-12-27"
-last_updated: "2024-02-26"
+last_updated: "2024-03-06"
 status: "Active"
 playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6aJ8ZlA4vGvgGVo42IhF-Pc"
 ---

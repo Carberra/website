@@ -5,7 +5,7 @@ tagline: >
   This is probably the series for you.
 thumbnail: "/assets/images/series/python-but-faster.jpg"
 launch_date: "2022-06-23"
-last_updated: "2024-01-12"
+last_updated: "2024-03-05"
 status: "Active"
 playlist_link: "https://www.youtube.com/playlist?list=PLYeOw6sTSy6ZotfqL7E6ePi4zX8vhEqKf"
 ---
