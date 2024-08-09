@@ -47,7 +47,7 @@ export default class Home extends Component<Props, States> {
     this.setState({ scrollTextFade: 'opacity-0' });
     setTimeout(() => {
       this.setState({
-        scrollDownText: 'Jax is cute',
+        scrollDownText: 'Jaxtar is cute',
         scrollTextFade: 'opacity-1',
       });
     }, 250);
@@ -73,14 +73,14 @@ export default class Home extends Component<Props, States> {
             options={{
               particles: {
                 number: {
-                  value: 80,
+                  value: 25,
                   density: {
                     enable: true,
-                    value_area: 700,
+                    value_area: 400,
                   },
                 },
                 color: {
-                  value: '#D0D0D0',
+                  value: '#cb7dff',
                 },
                 shape: {
                   type: 'circle',
@@ -115,8 +115,8 @@ export default class Home extends Component<Props, States> {
                 line_linked: {
                   enable: true,
                   distance: 150,
-                  color: '#D0D0D0',
-                  opacity: 0.4,
+                  color: '#52b9eb',
+                  opacity: 0.3,
                   width: 1,
                 },
                 move: {
