@@ -11,7 +11,6 @@ import { Footer } from '@ui/Footer';
 
 import DiscordIcon from '@public/assets/icons/discord.svg';
 import GithubIcon from '@public/assets/icons/github.svg';
-import PatreonIcon from '@public/assets/icons/patreon.svg';
 import YoutubeIcon from '@public/assets/icons/youtube.svg';
 
 import WordmarkWhite from '@public/brand/wordmark/wordmark-white.svg';
