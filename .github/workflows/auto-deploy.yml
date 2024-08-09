@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-  workflow_trigger:
+  workflow_dispatch:
 
 jobs:
   deploy:
