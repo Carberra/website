@@ -36,3 +36,7 @@ yarn-error.log*
 !/public
 !/scripts/bin
 .vercel
+
+# yarn
+.yarn
+.yarnrc.yml
