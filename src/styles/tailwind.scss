@@ -3,7 +3,10 @@
     @apply text-blue-700 underline;
   }
   p {
-    @apply my-4;
+    @apply text-xl my-4;
+  }
+  table {
+    @apply text-xl;
   }
 
   blockquote,
@@ -16,7 +19,7 @@
   }
 
   h1 {
-    @apply text-4xl font-bold my-2;
+    @apply text-3xl font-bold my-2;
   }
 
   h2 {
