@@ -184,8 +184,15 @@ export default class Home extends Component<Props, States> {
                     />
                   </div>
                   <div
-                    className={`flex md:w-6/12 justify-around md:justify-between mx-6 mt-2 ${styles.IconAnimation} descendant-svg:h-14 2xs:descendant-svg:h-12 sm:descendant-svg:h-10 descendant-svg:relative descendant-svg:z-10`}
+                    className={`flex md:w-1/2 justify-around md:justify-between mx-6 mt-2 ${styles.IconAnimation} descendant-svg:h-14 2xs:descendant-svg:h-12 sm:descendant-svg:h-10 descendant-svg:relative descendant-svg:z-10`}
                   >
+                    <a
+                      href="https://youtube.carberra.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <YoutubeIcon />
+                    </a>
                     <a
                       href="https://discord.carberra.xyz"
                       target="_blank"
@@ -199,20 +206,6 @@ export default class Home extends Component<Props, States> {
                       rel="noopener noreferrer"
                     >
                       <GithubIcon />
-                    </a>
-                    <a
-                      href="https://patreon.carberra.xyz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <PatreonIcon />
-                    </a>
-                    <a
-                      href="https://youtube.carberra.xyz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <YoutubeIcon />
                     </a>
                   </div>
                 </div>
