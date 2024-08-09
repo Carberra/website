@@ -15,8 +15,8 @@ interface Props {}
 const PrivacyPolicy: React.FC<Props> = () => {
   const policyContent = `
 Organisation: Carberra  
-Contact email: ${process.env.NEXT_PUBLIC_EMAIL_TO}  
-Last updated: 8 Oct 2022  
+Contact email: carberra.connections@gmail.com  
+Last updated: 9 Aug 2024  
 
 ## Definitions
 
@@ -26,12 +26,12 @@ Last updated: 8 Oct 2022
 
 ## Information we collect
 
-The Site does not collect any personal information automatically from the User, nor does it store tracking information such
-as cookies in the browser.
+The Site does not collect any personal information automatically from the User, nor does
+it store tracking information such as cookies in the browser.
 
 ## Information we share
 
-None!
+The Site does not share any information with third parties.
 
 ## Changes and questions
 
