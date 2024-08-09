@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Component } from 'react';
 
 import Particles from 'react-particles';
@@ -15,8 +14,6 @@ import YoutubeIcon from '@public/assets/icons/youtube.svg';
 
 import WordmarkWhite from '@public/brand/wordmark/wordmark-white.svg';
 import WordmarkTrail from '@public/brand/wordmark/wordmark-trail.svg';
-
-import Arrow from '@public/assets/graphics/arrow.svg';
 
 import styles from '@styles/modules/Home.module.scss';
 
@@ -206,23 +203,6 @@ export default class Home extends Component<Props, States> {
                     >
                       <GithubIcon />
                     </a>
-                  </div>
-                </div>
-              </div>
-              <div className="md:flex md:justify-end w-full mb-8 md:mb-0">
-                <div
-                  className="md:bg-gradient-to-l md:from-brand-black md:via-brand-black md:h-screen-navbar w-full 2xl:w-7/12 md:ml-3 relative"
-                  style={{ zIndex: 5 }}
-                >
-                  <div className="bg-gradient-to-r from-brand-purple to-brand-blue md:bg-brand-gradient-fade md:h-screen-navbar w-full relative z-10 flex justify-center md:justify-end items-center py-12 md:py-0">
-                    <Link href="/series">
-                      <span className="font-brand text-white uppercase text-xl sm:text-2xl lg:text-3xl mr-4 cursor-pointer">
-                        Series
-                      </span>
-                    </Link>
-                    <Link href="/series">
-                      <Arrow className="relative z-20 md:mr-20 cursor-pointer" />
-                    </Link>
                   </div>
                 </div>
               </div>

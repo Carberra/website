@@ -23,10 +23,6 @@ export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
 
   const links: PageData[] = [
     {
-      name: 'Series',
-      location: '/series',
-    },
-    {
       name: 'About',
       location: '/about',
     },
