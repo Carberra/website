@@ -42,24 +42,24 @@ const Meta: React.FC<Props> = (props) => {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
+        href="/favicon/apple-touch-icon.png?v=2"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon/favicon-32x32.png"
+        href="/favicon/favicon-32x32.png?v=2"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/favicon-16x16.png"
+        href="/favicon/favicon-16x16.png?v=2"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link
         rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
+        href="/favicon/safari-pinned-tab.svg?v=2"
         color="#0c0c0c"
       />
       <meta name="apple-mobile-web-app-title" content="Carberra" />
