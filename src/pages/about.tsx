@@ -14,31 +14,42 @@ interface Props {}
 
 const About: React.FC<Props> = () => {
   const aboutContent = `
-Welcome to Carberra! Here we (or really, I) do programming tutorials and the like for the internet. I sort of
-fell into this position by accident; I'd been on YouTube for a long time (mainly gaming videos), and thought to myself
-"I should really do programming stuff, seen as that's what I spend most of my time doing anyways". And now here I am a
-couple of years later with a decently sized community and a website that someone else offered to make for me, wondering
-how I even got myself in this position.
+Welcome to Carberra! Here we (or really, I) do programming tutorials and the like for
+the internet. It's not my first rodeo at this -- before this, I ran a gaming channel (of
+all things) called Superboo. That started in 2012, so that should give you an idea how
+long I've been doing this! Carberra itself started in 2019, though in reality, it's
+really just a combination of older ideas.
 
-If you're curious about who **I** am, my name is Ethan, I'm in my early twenties (stuff updating this paragraph every year),
-and I'm studying for a Master's in Computer Science. You could argue that a student teacher is a little like the blind
-leading the blind, but as a student, you learn all the time! I'm just trying to drill the knowledge I've obtained over
-the last however many aeons into as many people as possible in the vague hope that I can prevent people making the same
-mistakes I did. Though saying that, I **do** wear glasses, so make of that what you will.
+My first attempts at programming videos were all the way back in 2016. I'd recently done
+some other various tutorials on my old channel, and had started learning to program in
+school about a year earlier, so I thought why not! I quickly learned that I wasn't in a
+position to be teaching anyone yet, so I ended up scrapping the idea. After spending a
+lot of time developing Discord bots for others, I finally found the perfect avenue to
+give it another shot.
 
-In terms of the channel (the main attraction around here) I predominately work with Python, but there's some other stuff
-knocking about, with more in the woodworks, if you're interested in it. Either way, everything's on the front page, so
-go check if out for yourself, and maybe stick around if you like what you see I suppose.
+Bizarelly, Discord bots are also where the name came from as well. A lot of the bots I
+was developing shared the same core functionality, and so I wanted to create a shareable
+framework that all these bots used. This framework was called "Carberra", [borrowed and
+adapted from TVR](https://en.wikipedia.org/wiki/TVR_Cerbera), and was a complete
+failure. I liked the name so much though that it lived on, and will now live on forever
+(or at least until YouTube shuts down their servers). Even the original logo came from
+an old Discord bot of mine, but that logo is _long_ gone now.
 
-I'll leave you with this saying that I accidently stole from *Portal 2* without realising when trying to come up with a
-tagline: **the future starts with you**.
+As for me, my name is [Ethan](https://tenor.com/en-GB/search/ethan-gifs), and a lot has
+happened in the years since I started the channel. When it started, I was in my first
+year of university studying Computer Science; now I've graduated with a master's degree
+(with distinction) and have a job in the AgTech industry! I've leared a lot from running
+this channel though, both self-taught topics for videos, as well as listening to others
+that should probably be running this channel instead of me.
+
+Er, but, yeah. Like and subscribe or something. [Idk](https://party.carberra.xyz).
   `;
 
   return (
     <div>
       <Meta
         title="About | Carberra"
-        description="Learn about Carberra, who he is, the channel, and more!"
+        description="Who is Carberra?"
       />
       <div className="flex flex-col min-h-screen">
         <Navbar />
