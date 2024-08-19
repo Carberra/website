@@ -34,8 +34,7 @@ _*These take the form of a quick mention._
 ## Placements
 
 Placements are done in the main body of the video. These will showcase
-the product/service with no mentions, links, or calls to action. For
-these, see Dedicated/Videos.
+the product/service with no mentions, links, or calls to action.
 
 | Price (GBP) | Price (USD) |
 | :---------: | :---------: |
@@ -61,7 +60,7 @@ related, please see **Integrations**.
 | 16+          | _Enquire_   | _Enquire_   |
 
 _Please note that due to UK advertising law, these must be labelled as
-advertisements in the thumbnail._
+advertisements in the title or thumbnail._
 
 ## Shorts
 
