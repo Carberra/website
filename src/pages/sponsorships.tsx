@@ -74,6 +74,10 @@ _Please note that due to UK advertising law, the titles of these must
 start with #ad._
   `;
 
+  const sponsorshipContentFooter = `
+Please make enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
+  `;
+
   return (
     <div>
       <Meta
@@ -99,6 +103,16 @@ start with #ad._
               <ReactMarkdown
                 children={sponsorshipContentCol2}
                 className="font-sans text-white unreset markdown grow max-w-text shrink basis-0"
+                remarkPlugins={[remarkGfm, remarkSlug]}
+                rehypePlugins={[rehypeRaw]}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center mx-6 mt-4 font-sans text-white text-md sm:mx-10">
+            <div className="flex flex-col gap-8 md:flex-row">
+              <ReactMarkdown
+                children={sponsorshipContentFooter}
+                className="font-sans text-white unreset markdown grow max-w-text shrink basis-0 text-center"
                 remarkPlugins={[remarkGfm, remarkSlug]}
                 rehypePlugins={[rehypeRaw]}
               />
