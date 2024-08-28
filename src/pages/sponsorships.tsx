@@ -76,6 +76,8 @@ start with #ad._
 
   const sponsorshipContentFooter = `
 Please make enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
+
+_Prices last updated 19 Aug 2024._
   `;
 
   return (
