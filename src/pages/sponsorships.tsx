@@ -16,29 +16,28 @@ const Sponsorships: React.FC<Props> = () => {
   const sponsorshipContentCol1 = `
 # Integrations
 
-## Intros
+## To Camera
 
-These go in the intro, after the premise has been introduced, but before
-the main body of the video begins. These are done to camera, though
-footage can be overlayed.
+These go at the end of the intro, immediately before the main body of
+the video begins. Other footage can be overlayed.
 
 | Length (sec) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-5*         | 50          | 65          |
 | 30-45        | 200         | 250         |
 | 46-60        | 250         | 320         |
 | 61+          | _Enquire_   | _Enquire_   |
 
-_*These take the form of a quick mention._
+## Endorsement
 
-## Placements
+These go after the intro, and provide a quick mention of the product,
+along with a call to action. These are not done to camera.
 
-Placements are done in the main body of the video. These will showcase
-the product/service with no mentions, links, or calls to action.
+_Example: "This video is sponsored by Example Hosting. Get 10% off your
+first hosting server using the link in the description."_
 
 | Price (GBP) | Price (USD) |
 | :---------: | :---------: |
-| 150         | 190         |
+| 50          | 65          |
 
 ## Other Integrations
 
