@@ -23,8 +23,8 @@ the video begins. Other footage can be overlayed.
 
 | Length (sec) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 30-45        | 200         | 250         |
-| 46-60        | 250         | 320         |
+| 30-45        | 200         | 265         |
+| 46-60        | 250         | 330         |
 | 61+          | _Enquire_   | _Enquire_   |
 
 ## Endorsement
@@ -55,7 +55,7 @@ related, please see **Integrations**.
 
 | Length (min) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-15         | 300         | 380         |
+| 0-15         | 300         | 395         |
 | 16+          | _Enquire_   | _Enquire_   |
 
 _Please note that due to UK advertising law, these must be labelled as
@@ -65,9 +65,9 @@ advertisements in the title or thumbnail._
 
 | Length (sec) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-30         | 150         | 190         |
-| 31-45        | 200         | 250         |
-| 46-60        | 250         | 320         |
+| 0-30         | 175         | 230         |
+| 31-45        | 200         | 265         |
+| 46-60        | 225         | 295         |
 
 _Please note that due to UK advertising law, the titles of these must
 start with #ad._
@@ -76,7 +76,7 @@ start with #ad._
   const sponsorshipContentFooter = `
 Please make enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
 
-_Prices last updated 19 Aug 2024._
+_Prices last updated 12 Sep 2024._
   `;
 
   return (
