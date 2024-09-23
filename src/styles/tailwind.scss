@@ -91,7 +91,7 @@
   ul,
   menu {
     // should be my-4 for proper reset, but thats ugly af
-    @apply list-disc my-1 pl-10;
+    @apply list-disc my-4 pl-10;
   }
 
   ol {

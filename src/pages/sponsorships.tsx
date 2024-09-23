@@ -23,21 +23,26 @@ video. Footage and logos etc. can be overlayed.
 | Length (sec) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
 | 30-45        | 200         | 270         |
-| 46-60        | 250         | 335         |
+| 46-60        | 250         | 330         |
 | 61+          | _Enquire_   | _Enquire_   |
 
 # Placement
 
-Your product or service used within the video in some way, for example
-a tutorial on making requests to APIs using the API your organisation
-wants to advertise.
+These come in two types:
 
-| Price (GBP) | Price (USD) |
-| :---------: | :---------: |
-| 100         | 135         |
-  `;
+**Standard**: Your product or service used within the video in some way,
+for example a tutorial on making requests to APIs using the API your
+organisation wants to advertise.
 
-  const sponsorshipContentCol2 = `
+**Extended**: A section of the video talking about your product or
+service in the context of the video's main topic, where the product or
+service is the main focus for that section.
+
+| Type     | Price (GBP) | Price (USD) |
+| :------: | :---------: | :---------: |
+| Standard | 125         | 165         |
+| Extended | 250         | 330         |
+
 # Dedicated Video
 
 A full video talking about your product or service. Please note that due
@@ -48,18 +53,8 @@ _Only available for programming topics._
 
 | Length (min) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-15         | 350         | 470         |
+| 0-15         | 300         | 400         |
 | 16+          | _Enquire_   | _Enquire_   |
-
-# Extended Placement
-
-A section of the video talking about your product or service in the
-context of the video's main topic, where the product or service is the
-main focus for that section.
-
-| Price (GBP) | Price (USD) |
-| :---------: | :---------: |
-| 250         | 335         |
   `;
 
   const sponsorshipContentFooter = `
@@ -85,20 +80,12 @@ _Prices last updated 23 Sep 2024._
         </div>
         <div className="grow">
           <div className="flex justify-center mx-6 mt-4 font-sans text-white text-md sm:mx-10">
-            <div className="flex flex-col gap-8 md:flex-row">
-              <ReactMarkdown
-                children={sponsorshipContentCol1}
-                className="font-sans text-white unreset markdown grow max-w-text shrink basis-0"
-                remarkPlugins={[remarkGfm, remarkSlug]}
-                rehypePlugins={[rehypeRaw]}
-              />
-              <ReactMarkdown
-                children={sponsorshipContentCol2}
-                className="font-sans text-white unreset markdown grow max-w-text shrink basis-0"
-                remarkPlugins={[remarkGfm, remarkSlug]}
-                rehypePlugins={[rehypeRaw]}
-              />
-            </div>
+            <ReactMarkdown
+              children={sponsorshipContentCol1}
+              className="font-sans text-white unreset markdown grow max-w-text shrink basis-0"
+              remarkPlugins={[remarkGfm, remarkSlug]}
+              rehypePlugins={[rehypeRaw]}
+            />
           </div>
           <div className="flex justify-center mx-6 mt-4 font-sans text-white text-md sm:mx-10">
             <div className="flex flex-col gap-8 md:flex-row">
