@@ -14,69 +14,60 @@ interface Props {}
 
 const Sponsorships: React.FC<Props> = () => {
   const sponsorshipContentCol1 = `
-# Integrations
+# To-Camera Integration
 
-## To Camera
-
-These go at the end of the intro, immediately before the main body of
-the video begins. Other footage can be overlayed.
+A traditional ad read done to camera. These are appended to the end of
+the intro, and as such will typically take up the second minute of the
+video. Footage and logos etc. can be overlayed.
 
 | Length (sec) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 30-45        | 200         | 265         |
-| 46-60        | 250         | 330         |
+| 30-45        | 200         | 270         |
+| 46-60        | 250         | 335         |
 | 61+          | _Enquire_   | _Enquire_   |
 
-## Endorsement
+# Placement
 
-These go after the intro, and provide a quick mention of the product,
-along with a call to action. These are not done to camera.
-
-_Example: "This video is sponsored by Example Hosting. Get 10% off your
-first hosting server using the link in the description."_
+Your product or service used within the video in some way, for example
+a tutorial on making requests to APIs using the API your organisation
+wants to advertise.
 
 | Price (GBP) | Price (USD) |
 | :---------: | :---------: |
-| 50          | 65          |
-
-## Other Integrations
-
-Please enquire for more information on other integration styles.
+| 100         | 135         |
   `;
 
   const sponsorshipContentCol2 = `
-# Dedicated
+# Dedicated Video
 
-## Videos
+A full video talking about your product or service. Please note that due
+to UK advertising law, these must be labelled as advertisements in the
+title or thumbnail.
 
-These are only available for programming-related products and services.
-If you're looking to advertise something that is not programming
-related, please see **Integrations**.
+_Only available for programming topics._
 
 | Length (min) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-15         | 300         | 395         |
+| 0-15         | 350         | 470         |
 | 16+          | _Enquire_   | _Enquire_   |
 
-_Please note that due to UK advertising law, these must be labelled as
-advertisements in the title or thumbnail._
+# Extended Placement
 
-## Shorts
+A section of the video talking about your product or service in the
+context of the video's main topic, where the product or service is the
+main focus for that section.
 
-| Length (sec) | Price (GBP) | Price (USD) |
-| :----------: | :---------: | :---------: |
-| 0-30         | 175         | 230         |
-| 31-45        | 200         | 265         |
-| 46-60        | 225         | 295         |
-
-_Please note that due to UK advertising law, the titles of these must
-start with #ad._
+| Price (GBP) | Price (USD) |
+| :---------: | :---------: |
+| 250         | 335         |
   `;
 
   const sponsorshipContentFooter = `
+Bulk discounts are available.
+  
 Please make enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
 
-_Prices last updated 12 Sep 2024._
+_Prices last updated 23 Sep 2024._
   `;
 
   return (
