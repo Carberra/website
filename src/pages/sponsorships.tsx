@@ -20,11 +20,12 @@ A traditional ad read done to camera. These are appended to the end of
 the intro, and as such will typically take up the second minute of the
 video. Footage and logos etc. can be overlayed.
 
-| Length (sec) | Price (GBP) | Price (USD) |
-| :----------: | :---------: | :---------: |
-| 30-45        | 200         | 270         |
-| 46-60        | 250         | 330         |
-| 61+          | _Enquire_   | _Enquire_   |
+| Length (~sec)  | Price (GBP) | Price (USD) |
+| :------------: | :---------: | :---------: |
+| 30             | 250         | 330         |
+| 60             | 300         | 395         |
+| 90             | 350         | 460         |
+| 120            | 400         | 525         |
 
 # Placement
 
@@ -40,8 +41,8 @@ service is the main focus for that section.
 
 | Type     | Price (GBP) | Price (USD) |
 | :------: | :---------: | :---------: |
-| Standard | 125         | 165         |
-| Extended | 250         | 330         |
+| Standard | 150         | 200         |
+| Extended | 300         | 395         |
 
 # Dedicated Video
 
@@ -53,16 +54,16 @@ _Only available for programming topics._
 
 | Length (min) | Price (GBP) | Price (USD) |
 | :----------: | :---------: | :---------: |
-| 0-15         | 300         | 400         |
+| 0-15         | 400         | 525         |
 | 16+          | _Enquire_   | _Enquire_   |
   `;
 
   const sponsorshipContentFooter = `
-Bulk discounts are available.
+Discounts for bulk purchases and affiliate programs are available.
   
-Please make enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
+Please make all enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
 
-_Prices last updated 23 Sep 2024._
+_Prices last updated 4 Oct 2024._
   `;
 
   return (
