@@ -83,7 +83,7 @@ _Prices last updated 4 Oct 2024._
           <div className="flex justify-center mx-6 mt-4 font-sans text-white text-md sm:mx-10">
             <ReactMarkdown
               children={sponsorshipContentCol1}
-              className="font-sans text-white unreset markdown grow max-w-text shrink basis-0"
+              className="font-sans text-white unreset markdown grow max-w-text shrink basis-0 md-fixed-tables"
               remarkPlugins={[remarkGfm, remarkSlug]}
               rehypePlugins={[rehypeRaw]}
             />

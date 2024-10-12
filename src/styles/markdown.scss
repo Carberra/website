@@ -24,10 +24,6 @@
     @apply text-brand-blue;
   }
 
-  table {
-    table-layout: fixed;
-  }
-
   td,
   th {
     @apply px-3 py-2;
@@ -43,5 +39,11 @@
     tr {
       border-top: 2px solid #21262d;
     }
+  }
+}
+
+.md-fixed-tables {
+  table {
+    table-layout: fixed;
   }
 }
