@@ -41,7 +41,7 @@ service is the main focus for that section.
 | Type     | Price (GBP) | Price (USD) |
 | :------: | :---------: | :---------: |
 | Standard | 150         | 200         |
-| Extended | 265         | 350         |
+| Extended | 225         | 300         |
 
 # Dedicated Video
 
@@ -62,7 +62,7 @@ Discounts for bulk purchases, affiliate programs, and service provisions are ava
   
 Please make all enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
 
-_Prices last updated 13 Jan 2024._
+_Prices last updated 15 Jan 2024._
   `;
 
   return (
