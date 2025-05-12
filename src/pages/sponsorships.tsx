@@ -14,8 +14,8 @@ interface Props {}
 
 const Sponsorships: React.FC<Props> = () => {
   const sponsorshipContentHeader = `
-⚠️ _All prices are listed in GBP. Those outside of the UK must peform
-conversion to their local currency._
+⚠️ _All prices are listed in GBP. If you are outside of the UK, you must
+convert these rates to your local currency._
   `;
 
   const sponsorshipContentCol1 = `
@@ -51,11 +51,11 @@ video.
 
 # Dedicated Video
 
-A full video showcasing your product or service. Please note
-that due to UK advertising law, these must be labelled as advertisements
-in the title or thumbnail.
+A full video showcasing your product or service.
 
-_Only available for programming topics._
+⚠️ _Please note that due to UK advertising law, these must be labelled
+as advertisements in the title or thumbnail. Only available for
+programming-centric topics._
 
 | Price (GBP) |
 | :---------: |
