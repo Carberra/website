@@ -27,9 +27,9 @@ video. Footage and logos etc. can be overlayed.
 
 | Length (~sec)  | Price (GBP) |
 | :------------: | :---------: |
-| 30             | 150         |
-| 45             | 175         |
-| 60             | 200         |
+| 30             | 240         |
+| 45             | 270         |
+| 60             | 300         |
 | _More_         | _Enquire_   |
 
 # Placement
@@ -46,8 +46,8 @@ video.
 
 | Type     | Price (GBP) |
 | :------: | :---------: |
-| Standard | 100         |
-| Extended | 250         |
+| Standard | 200         |
+| Extended | 400         |
 
 # Dedicated Video
 
@@ -59,7 +59,7 @@ programming-centric topics._
 
 | Price (GBP) |
 | :---------: |
-| 275         |
+| 500         |
   `;
 
   const sponsorshipContentFooter = `
@@ -67,7 +67,7 @@ Discounts for bulk purchases, affiliate programs, and service provisions are ava
   
 Please make all enquiries to [carberra.business@gmail.com](mailto:carberra.business@gmail.com).
 
-_Prices last updated 11 May 2025._
+_Prices last updated 31 May 2025._
   `;
 
   return (
