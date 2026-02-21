@@ -14,6 +14,7 @@ interface YouTubeSearchItem {
 interface YouTubeSearchResponse {
   items: YouTubeSearchItem[];
   nextPageToken?: string;
+  pageInfo: { totalResults: number };
 }
 
 interface YouTubeVideoSnippet {
@@ -45,6 +46,7 @@ const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";
 export interface VideosPage {
   videos: Video[];
   nextPageToken: string | null;
+  totalResults: number;
 }
 
 export async function fetchChannelVideos(
@@ -74,7 +76,7 @@ export async function fetchChannelVideos(
   const videoIds = searchData.items.map((item) => item.id.videoId);
 
   if (videoIds.length === 0) {
-    return { videos: [], nextPageToken: null };
+    return { videos: [], nextPageToken: null, totalResults: 0 };
   }
 
   // Step 2: Get video details (snippet + statistics)
@@ -100,5 +102,6 @@ export async function fetchChannelVideos(
       viewCount: item.statistics.viewCount,
     })),
     nextPageToken: searchData.nextPageToken ?? null,
+    totalResults: searchData.pageInfo.totalResults,
   };
 }

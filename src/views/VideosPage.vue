@@ -9,6 +9,7 @@ import type { Video } from "@/components/VideoGrid.vue";
 interface VideosResponse {
   videos: Video[];
   nextPageToken: string | null;
+  totalResults: number;
 }
 
 const videos = ref<Video[]>([]);
@@ -16,6 +17,7 @@ const loading = ref<boolean>(true);
 const loadingMore = ref<boolean>(false);
 const error = ref<string | null>(null);
 const nextPageToken = ref<string | null>(null);
+const totalResults = ref<number>(0);
 const sentinel = ref<HTMLElement | null>(null);
 
 let observer: IntersectionObserver | null = null;
@@ -32,6 +34,9 @@ async function fetchVideos(pageToken?: string): Promise<void> {
     const data: VideosResponse = await res.json();
     videos.value.push(...data.videos);
     nextPageToken.value = data.nextPageToken;
+    if (data.totalResults > 0) {
+      totalResults.value = data.totalResults;
+    }
   } catch (err) {
     error.value = err instanceof Error ? err.message : "An error occurred";
   }
@@ -80,7 +85,10 @@ onUnmounted(() => {
     <SiteHeader />
     <main>
       <section class="videos-section">
-        <h1 class="heading">Videos</h1>
+        <h1 class="heading">
+          Videos
+          <span v-if="totalResults > 0" class="count">({{ totalResults }})</span>
+        </h1>
 
         <p v-if="loading" class="status">Loading videos...</p>
         <p v-else-if="error" class="status error">{{ error }}</p>
@@ -119,6 +127,12 @@ main {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.count {
+  font-size: 0.8em;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 .status {
