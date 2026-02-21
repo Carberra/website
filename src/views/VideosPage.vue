@@ -169,7 +169,7 @@ onUnmounted(() => {
           </button>
         </div>
 
-        <p v-if="loading" class="status-text">Loading...</p>
+        <p v-if="loading" class="status-text">Loading, please wait...</p>
         <p v-else-if="error" class="status-text error">{{ error }}</p>
 
         <template v-else-if="contentType === 'playlists'">
