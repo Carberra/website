@@ -2,7 +2,7 @@
 
 <template>
   <header class="site-header">
-    <span class="logo">CARBERRA</span>
+    <RouterLink to="/" class="logo">CARBERRA</RouterLink>
   </header>
 </template>
 
