@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "Running pre-commit checks..."
+
+echo "Checking formatting..."
+npx prettier --check src/
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "Formatting check failed. Run 'npm run format' to fix."
+  exit 1
+fi
+
+echo "Type-checking..."
+npx vue-tsc --noEmit
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "Type-check failed. Fix the errors above before committing."
+  exit 1
+fi
+
+echo "All checks passed."

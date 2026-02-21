@@ -9,10 +9,16 @@ The official website for the [Carberra](https://youtube.com/@Carberra) YouTube c
 - [Node.js](https://nodejs.org/) 22+
 - [Podman](https://podman.io/) or [Docker](https://www.docker.com/) (for containerised builds)
 
-### Local development
+### Setup
 
 ```sh
 npm install
+git config core.hooksPath .githooks
+```
+
+### Local development
+
+```sh
 npm run dev
 ```
 
