@@ -3,7 +3,7 @@
 echo "Running pre-commit checks..."
 
 echo "Checking formatting..."
-npx prettier --check src/
+npx prettier --check src/ server/
 if [ $? -ne 0 ]; then
   echo ""
   echo "Formatting check failed. Run 'npm run format' to fix."

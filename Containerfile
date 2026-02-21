@@ -8,11 +8,16 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM docker.io/library/nginx:stable-alpine AS production
+FROM docker.io/library/node:22-alpine AS production
 
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-EXPOSE 80
+COPY --from=build /app/package.json /app/package-lock.json* ./
+RUN npm install --omit=dev
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/server-dist ./server-dist
+
+EXPOSE 3000
+
+CMD ["node", "server-dist/index.js"]

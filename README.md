@@ -16,6 +16,16 @@ npm install
 git config core.hooksPath .githooks
 ```
 
+### Environment variables
+
+Create a `.env` file in the project root:
+
+```sh
+YOUTUBE_API_KEY=your_api_key_here
+```
+
+You will need a [Google API key](https://console.cloud.google.com/apis/credentials) with the YouTube Data API v3 enabled.
+
 ### Local development
 
 ```sh
@@ -39,18 +49,18 @@ Builds a dev image once, then bind-mounts your source code so changes are reflec
 
 ```sh
 podman build -t carberra-dev -f Containerfile.dev .
-podman run --rm -p 5173:5173 -v .:/app carberra-dev
+podman run --rm -p 5173:5173 -p 3000:3000 --env-file .env -v .:/app carberra-dev
 ```
 
 The dev site will be available at `http://localhost:5173`.
 
 ### Production
 
-Multi-stage build that compiles the app and serves it with nginx:
+Multi-stage build that compiles the app and runs it with Express:
 
 ```sh
 podman build -t carberra-website .
-podman run -d -p 8080:80 carberra-website
+podman run -d -p 3000:3000 --env-file .env carberra-website
 ```
 
-The production site will be available at `http://localhost:8080`.
+The production site will be available at `http://localhost:3000`.

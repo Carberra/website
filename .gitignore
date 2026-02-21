@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 dist/
+server-dist/
 
 # Editor
 .vscode/*
@@ -13,6 +14,9 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment
+.env
 
 # Logs
 *.log
