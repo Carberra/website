@@ -23,22 +23,28 @@ npm run format        # Fix formatting
 npm run format:check  # Check formatting
 ```
 
-## Container build
+## Containers
 
-The project uses a multi-stage build with nginx for production serving. The `Containerfile` is compatible with both Podman and Docker.
+Both Podman and Docker are supported. The examples below use Podman — for Docker, replace `podman` with `docker`.
 
-### With Podman
+### Development (hot reload)
+
+Builds a dev image once, then bind-mounts your source code so changes are reflected instantly via Vite's HMR:
+
+```sh
+podman build -t carberra-dev -f Containerfile.dev .
+podman run --rm -p 5173:5173 -v .:/app carberra-dev
+```
+
+The dev site will be available at `http://localhost:5173`.
+
+### Production
+
+Multi-stage build that compiles the app and serves it with nginx:
 
 ```sh
 podman build -t carberra-website .
 podman run -d -p 8080:80 carberra-website
 ```
 
-### With Docker
-
-```sh
-docker build -f Containerfile -t carberra-website .
-docker run -d -p 8080:80 carberra-website
-```
-
-The site will be available at `http://localhost:8080`.
+The production site will be available at `http://localhost:8080`.
