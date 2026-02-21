@@ -3,16 +3,8 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
-import VideoCard from "@/components/VideoCard.vue";
-
-interface Video {
-  id: string;
-  title: string;
-  description: string;
-  thumbnailUrl: string;
-  publishedAt: string;
-  viewCount: string;
-}
+import VideoGrid from "@/components/VideoGrid.vue";
+import type { Video } from "@/components/VideoGrid.vue";
 
 interface VideosResponse {
   videos: Video[];
@@ -93,18 +85,7 @@ onUnmounted(() => {
         <p v-if="loading" class="status">Loading videos...</p>
         <p v-else-if="error" class="status error">{{ error }}</p>
 
-        <div v-else class="videos-grid">
-          <VideoCard
-            v-for="video in videos"
-            :key="video.id"
-            :id="video.id"
-            :title="video.title"
-            :description="video.description"
-            :thumbnail-url="video.thumbnailUrl"
-            :published-at="video.publishedAt"
-            :view-count="video.viewCount"
-          />
-        </div>
+        <VideoGrid v-else :videos="videos" />
 
         <p v-if="loadingMore" class="status">Loading more videos...</p>
         <p v-else-if="!loading && !nextPageToken && videos.length > 0" class="status">
@@ -149,13 +130,6 @@ main {
 
 .status.error {
   color: var(--color-accent);
-}
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
 }
 
 .sentinel {
