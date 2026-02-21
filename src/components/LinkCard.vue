@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <a :href="url" target="_blank" rel="noopener noreferrer" class="link-card">
+  <a :href="url" target="_blank" rel="noopener noreferrer" class="link-card hover-lift">
     <SvgIcon :path="iconPath" :size="32" :color="iconColor" />
     <span class="label">{{ label }}</span>
   </a>
@@ -27,15 +27,6 @@ defineProps<{
   border-radius: 0.75rem;
   background-color: var(--color-surface);
   color: var(--color-text);
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
-}
-
-.link-card:hover {
-  background-color: #242424;
-  transform: translateY(-2px);
-  opacity: 1;
 }
 
 .label {

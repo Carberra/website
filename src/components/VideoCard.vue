@@ -34,7 +34,7 @@ function truncate(text: string, maxLength: number): string {
     :href="`https://www.youtube.com/watch?v=${id}`"
     target="_blank"
     rel="noopener noreferrer"
-    class="video-card"
+    class="video-card hover-lift"
   >
     <img :src="thumbnailUrl" :alt="title" class="thumbnail" loading="lazy" />
     <div class="info">
@@ -58,15 +58,6 @@ function truncate(text: string, maxLength: number): string {
   background-color: var(--color-surface);
   overflow: hidden;
   color: var(--color-text);
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
-}
-
-.video-card:hover {
-  background-color: #242424;
-  transform: translateY(-2px);
-  opacity: 1;
 }
 
 .thumbnail {

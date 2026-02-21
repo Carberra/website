@@ -90,7 +90,7 @@ onMounted(async () => {
             :aria-label="social.label"
             target="_blank"
             rel="noopener noreferrer"
-            class="social-icon"
+            class="social-icon hover-lift"
           >
             <SvgIcon :path="social.iconPath" :size="28" :color="social.iconColor" />
           </a>
@@ -217,14 +217,5 @@ main {
   border-radius: 50%;
   background-color: var(--color-surface);
   color: var(--color-text);
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
-}
-
-.social-icon:hover {
-  background-color: #242424;
-  transform: translateY(-2px);
-  opacity: 1;
 }
 </style>

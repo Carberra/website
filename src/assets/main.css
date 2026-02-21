@@ -53,3 +53,15 @@ a {
 a:hover {
   opacity: 0.8;
 }
+
+.hover-lift {
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hover-lift:hover {
+  background-color: #242424;
+  transform: translateY(-2px);
+  opacity: 1;
+}

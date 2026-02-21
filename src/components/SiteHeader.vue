@@ -20,6 +20,7 @@ function closeMenu(): void {
       <RouterLink to="/" class="nav-link">Home</RouterLink>
       <RouterLink to="/videos" class="nav-link">Videos</RouterLink>
       <RouterLink to="/links" class="nav-link">Links</RouterLink>
+      <RouterLink to="/branding" class="nav-link">Branding</RouterLink>
     </nav>
 
     <button
@@ -38,6 +39,7 @@ function closeMenu(): void {
         <RouterLink to="/" class="nav-link" @click="closeMenu">Home</RouterLink>
         <RouterLink to="/videos" class="nav-link" @click="closeMenu">Videos</RouterLink>
         <RouterLink to="/links" class="nav-link" @click="closeMenu">Links</RouterLink>
+        <RouterLink to="/branding" class="nav-link" @click="closeMenu">Branding</RouterLink>
       </nav>
     </Transition>
   </header>
