@@ -6,6 +6,7 @@ defineProps<{
   thumbnailUrl: string;
   publishedAt: string;
   viewCount: string;
+  unavailable?: boolean;
 }>();
 
 function formatDate(dateStr: string): string {
@@ -36,15 +37,23 @@ function truncate(text: string, maxLength: number): string {
     rel="noopener noreferrer"
     class="video-card surface-card hover-lift"
   >
-    <img :src="thumbnailUrl" :alt="title" class="thumbnail" loading="lazy" />
-    <div class="info">
-      <h3 class="title">{{ title }}</h3>
-      <p class="description">{{ truncate(description, 100) }}</p>
-      <div class="meta">
-        <span>{{ formatDate(publishedAt) }}</span>
-        <span>{{ formatViews(viewCount) }}</span>
+    <template v-if="unavailable">
+      <div class="thumbnail unavailable-thumb"></div>
+      <div class="info">
+        <p class="unavailable-text">Information not available.</p>
       </div>
-    </div>
+    </template>
+    <template v-else>
+      <img :src="thumbnailUrl" :alt="title" class="thumbnail" loading="lazy" />
+      <div class="info">
+        <h3 class="title">{{ title }}</h3>
+        <p class="description">{{ truncate(description, 100) }}</p>
+        <div class="meta">
+          <span>{{ formatDate(publishedAt) }}</span>
+          <span>{{ formatViews(viewCount) }}</span>
+        </div>
+      </div>
+    </template>
   </a>
 </template>
 
@@ -88,5 +97,15 @@ function truncate(text: string, maxLength: number): string {
   gap: 1rem;
   font-size: 0.8rem;
   color: var(--color-text-muted);
+}
+
+.unavailable-thumb {
+  background-color: var(--color-bg);
+}
+
+.unavailable-text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 </style>

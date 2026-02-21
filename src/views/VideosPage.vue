@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 import VideoGrid from "@/components/VideoGrid.vue";
 import type { Video } from "@/components/VideoGrid.vue";
+
+type ContentType = "videos" | "shorts" | "streams";
 
 interface VideosResponse {
   videos: Video[];
@@ -12,71 +14,97 @@ interface VideosResponse {
   totalResults: number;
 }
 
+const contentType = ref<ContentType>("videos");
+const headingLabel = computed(() => {
+  const labels: Record<ContentType, string> = {
+    videos: "Videos",
+    shorts: "Shorts",
+    streams: "Streams",
+  };
+  return labels[contentType.value];
+});
 const videos = ref<Video[]>([]);
 const loading = ref<boolean>(true);
 const loadingMore = ref<boolean>(false);
 const error = ref<string | null>(null);
 const nextPageToken = ref<string | null>(null);
 const totalResults = ref<number>(0);
-const sentinel = ref<HTMLElement | null>(null);
+let busy = false;
+const seenIds = new Set<string>();
 
-let observer: IntersectionObserver | null = null;
-
-async function fetchVideos(pageToken?: string): Promise<void> {
-  try {
-    const url = pageToken
-      ? `/api/videos?pageToken=${encodeURIComponent(pageToken)}`
-      : "/api/videos";
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch videos (${res.status})`);
-    }
-    const data: VideosResponse = await res.json();
-    videos.value.push(...data.videos);
-    nextPageToken.value = data.nextPageToken;
-    if (data.totalResults > 0) {
-      totalResults.value = data.totalResults;
-    }
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : "An error occurred";
+async function fetchPage(pageToken?: string): Promise<void> {
+  const params = new URLSearchParams();
+  params.set("type", contentType.value);
+  if (pageToken) params.set("pageToken", pageToken);
+  const url = `/api/videos?${params.toString()}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch videos (${res.status})`);
+  }
+  const data: VideosResponse = await res.json();
+  const newVideos = data.videos.filter((v) => !seenIds.has(v.id));
+  for (const v of newVideos) {
+    seenIds.add(v.id);
+  }
+  videos.value.push(...newVideos);
+  nextPageToken.value = data.nextPageToken;
+  if (data.totalResults > 0) {
+    totalResults.value = data.totalResults;
   }
 }
 
-let sentinelVisible = false;
+async function switchType(type: ContentType): Promise<void> {
+  if (type === contentType.value) return;
+  contentType.value = type;
+  videos.value = [];
+  seenIds.clear();
+  nextPageToken.value = null;
+  totalResults.value = 0;
+  error.value = null;
+  busy = false;
+  loading.value = true;
 
-async function loadMore(): Promise<void> {
-  if (loadingMore.value || !nextPageToken.value) return;
+  try {
+    await fetchPage();
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "An error occurred";
+  }
+  loading.value = false;
+}
+
+async function onScroll(): Promise<void> {
+  if (busy || !nextPageToken.value) return;
+
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
+  if (scrollBottom < docHeight - 400) return;
+
+  busy = true;
   loadingMore.value = true;
-  await fetchVideos(nextPageToken.value);
-  loadingMore.value = false;
 
-  // If the sentinel is still in view after loading, fetch the next page too
-  if (sentinelVisible && nextPageToken.value) {
-    loadMore();
+  try {
+    await fetchPage(nextPageToken.value);
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "An error occurred";
+  } finally {
+    loadingMore.value = false;
+    busy = false;
   }
 }
 
 onMounted(async () => {
-  await fetchVideos();
+  try {
+    await fetchPage();
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : "An error occurred";
+  }
   loading.value = false;
 
-  observer = new IntersectionObserver(
-    (entries) => {
-      sentinelVisible = entries[0].isIntersecting;
-      if (sentinelVisible) {
-        loadMore();
-      }
-    },
-    { rootMargin: "200px" },
-  );
-
-  if (sentinel.value) {
-    observer.observe(sentinel.value);
-  }
+  window.addEventListener("scroll", onScroll, { passive: true });
 });
 
 onUnmounted(() => {
-  observer?.disconnect();
+  window.removeEventListener("scroll", onScroll);
 });
 </script>
 
@@ -86,9 +114,30 @@ onUnmounted(() => {
     <main>
       <section class="videos-section">
         <h1 class="page-heading">
-          Videos
+          {{ headingLabel }}
           <span v-if="totalResults > 0" class="count">({{ totalResults }})</span>
         </h1>
+
+        <div class="type-toggle">
+          <button
+            :class="['toggle-btn', { active: contentType === 'videos' }]"
+            @click="switchType('videos')"
+          >
+            Videos
+          </button>
+          <button
+            :class="['toggle-btn', { active: contentType === 'shorts' }]"
+            @click="switchType('shorts')"
+          >
+            Shorts
+          </button>
+          <button
+            :class="['toggle-btn', { active: contentType === 'streams' }]"
+            @click="switchType('streams')"
+          >
+            Streams
+          </button>
+        </div>
 
         <p v-if="loading" class="status-text">Loading videos...</p>
         <p v-else-if="error" class="status-text error">{{ error }}</p>
@@ -97,9 +146,8 @@ onUnmounted(() => {
 
         <p v-if="loadingMore" class="status-text">Loading more videos...</p>
         <p v-else-if="!loading && !nextPageToken && videos.length > 0" class="status-text">
-          No more videos.
+          You've reached the end.
         </p>
-        <div ref="sentinel" class="sentinel"></div>
       </section>
     </main>
     <SiteFooter />
@@ -127,7 +175,32 @@ onUnmounted(() => {
   color: var(--color-accent);
 }
 
-.sentinel {
-  height: 1px;
+.type-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.toggle-btn.active {
+  background-color: var(--color-surface);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
 }
 </style>

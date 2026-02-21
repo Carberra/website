@@ -8,6 +8,7 @@ export interface Video {
   thumbnailUrl: string;
   publishedAt: string;
   viewCount: string;
+  unavailable?: boolean;
 }
 
 defineProps<{
@@ -26,6 +27,7 @@ defineProps<{
       :thumbnail-url="video.thumbnailUrl"
       :published-at="video.publishedAt"
       :view-count="video.viewCount"
+      :unavailable="video.unavailable ?? false"
     />
   </div>
 </template>
