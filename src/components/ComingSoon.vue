@@ -1,9 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+
+const titles = [
+  "Something is being built.",
+  "Anyone got a time machine?",
+  "Coming soon to a browser near you.",
+  "Coming soon™",
+  "Be patient, my child.",
+];
+const title = ref(titles[Math.floor(Math.random() * titles.length)]);
+const subtitle = ref("Stay tuned — this site is under construction.");
+</script>
 
 <template>
   <section class="coming-soon">
-    <h1 class="title">Something is being built.</h1>
-    <p class="subtitle">Stay tuned — this site is under construction.</p>
+    <h1 class="title">{{ title }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
   </section>
 </template>
 
