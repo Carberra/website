@@ -2,7 +2,7 @@
 
 <template>
   <header class="site-header">
-    <span class="logo">Carberra</span>
+    <span class="logo">CARBERRA</span>
   </header>
 </template>
 
@@ -15,10 +15,12 @@
 }
 
 .logo {
-  font-family: var(--font-heading);
+  font-family: var(--font-logo);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
   letter-spacing: 0.05em;
+  background: linear-gradient(to bottom right, var(--color-brand-start), var(--color-brand-end));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

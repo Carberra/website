@@ -12,9 +12,12 @@
   --color-text: #e0e0e0;
   --color-text-muted: #888888;
   --color-accent: #c44040;
+  --color-brand-start: #9e1cf3;
+  --color-brand-end: #1987bd;
 
   --font-heading: "Victor Mono", monospace;
   --font-body: "Overpass", sans-serif;
+  --font-logo: "Zen Dots", sans-serif;
 }
 
 html {
