@@ -54,8 +54,11 @@ onMounted(async () => {
 
 <template>
   <div class="page">
-    <SiteHeader />
-    <main>
+    <div class="hero-bg">
+      <img src="/setup.png" alt="" class="hero-bg-img" />
+    </div>
+    <SiteHeader class="hero-content" />
+    <main class="hero-content">
       <section class="hero">
         <h1 class="hero-title">CARBERRA</h1>
         <p class="hero-tagline">
@@ -102,6 +105,38 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero background */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28rem;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -122,10 +157,10 @@ main {
   font-family: var(--font-logo);
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   letter-spacing: 0.05em;
-  background: linear-gradient(to bottom right, var(--color-brand-start), var(--color-brand-end));
+  /* background: linear-gradient(to bottom right, var(--color-brand-start), var(--color-brand-end));
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 .hero-tagline {
