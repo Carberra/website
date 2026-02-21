@@ -35,7 +35,7 @@ function truncate(text: string, maxLength: number): string {
     :href="`https://www.youtube.com/watch?v=${id}`"
     target="_blank"
     rel="noopener noreferrer"
-    class="video-card surface-card hover-lift"
+    class="video-card content-card surface-card hover-lift"
   >
     <template v-if="unavailable">
       <div class="thumbnail unavailable-thumb"></div>
@@ -58,34 +58,6 @@ function truncate(text: string, maxLength: number): string {
 </template>
 
 <style scoped>
-.video-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 22rem;
-  overflow: hidden;
-}
-
-.thumbnail {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-}
-
-.title {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
 .description {
   font-size: 0.85rem;
   color: var(--color-text-muted);

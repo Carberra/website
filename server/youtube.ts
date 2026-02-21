@@ -36,9 +36,21 @@ const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";
 const BROWSE_API_URL = "https://www.youtube.com/youtubei/v1/browse";
 const BROWSE_API_KEY = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"; // This is a public API key, no need to keep it secret.
 
+export interface Playlist {
+  id: string;
+  title: string;
+  thumbnailUrl: string;
+  videoCount: string;
+}
+
 export interface VideosPage {
   videos: Video[];
   nextPageToken: string | null;
+  totalResults: number;
+}
+
+export interface PlaylistsPage {
+  playlists: Playlist[];
   totalResults: number;
 }
 
@@ -87,10 +99,11 @@ const INNERTUBE_CONTEXT = {
   },
 };
 
-const FETCH_HEADERS = {
+const FETCH_HEADERS: Record<string, string> = {
   "User-Agent":
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
   "Accept-Language": "en-GB,en;q=0.9",
+  Cookie: "CONSENT=YES+1",
 };
 
 async function scrapeTabVideoIds(channelId: string, contentType: ContentType): Promise<string[]> {
@@ -263,4 +276,129 @@ export async function fetchChannelVideos(
   const nextPageToken = nextOffset < allIds.length ? String(nextOffset) : null;
 
   return { videos, nextPageToken, totalResults };
+}
+
+// --- Playlist scraping ---
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function extractPlaylists(items: any[]): Playlist[] {
+  const playlists: Playlist[] = [];
+  for (const item of items) {
+    const vm = item?.lockupViewModel;
+    if (!vm) continue;
+
+    const id = vm.contentId ?? "";
+    const title = vm.metadata?.lockupMetadataViewModel?.title?.content ?? "";
+
+    const thumbVm =
+      vm.contentImage?.collectionThumbnailViewModel?.primaryThumbnail?.thumbnailViewModel;
+    const sources = thumbVm?.image?.sources ?? [];
+    const thumbnailUrl = sources.length > 0 ? sources[sources.length - 1].url : "";
+
+    let videoCount = "";
+    const overlays = thumbVm?.overlays ?? [];
+    for (const ov of overlays) {
+      const badges = ov?.thumbnailOverlayBadgeViewModel?.thumbnailBadges ?? [];
+      for (const b of badges) {
+        const text = b?.thumbnailBadgeViewModel?.text;
+        if (text) videoCount = text;
+      }
+    }
+
+    if (id) {
+      playlists.push({ id, title, thumbnailUrl, videoCount });
+    }
+  }
+  return playlists;
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+let cachedPlaylists: { playlists: Playlist[]; timestamp: number } | null = null;
+
+async function scrapeAllPlaylists(channelId: string): Promise<Playlist[]> {
+  const channelUrl = `https://www.youtube.com/channel/${channelId}/playlists`;
+  const pageRes = await fetch(channelUrl, { headers: FETCH_HEADERS });
+  if (!pageRes.ok) {
+    throw new Error(`Failed to fetch channel playlists page: ${pageRes.status}`);
+  }
+
+  const html = await pageRes.text();
+  const match = html.match(/var ytInitialData\s*=\s*({.+?});\s*<\/script>/s);
+  if (!match) {
+    throw new Error("Could not find ytInitialData in channel playlists page");
+  }
+
+  const initialData = JSON.parse(match[1]);
+  const tabs = initialData?.contents?.twoColumnBrowseResultsRenderer?.tabs ?? [];
+  let playlistsTab = null;
+  for (const tab of tabs) {
+    if (tab?.tabRenderer?.title === "Playlists") {
+      playlistsTab = tab.tabRenderer;
+      break;
+    }
+  }
+  if (!playlistsTab) {
+    console.warn('[youtube] Could not find "Playlists" tab, returning empty list');
+    return [];
+  }
+
+  const sections = playlistsTab?.content?.sectionListRenderer?.contents ?? [];
+  const gridItems = sections[0]?.itemSectionRenderer?.contents?.[0]?.gridRenderer?.items ?? [];
+
+  const allPlaylists: Playlist[] = extractPlaylists(gridItems);
+  let continuationToken = extractContinuationToken(gridItems);
+
+  while (continuationToken) {
+    const browseRes = await fetch(`${BROWSE_API_URL}?key=${BROWSE_API_KEY}&prettyPrint=false`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...FETCH_HEADERS },
+      body: JSON.stringify({
+        context: INNERTUBE_CONTEXT,
+        continuation: continuationToken,
+      }),
+    });
+
+    if (!browseRes.ok) {
+      console.warn(`[youtube] Browse API returned ${browseRes.status}, stopping pagination`);
+      break;
+    }
+
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    const browseData: any = await browseRes.json();
+    const actions: any[] = browseData?.onResponseReceivedActions ?? [];
+
+    let items: any[] = [];
+    for (const action of actions) {
+      const appendItems = action?.appendContinuationItemsAction?.continuationItems;
+      if (appendItems) {
+        items = appendItems;
+        break;
+      }
+    }
+    /* eslint-enable @typescript-eslint/no-explicit-any */
+
+    if (items.length === 0) break;
+
+    allPlaylists.push(...extractPlaylists(items));
+    continuationToken = extractContinuationToken(items);
+  }
+
+  return allPlaylists;
+}
+
+export async function fetchChannelPlaylists(channelId: string): Promise<PlaylistsPage> {
+  const now = Date.now();
+  if (cachedPlaylists && now - cachedPlaylists.timestamp < ID_CACHE_TTL_MS) {
+    return {
+      playlists: cachedPlaylists.playlists,
+      totalResults: cachedPlaylists.playlists.length,
+    };
+  }
+
+  console.log("[youtube] Scraping playlists from channel...");
+  const playlists = await scrapeAllPlaylists(channelId);
+  cachedPlaylists = { playlists, timestamp: now };
+  console.log(`[youtube] Found ${playlists.length} playlists`);
+
+  return { playlists, totalResults: playlists.length };
 }

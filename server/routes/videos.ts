@@ -5,7 +5,7 @@ import { fetchChannelVideos, type ContentType, type VideosPage } from "../youtub
 
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
-const CARBERRA_CHANNEL_ID = "UC13cYu7lec-oOcqQf5L-brg";
+const CARBERRA_CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID as string;
 const VALID_TYPES: ContentType[] = ["videos", "shorts", "streams"];
 
 export function createVideosRouter(): Router {

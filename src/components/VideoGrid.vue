@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="videos-grid">
+  <div class="content-grid">
     <VideoCard
       v-for="video in videos"
       :key="video.id"
@@ -31,12 +31,3 @@ defineProps<{
     />
   </div>
 </template>
-
-<style scoped>
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-}
-</style>

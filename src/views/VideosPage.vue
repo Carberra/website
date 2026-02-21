@@ -5,12 +5,19 @@ import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 import VideoGrid from "@/components/VideoGrid.vue";
 import type { Video } from "@/components/VideoGrid.vue";
+import PlaylistGrid from "@/components/PlaylistGrid.vue";
+import type { Playlist } from "@/components/PlaylistGrid.vue";
 
-type ContentType = "videos" | "shorts" | "streams";
+type ContentType = "videos" | "shorts" | "streams" | "playlists";
 
 interface VideosResponse {
   videos: Video[];
   nextPageToken: string | null;
+  totalResults: number;
+}
+
+interface PlaylistsResponse {
+  playlists: Playlist[];
   totalResults: number;
 }
 
@@ -20,10 +27,12 @@ const headingLabel = computed(() => {
     videos: "Videos",
     shorts: "Shorts",
     streams: "Streams",
+    playlists: "Playlists",
   };
   return labels[contentType.value];
 });
 const videos = ref<Video[]>([]);
+const playlists = ref<Playlist[]>([]);
 const loading = ref<boolean>(true);
 const loadingMore = ref<boolean>(false);
 const error = ref<string | null>(null);
@@ -53,10 +62,21 @@ async function fetchPage(pageToken?: string): Promise<void> {
   }
 }
 
+async function fetchPlaylists(): Promise<void> {
+  const res = await fetch("/api/playlists");
+  if (!res.ok) {
+    throw new Error(`Failed to fetch playlists (${res.status})`);
+  }
+  const data: PlaylistsResponse = await res.json();
+  playlists.value = data.playlists;
+  totalResults.value = data.totalResults;
+}
+
 async function switchType(type: ContentType): Promise<void> {
   if (type === contentType.value) return;
   contentType.value = type;
   videos.value = [];
+  playlists.value = [];
   seenIds.clear();
   nextPageToken.value = null;
   totalResults.value = 0;
@@ -65,7 +85,11 @@ async function switchType(type: ContentType): Promise<void> {
   loading.value = true;
 
   try {
-    await fetchPage();
+    if (type === "playlists") {
+      await fetchPlaylists();
+    } else {
+      await fetchPage();
+    }
   } catch (err) {
     error.value = err instanceof Error ? err.message : "An error occurred";
   }
@@ -73,7 +97,7 @@ async function switchType(type: ContentType): Promise<void> {
 }
 
 async function onScroll(): Promise<void> {
-  if (busy || !nextPageToken.value) return;
+  if (busy || !nextPageToken.value || contentType.value === "playlists") return;
 
   const scrollBottom = window.innerHeight + window.scrollY;
   const docHeight = document.documentElement.scrollHeight;
@@ -137,17 +161,28 @@ onUnmounted(() => {
           >
             Streams
           </button>
+          <button
+            :class="['toggle-btn', { active: contentType === 'playlists' }]"
+            @click="switchType('playlists')"
+          >
+            Playlists
+          </button>
         </div>
 
-        <p v-if="loading" class="status-text">Loading videos...</p>
+        <p v-if="loading" class="status-text">Loading...</p>
         <p v-else-if="error" class="status-text error">{{ error }}</p>
 
-        <VideoGrid v-else :videos="videos" />
+        <template v-else-if="contentType === 'playlists'">
+          <PlaylistGrid :playlists="playlists" />
+        </template>
+        <template v-else>
+          <VideoGrid :videos="videos" />
 
-        <p v-if="loadingMore" class="status-text">Loading more videos...</p>
-        <p v-else-if="!loading && !nextPageToken && videos.length > 0" class="status-text">
-          You've reached the end.
-        </p>
+          <p v-if="loadingMore" class="status-text">Loading more...</p>
+          <p v-else-if="!nextPageToken && videos.length > 0" class="status-text">
+            You've reached the end.
+          </p>
+        </template>
       </section>
     </main>
     <SiteFooter />

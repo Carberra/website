@@ -83,6 +83,41 @@ a.surface-card {
   color: var(--color-text);
 }
 
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 22rem;
+  overflow: hidden;
+}
+
+.content-card .thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.content-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.content-card .info .title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 .hover-lift {
   transition:
     background-color 0.2s ease,
