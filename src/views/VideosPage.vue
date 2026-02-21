@@ -85,18 +85,18 @@ onUnmounted(() => {
     <SiteHeader />
     <main>
       <section class="videos-section">
-        <h1 class="heading">
+        <h1 class="page-heading">
           Videos
           <span v-if="totalResults > 0" class="count">({{ totalResults }})</span>
         </h1>
 
-        <p v-if="loading" class="status">Loading videos...</p>
-        <p v-else-if="error" class="status error">{{ error }}</p>
+        <p v-if="loading" class="status-text">Loading videos...</p>
+        <p v-else-if="error" class="status-text error">{{ error }}</p>
 
         <VideoGrid v-else :videos="videos" />
 
-        <p v-if="loadingMore" class="status">Loading more videos...</p>
-        <p v-else-if="!loading && !nextPageToken && videos.length > 0" class="status">
+        <p v-if="loadingMore" class="status-text">Loading more videos...</p>
+        <p v-else-if="!loading && !nextPageToken && videos.length > 0" class="status-text">
           No more videos.
         </p>
         <div ref="sentinel" class="sentinel"></div>
@@ -107,26 +107,9 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  padding: 2rem 1rem;
-}
-
 .videos-section {
   max-width: 72rem;
   margin: 0 auto;
-}
-
-.heading {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 .count {
@@ -135,14 +118,12 @@ main {
   font-weight: 400;
 }
 
-.status {
-  text-align: center;
-  color: var(--color-text-muted);
+.status-text {
   font-size: 1.1rem;
   margin-top: 2rem;
 }
 
-.status.error {
+.status-text.error {
   color: var(--color-accent);
 }
 

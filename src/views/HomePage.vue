@@ -76,7 +76,7 @@ onMounted(async () => {
           <h2>Latest videos</h2>
           <RouterLink to="/videos" class="see-all">See all videos →</RouterLink>
         </div>
-        <p v-if="videosLoading" class="status">Loading videos...</p>
+        <p v-if="videosLoading" class="status-text">Loading videos...</p>
         <VideoGrid v-else :videos="latestVideos" />
       </section>
 
@@ -102,15 +102,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 main {
-  flex: 1;
-  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -184,11 +176,6 @@ main {
 .see-all {
   font-size: 0.95rem;
   white-space: nowrap;
-}
-
-.status {
-  text-align: center;
-  color: var(--color-text-muted);
 }
 
 /* Socials */

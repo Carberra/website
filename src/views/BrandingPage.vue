@@ -58,7 +58,7 @@ const fonts: FontShowcase[] = [
     <SiteHeader />
     <main>
       <section class="branding-section">
-        <h1 class="heading">Branding</h1>
+        <h1 class="page-heading">Branding</h1>
 
         <div class="subsection">
           <h2>Colours</h2>
@@ -96,7 +96,7 @@ const fonts: FontShowcase[] = [
               :href="font.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-card hover-lift"
+              class="font-card surface-card hover-lift"
             >
               <div class="font-header">
                 <h3 class="font-name" :style="{ fontFamily: font.family }">{{ font.name }}</h3>
@@ -119,25 +119,12 @@ const fonts: FontShowcase[] = [
 </template>
 
 <style scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  padding: 2rem 1rem;
-}
-
 .branding-section {
   max-width: 60rem;
   margin: 0 auto;
 }
 
-.heading {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  text-align: center;
+.page-heading {
   margin-bottom: 2.5rem;
 }
 
@@ -216,8 +203,6 @@ main {
 }
 
 .font-card {
-  background-color: var(--color-surface);
-  border-radius: 0.75rem;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;

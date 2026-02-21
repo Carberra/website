@@ -39,7 +39,7 @@ const links: LinkItem[] = [
     <SiteHeader />
     <main>
       <section class="links-section">
-        <h1 class="title">Links</h1>
+        <h1 class="page-heading">Links</h1>
         <div class="links-list">
           <LinkCard
             v-for="link in links"
@@ -57,18 +57,10 @@ const links: LinkItem[] = [
 </template>
 
 <style scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 main {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
 }
 
 .links-section {
@@ -77,11 +69,6 @@ main {
   align-items: center;
   gap: 2rem;
   width: 100%;
-}
-
-.title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  text-align: center;
 }
 
 .links-list {
