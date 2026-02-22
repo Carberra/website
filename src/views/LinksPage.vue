@@ -1,37 +1,8 @@
 <script setup lang="ts">
-import { siYoutube, siGithub, siDiscord } from "simple-icons";
-
 import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 import LinkCard from "@/components/LinkCard.vue";
-
-interface LinkItem {
-  label: string;
-  url: string;
-  iconPath: string;
-  iconColor: string;
-}
-
-const links: LinkItem[] = [
-  {
-    label: "YouTube",
-    url: "https://youtube.com/@Carberra",
-    iconPath: siYoutube.path,
-    iconColor: `#${siYoutube.hex}`,
-  },
-  {
-    label: "GitHub",
-    url: "https://github.com/Carberra",
-    iconPath: siGithub.path,
-    iconColor: "#e0e0e0",
-  },
-  {
-    label: "Discord",
-    url: "https://discord.gg/5vVgQpK",
-    iconPath: siDiscord.path,
-    iconColor: `#${siDiscord.hex}`,
-  },
-];
+import { socials } from "@/data/socials";
 </script>
 
 <template>
@@ -42,12 +13,12 @@ const links: LinkItem[] = [
         <h1 class="page-heading">Links</h1>
         <div class="links-list">
           <LinkCard
-            v-for="link in links"
-            :key="link.label"
-            :label="link.label"
-            :url="link.url"
-            :icon-path="link.iconPath"
-            :icon-color="link.iconColor"
+            v-for="social in socials"
+            :key="social.label"
+            :label="social.label"
+            :url="social.url"
+            :icon-path="social.iconPath"
+            :icon-color="social.iconColor"
           />
         </div>
       </section>
