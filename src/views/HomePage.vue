@@ -35,7 +35,7 @@ onMounted(async () => {
     <div class="hero-bg">
       <img src="/setup.png" alt="" class="hero-bg-img" />
     </div>
-    <SiteHeader class="hero-content" />
+    <SiteHeader class="hero-content hero-header" />
     <main class="hero-content">
       <section class="hero">
         <h1 class="hero-title">CARBERRA</h1>
@@ -114,6 +114,10 @@ onMounted(async () => {
 .hero-content {
   position: relative;
   z-index: 1;
+}
+
+.hero-header {
+  z-index: 10;
 }
 
 main {
