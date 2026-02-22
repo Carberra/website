@@ -10,6 +10,13 @@ import type { Video } from "@/components/VideoGrid.vue";
 const latestVideos = ref<Video[]>([]);
 const videosLoading = ref<boolean>(true);
 
+const taglines: string[] = [
+  "Programming tutorials and tech content.",
+  "It's pronounced car-buh-ruh, actually.",
+  "Making videos about Python. The programming language, not the snake.",
+  "No, not the capital of Australia.",
+];
+
 onMounted(async () => {
   try {
     const res = await fetch("/api/videos");
@@ -32,9 +39,7 @@ onMounted(async () => {
     <main class="hero-content">
       <section class="hero">
         <h1 class="hero-title">CARBERRA</h1>
-        <p class="hero-tagline">
-          Programming tutorials and tech content. Normally of <i>at least</i> OK quality.
-        </p>
+        <p class="hero-tagline">{{ taglines[Math.floor(Math.random() * taglines.length)] }}</p>
         <a
           href="https://youtube.com/@Carberra"
           target="_blank"
@@ -70,6 +75,7 @@ onMounted(async () => {
 
       <section class="socials">
         <h2>Find me elsewhere</h2>
+        <p class="about-teaser-text">Sponsorship enquiries are not currently being accepted.</p>
         <SocialsRow />
       </section>
     </main>
@@ -130,10 +136,6 @@ main {
   font-family: var(--font-logo);
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   letter-spacing: 0.05em;
-  /* background: linear-gradient(to bottom right, var(--color-brand-start), var(--color-brand-end));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 .hero-tagline {
