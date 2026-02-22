@@ -45,6 +45,20 @@ onMounted(async () => {
         </a>
       </section>
 
+      <section class="about-teaser">
+        <div class="about-teaser-layout">
+          <img src="/headshot.jpg" alt="Carberra" class="about-teaser-img" />
+          <div class="about-teaser-body">
+            <h2>About me</h2>
+            <p class="about-teaser-text">
+              Hey, I'm Ethan! I'm a software developer from the UK, but you probably know me best
+              for making Python videos on the internet.
+            </p>
+            <RouterLink to="/about" class="about-teaser-link">Learn more →</RouterLink>
+          </div>
+        </div>
+      </section>
+
       <section class="latest-videos">
         <div class="section-header">
           <h2>Latest videos</h2>
@@ -145,6 +159,65 @@ main {
 .hero-cta:hover {
   opacity: 0.9;
   transform: translateY(-1px);
+}
+
+/* About teaser */
+.about-teaser {
+  max-width: 56rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-teaser-layout {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.about-teaser-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-teaser-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-teaser-body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.about-teaser-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.about-teaser-link {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .about-teaser-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-teaser-img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .about-teaser-link {
+    align-self: center;
+  }
 }
 
 /* Latest videos */

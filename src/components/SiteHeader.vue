@@ -18,6 +18,7 @@ function closeMenu(): void {
 
     <nav class="nav-desktop">
       <RouterLink to="/" class="nav-link">Home</RouterLink>
+      <RouterLink to="/about" class="nav-link">About</RouterLink>
       <RouterLink to="/videos" class="nav-link">Videos</RouterLink>
       <RouterLink to="/links" class="nav-link">Links</RouterLink>
       <RouterLink to="/branding" class="nav-link">Branding</RouterLink>
@@ -37,6 +38,7 @@ function closeMenu(): void {
     <Transition name="slide">
       <nav v-if="menuOpen" class="nav-mobile">
         <RouterLink to="/" class="nav-link" @click="closeMenu">Home</RouterLink>
+        <RouterLink to="/about" class="nav-link" @click="closeMenu">About</RouterLink>
         <RouterLink to="/videos" class="nav-link" @click="closeMenu">Videos</RouterLink>
         <RouterLink to="/links" class="nav-link" @click="closeMenu">Links</RouterLink>
         <RouterLink to="/branding" class="nav-link" @click="closeMenu">Branding</RouterLink>

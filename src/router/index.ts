@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import AboutPage from "@/views/AboutPage.vue";
 import HomePage from "@/views/HomePage.vue";
 import LinksPage from "@/views/LinksPage.vue";
 import VideosPage from "@/views/VideosPage.vue";
@@ -27,6 +28,11 @@ const router = createRouter({
       path: "/branding",
       name: "branding",
       component: BrandingPage,
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: AboutPage,
     },
   ],
 });
