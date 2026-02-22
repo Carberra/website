@@ -66,7 +66,7 @@ const fonts: FontShowcase[] = [
             <div
               v-for="colour in colours"
               :key="colour.hex"
-              class="colour-swatch"
+              class="colour-swatch hover-lift"
               :style="{ backgroundColor: colour.hex }"
             >
               <span class="swatch-name" :class="{ light: colour.lightText }">
@@ -84,6 +84,16 @@ const fonts: FontShowcase[] = [
           <div class="gradient-showcase">
             <div class="gradient-bar"></div>
             <p class="gradient-label">#9e1cf3 → #1987bd</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h2>Wordmark</h2>
+          <div class="wordmark-showcase">
+            <div v-for="size in [24, 48, 72]" :key="size">
+              <span class="wordmark" :style="{ fontSize: `${size}px` }">CARBERRA</span>
+              <span class="wordmark-label">({{ size }}px)</span>
+            </div>
           </div>
         </div>
 
@@ -195,6 +205,27 @@ const fonts: FontShowcase[] = [
   text-align: center;
 }
 
+/* Wordmarks */
+.wordmark-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-logo);
+  background: linear-gradient(to bottom right, var(--color-brand-start), var(--color-brand-end));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wordmark-label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  padding-left: 0.75rem;
+}
+
 /* Fonts */
 .fonts-list {
   display: flex;
@@ -215,7 +246,8 @@ const fonts: FontShowcase[] = [
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #3a3a3a;
 }
 
 .font-header h3 {
@@ -224,14 +256,12 @@ const fonts: FontShowcase[] = [
 
 .font-header .font-name {
   font-size: 1.1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid #3a3a3a;
-  width: 100%;
 }
 
 .font-usage {
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  flex-direction: column;
 }
 
 .font-sample {
