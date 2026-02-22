@@ -1,40 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { siYoutube, siGithub, siDiscord } from "simple-icons";
 
 import SiteHeader from "@/components/SiteHeader.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
+import SocialsRow from "@/components/SocialsRow.vue";
 import VideoGrid from "@/components/VideoGrid.vue";
 import type { Video } from "@/components/VideoGrid.vue";
-
-interface SocialLink {
-  label: string;
-  url: string;
-  iconPath: string;
-  iconColor: string;
-}
-
-const socials: SocialLink[] = [
-  {
-    label: "YouTube",
-    url: "https://youtube.com/@Carberra",
-    iconPath: siYoutube.path,
-    iconColor: `#${siYoutube.hex}`,
-  },
-  {
-    label: "GitHub",
-    url: "https://github.com/Carberra",
-    iconPath: siGithub.path,
-    iconColor: "#e0e0e0",
-  },
-  {
-    label: "Discord",
-    url: "https://discord.gg/5vVgQpK",
-    iconPath: siDiscord.path,
-    iconColor: `#${siDiscord.hex}`,
-  },
-];
 
 const latestVideos = ref<Video[]>([]);
 const videosLoading = ref<boolean>(true);
@@ -85,19 +56,7 @@ onMounted(async () => {
 
       <section class="socials">
         <h2>Find me elsewhere</h2>
-        <div class="socials-row">
-          <a
-            v-for="social in socials"
-            :key="social.label"
-            :href="social.url"
-            :aria-label="social.label"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-icon hover-lift"
-          >
-            <SvgIcon :path="social.iconPath" :size="28" :color="social.iconColor" />
-          </a>
-        </div>
+        <SocialsRow />
       </section>
     </main>
     <SiteFooter />
@@ -223,21 +182,5 @@ main {
 
 .socials h2 {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
-}
-
-.socials-row {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background-color: var(--color-surface);
-  color: var(--color-text);
 }
 </style>
