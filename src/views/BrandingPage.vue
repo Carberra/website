@@ -37,11 +37,11 @@ const fonts: FontShowcase[] = [
     url: "https://fonts.google.com/specimen/Zen+Dots",
   },
   {
-    name: "Victor Mono",
-    family: '"Victor Mono", monospace',
+    name: "Oxanium",
+    family: '"Oxanium", sans-serif',
     usage: "Headings + Thumbnails",
     sampleText: "The quick brown fox jumps over the lazy dog",
-    url: "https://fonts.google.com/specimen/Victor+Mono",
+    url: "https://fonts.google.com/specimen/Oxanium",
   },
   {
     name: "Overpass",
